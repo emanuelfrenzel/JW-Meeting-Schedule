@@ -20,20 +20,18 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-
 using System.Collections.Generic;
 using System.IO;
 
-namespace Utils.IO
+namespace Utils.Collections.Generic
 {
-    public static class UtilsIO
+    public static class UtilsCollectionsGeneric
     {
         public static bool AddLinesFromFile(this List<string> list, string fileName, uint numberOfLines = uint.MaxValue)
         {
             try
             {
                 var reader = new StreamReader(fileName);
-
                 if (numberOfLines != uint.MaxValue)
                 {
                     for (var i = 0; i < numberOfLines; ++i)
@@ -53,7 +51,6 @@ namespace Utils.IO
             {
                 return true;
             }
-
             return false;
         }
     }
