@@ -6,12 +6,12 @@ namespace JWMeetingSchedule
 {
     public partial class MainWindow : Window
     {
-        private ScheduleInfo schedule;
+        private Schedule schedule;
 
         public MainWindow()
         {
             InitializeComponent();
-            schedule = new ScheduleInfo();
+            schedule = new Schedule();
             TxtWeek.Text = schedule.CurrentWeek;
         }
     }

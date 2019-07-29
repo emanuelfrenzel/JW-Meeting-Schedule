@@ -55,9 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\ScheduleModel.cs" />
+    <Compile Include="Model\PeopleList.cs" />
+    <Compile Include="Model\Person.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Compile Include="Utils\UtilsCollectionGeneric.cs" />
-    <Compile Include="ViewModel\ScheduleInfo.cs" />
+    <Compile Include="ViewModel\Schedule.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +92,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="persons.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

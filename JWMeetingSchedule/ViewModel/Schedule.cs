@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 namespace JWMeetingSchedule.ViewModel
 {
-    class ScheduleInfo
+    class Schedule
     {
         private List<string> weekNames;
         private int currentWeek;
-        private ScheduleModel schedule;
+        public List<WeekSchedule> WeekSchedules;
+        public PeopleList PeopleList;
 
         public string CurrentWeek
         {
@@ -19,12 +20,13 @@ namespace JWMeetingSchedule.ViewModel
             }
         }
 
-        public ScheduleInfo()
+        public Schedule()
         {
             weekNames = new List<string>();
             weekNames.AddLinesFromFile("weeknames.dat");
             currentWeek = 0;
-            schedule = new ScheduleModel();
+            WeekSchedules = new List<WeekSchedule>();
+            PeopleList = new PeopleList();
         }
     }
 }
