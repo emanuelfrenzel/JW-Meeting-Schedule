@@ -117,10 +117,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\outline_assignment_white_36dp.png">
+    <Resource Include="Images\outline_assignment_white_24dp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\outline_people_white_36dp.png">
+    <Resource Include="Images\outline_people_white_24dp.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

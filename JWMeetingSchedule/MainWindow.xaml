@@ -8,13 +8,12 @@
         Title="JW Meeting Schedule" Height="600" Width="800">
     <Grid Background="#121212">
         <StackPanel HorizontalAlignment="Left" Background="#2e2e2e" VerticalAlignment="Stretch" Width="50">
-            <Button Height="50" Background="#2e2e2e" VerticalAlignment="Top" Width="50">
-                <Image Source="Images/outline_assignment_white_36dp.png" Width="36"/>
-            </Button>
-            <Button Height="50" Background="#2e2e2e" VerticalAlignment="Top" Width="50">
-                <Image Source="Images/outline_people_white_36dp.png" Width="36"/>
-            </Button>
+            <ToggleButton x:Name="BtnSchedule" IsChecked="True" Height="50" VerticalAlignment="Top" Width="50" Click="BtnSchedule_Click">
+                <Image Source="Images/outline_assignment_white_24dp.png" Width="24"/>
+            </ToggleButton>
+            <ToggleButton x:Name="BtnPersons" Height="50" VerticalAlignment="Top" Width="50" Click="BtnPersons_Click">
+                <Image Source="Images/outline_people_white_24dp.png" Width="24"/>
+            </ToggleButton>
         </StackPanel>
-
     </Grid>
 </Window>
