@@ -5,16 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JWMeetingSchedule"
         mc:Ignorable="d"
-        Title="JW Meeting Schedule" Height="675" Width="1280"
-        Icon="Images/icon.png">
+        Title="JW Meeting Schedule" Height="675" Width="900"
+        Icon="Icons/icon.png">
     <Grid Background="#121212">
-        <StackPanel HorizontalAlignment="Left" Background="#2e2e2e" VerticalAlignment="Stretch" Width="48">
-            <ToggleButton x:Name="BtnSchedule" IsChecked="True" Height="50" VerticalAlignment="Top" Width="50" Click="BtnSchedule_Click">
-                <Image Source="Images/outline_assignment_white_24dp.png" Width="24"/>
+        <Grid HorizontalAlignment="Left" Background="#2e2e2e" VerticalAlignment="Stretch" Width="48">
+            <ToggleButton x:Name="BtnSchedule" Height="50" VerticalAlignment="Top" Width="50" Checked="BtnSchedule_Checked">
+                <Image Source="Icons/outline_assignment_white_24dp.png" Width="24"/>
             </ToggleButton>
-            <ToggleButton x:Name="BtnPersons" Height="50" VerticalAlignment="Top" Width="50" Click="BtnPersons_Click">
-                <Image Source="Images/outline_people_white_24dp.png" Width="24"/>
+            <ToggleButton x:Name="BtnPersons" Height="50" VerticalAlignment="Top" Width="50" Margin="0,50,0,0" Checked="BtnPersons_Checked">
+                <Image Source="Icons/outline_people_white_24dp.png" Width="24"/>
             </ToggleButton>
-        </StackPanel>
+            <ToggleButton x:Name="BtnSettings" Height="50" VerticalAlignment="Bottom" Width="50" Checked="BtnSettings_Checked">
+                <Image Source="Icons/outline_settings_white_24dp.png" Width="24"/>
+            </ToggleButton>
+        </Grid>
+        <Grid x:Name="MainGrid" HorizontalAlignment="Stretch" Margin="48,0,0,0" VerticalAlignment="Stretch">
+            <ContentControl Content="{Binding}"/>
+        </Grid>
     </Grid>
 </Window>

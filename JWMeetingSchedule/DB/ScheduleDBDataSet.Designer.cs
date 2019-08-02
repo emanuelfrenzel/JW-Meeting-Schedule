@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace JWMeetingSchedule {
+namespace JWMeetingSchedule.DB {
     
     
     /// <summary>
@@ -13898,7 +13898,7 @@ namespace JWMeetingSchedule {
         }
     }
 }
-namespace JWMeetingSchedule.ScheduleDBDataSetTableAdapters {
+namespace JWMeetingSchedule.DB.ScheduleDBDataSetTableAdapters {
     
     
     /// <summary>

@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="JWMeetingSchedule.View.ScheduleView"
+﻿<UserControl x:Class="JWMeetingSchedule.View.PersonsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:JWMeetingSchedule.View"
              mc:Ignorable="d" 
-             d:DesignHeight="675" d:DesignWidth="852">
+             d:DesignHeight="675" d:DesignWidth="900">
     <Grid>
-        <Button x:Name="BtnSelectFile" Content="Selectează fișierul HTML" FontSize="18" Height="50" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="250" Click="BtnSelectFile_Click"/>
+            
     </Grid>
 </UserControl>
