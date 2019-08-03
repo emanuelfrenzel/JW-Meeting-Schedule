@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:JWMeetingSchedule.View"
              mc:Ignorable="d" 
              d:DesignHeight="675" d:DesignWidth="852">
-    <Grid>
-        <Button x:Name="BtnSelectFile" Content="Selectează fișierul HTML" FontSize="18" Height="50" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="250" Click="BtnSelectFile_Click"/>
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel x:Name="StackSchedule">
+            <Button x:Name="BtnSelectFile" Command="{Binding Path=LoadSchedule}" Content="Selectează fișierul HTML" FontSize="18" Height="50" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="250"/>
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

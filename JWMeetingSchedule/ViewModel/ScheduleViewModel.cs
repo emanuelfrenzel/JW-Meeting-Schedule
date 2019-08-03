@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Input;
 
 namespace JWMeetingSchedule.ViewModel
 {
-    class ScheduleViewModel
+    public class ScheduleViewModel
     {
+        public ICommand LoadSchedule { get; }
+
+        public ScheduleViewModel()
+        {
+            LoadSchedule = new LoadSchedule();
+        }
     }
 }

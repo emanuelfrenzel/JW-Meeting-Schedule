@@ -8,14 +8,14 @@
         Title="JW Meeting Schedule" Height="675" Width="900"
         Icon="Icons/icon.png">
     <Grid Background="#121212">
-        <Grid HorizontalAlignment="Left" Background="#2e2e2e" VerticalAlignment="Stretch" Width="48">
-            <ToggleButton x:Name="BtnSchedule" Height="50" VerticalAlignment="Top" Width="50" Checked="BtnSchedule_Checked">
+        <Grid x:Name="MenuGrid" HorizontalAlignment="Left" Background="#2e2e2e" VerticalAlignment="Stretch" Width="48">
+            <ToggleButton IsChecked="True" x:Name="BtnSchedule" Height="50" VerticalAlignment="Top" Width="50" Click="BtnSchedule_Click">
                 <Image Source="Icons/outline_assignment_white_24dp.png" Width="24"/>
             </ToggleButton>
-            <ToggleButton x:Name="BtnPersons" Height="50" VerticalAlignment="Top" Width="50" Margin="0,50,0,0" Checked="BtnPersons_Checked">
+            <ToggleButton x:Name="BtnPersons" Height="50" VerticalAlignment="Top" Width="50" Margin="0,50,0,0" Click="BtnPersons_Click">
                 <Image Source="Icons/outline_people_white_24dp.png" Width="24"/>
             </ToggleButton>
-            <ToggleButton x:Name="BtnSettings" Height="50" VerticalAlignment="Bottom" Width="50" Checked="BtnSettings_Checked">
+            <ToggleButton x:Name="BtnSettings" Height="50" VerticalAlignment="Bottom" Width="50" Click="BtnSettings_Click">
                 <Image Source="Icons/outline_settings_white_24dp.png" Width="24"/>
             </ToggleButton>
         </Grid>

@@ -1,6 +1,7 @@
 ﻿using JWMeetingSchedule.View;
 
 using System.Windows;
+using System.Windows.Controls.Primitives;
 
 namespace JWMeetingSchedule
 {
@@ -16,40 +17,38 @@ namespace JWMeetingSchedule
             scheduleView = new ScheduleView();
             personsView = new PersonsView();
             settingsView = new SettingsView();
-            BtnSchedule.IsChecked = true;
+            DataContext = scheduleView;
         }
 
-        private void BtnSchedule_Checked(object sender, RoutedEventArgs e)
+        private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
+            BtnSchedule.IsChecked = true;
             UncheckButtons(sender);
             DataContext = scheduleView;
         }
 
-        private void BtnPersons_Checked(object sender, RoutedEventArgs e)
+        private void BtnPersons_Click(object sender, RoutedEventArgs e)
         {
+            BtnPersons.IsChecked = true;
             UncheckButtons(sender);
             DataContext = personsView;
         }
 
-        private void BtnSettings_Checked(object sender, RoutedEventArgs e)
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
+            BtnSettings.IsChecked = true;
             UncheckButtons(sender);
             DataContext = settingsView;
         }
 
         private void UncheckButtons(object sender)
         {
-            if (BtnSchedule != sender)
+            foreach (ToggleButton btn in MenuGrid.Children)
             {
-                BtnSchedule.IsChecked = false;
-            }
-            if (BtnPersons != sender)
-            {
-                BtnPersons.IsChecked = false;
-            }
-            if (BtnSettings != sender)
-            {
-                BtnSettings.IsChecked = false;
+                if (btn != sender)
+                {
+                    btn.IsChecked = false;
+                }
             }
         }
     }

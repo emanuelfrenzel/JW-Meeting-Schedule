@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System.Windows;
+﻿using JWMeetingSchedule.ViewModel;
 using System.Windows.Controls;
 
 namespace JWMeetingSchedule.View
@@ -9,17 +8,13 @@ namespace JWMeetingSchedule.View
     /// </summary>
     public partial class ScheduleView : UserControl
     {
+        private ScheduleViewModel scheduleViewModel;
+
         public ScheduleView()
         {
             InitializeComponent();
-        }
-
-        private void BtnSelectFile_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "HTML files (*.html)|*.html";
-            openFileDialog.ShowDialog();
-
-        }
+            scheduleViewModel = new ScheduleViewModel();
+            DataContext = scheduleViewModel;
+        }   
     }
 }
