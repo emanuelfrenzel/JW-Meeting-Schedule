@@ -1,10 +1,12 @@
-﻿using System.Windows.Input;
+﻿using JWMeetingSchedule.View;
+using System.Collections.ObjectModel;
 
 namespace JWMeetingSchedule.ViewModel
 {
     public class ScheduleViewModel
     {
-        public ICommand LoadSchedule { get; }
+        public LoadSchedule LoadSchedule { get; }
+        public ObservableCollection<WeekView> Weeks => LoadSchedule.WeekViews;
 
         public ScheduleViewModel()
         {

@@ -8,7 +8,8 @@
              d:DesignHeight="675" d:DesignWidth="852">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel x:Name="StackSchedule">
-            <Button x:Name="BtnSelectFile" Command="{Binding Path=LoadSchedule}" Content="Selectează fișierul HTML" FontSize="18" Height="50" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="250"/>
+            <Button x:Name="BtnSelectFile" Command="{Binding LoadSchedule}" Content="Selectează fișierul HTML" FontSize="18" Height="50" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Width="250"/>
+            <ItemsControl ItemsSource="{Binding Weeks}"/>
         </StackPanel>
     </ScrollViewer>
 </UserControl>
