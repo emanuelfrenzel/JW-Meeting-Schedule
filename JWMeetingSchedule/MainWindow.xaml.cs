@@ -23,25 +23,25 @@ namespace JWMeetingSchedule
         private void BtnSchedule_Click(object sender, RoutedEventArgs e)
         {
             BtnSchedule.IsChecked = true;
-            UncheckButtons(sender);
+            uncheckButtons(sender);
             DataContext = scheduleView;
         }
 
         private void BtnPersons_Click(object sender, RoutedEventArgs e)
         {
             BtnPersons.IsChecked = true;
-            UncheckButtons(sender);
+            uncheckButtons(sender);
             DataContext = personsView;
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
             BtnSettings.IsChecked = true;
-            UncheckButtons(sender);
+            uncheckButtons(sender);
             DataContext = settingsView;
         }
 
-        private void UncheckButtons(object sender)
+        private void uncheckButtons(object sender)
         {
             foreach (ToggleButton btn in MenuGrid.Children)
             {

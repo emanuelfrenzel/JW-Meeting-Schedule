@@ -9168,7 +9168,7 @@ namespace JWMeetingSchedule.DB {
                         string Microphone2, 
                         string Order1, 
                         string Order2, 
-                        string CleaningGroup) {
+                        int CleaningGroup) {
                 WeekScheduleRow rowWeekScheduleRow = ((WeekScheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         WeekStartDate,
@@ -9383,7 +9383,7 @@ namespace JWMeetingSchedule.DB {
                 base.Columns.Add(this.columnOrder1);
                 this.columnOrder2 = new global::System.Data.DataColumn("Order2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrder2);
-                this.columnCleaningGroup = new global::System.Data.DataColumn("CleaningGroup", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCleaningGroup = new global::System.Data.DataColumn("CleaningGroup", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCleaningGroup);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnWeekStartDate}, true));
@@ -9423,7 +9423,6 @@ namespace JWMeetingSchedule.DB {
                 this.columnMicrophone2.MaxLength = 50;
                 this.columnOrder1.MaxLength = 50;
                 this.columnOrder2.MaxLength = 50;
-                this.columnCleaningGroup.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12503,10 +12502,10 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CleaningGroup {
+            public int CleaningGroup {
                 get {
                     try {
-                        return ((string)(this[this.tableWeekSchedule.CleaningGroupColumn]));
+                        return ((int)(this[this.tableWeekSchedule.CleaningGroupColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'CleaningGroup\' in table \'WeekSchedule\' is DBNull.", e);
@@ -22811,7 +22810,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Order2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Order2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WeekSchedule] ([WeekStartDate], [WeekMeetingDateTime], [Weeken" +
@@ -22891,7 +22890,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Microphone2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Microphone2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WeekSchedule] SET [WeekStartDate] = @WeekStartDate, [WeekMeetingDat" +
@@ -23026,7 +23025,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Microphone2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Microphone2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Order2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WeekMeetingDateTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeekMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -23103,7 +23102,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Order2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Order2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Order2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CleaningGroup", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23219,7 +23218,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Microphone2, 
                     string Original_Order1, 
                     string Original_Order2, 
-                    string Original_CleaningGroup) {
+                    global::System.Nullable<int> Original_CleaningGroup) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.DateTime)(Original_WeekStartDate));
             if ((Original_WeekMeetingDateTime.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -23517,13 +23516,13 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 this.Adapter.DeleteCommand.Parameters[73].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[74].Value = ((string)(Original_Order2));
             }
-            if ((Original_CleaningGroup == null)) {
-                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[76].Value = global::System.DBNull.Value;
+            if ((Original_CleaningGroup.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((int)(Original_CleaningGroup.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[76].Value = ((string)(Original_CleaningGroup));
+                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[76].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23590,7 +23589,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Microphone2, 
                     string Order1, 
                     string Order2, 
-                    string CleaningGroup) {
+                    global::System.Nullable<int> CleaningGroup) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(WeekStartDate));
             if ((WeekMeetingDateTime.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(WeekMeetingDateTime.Value));
@@ -23850,11 +23849,11 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             else {
                 this.Adapter.InsertCommand.Parameters[43].Value = ((string)(Order2));
             }
-            if ((CleaningGroup == null)) {
-                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
+            if ((CleaningGroup.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[44].Value = ((int)(CleaningGroup.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[44].Value = ((string)(CleaningGroup));
+                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23921,7 +23920,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Microphone2, 
                     string Order1, 
                     string Order2, 
-                    string CleaningGroup, 
+                    global::System.Nullable<int> CleaningGroup, 
                     System.DateTime Original_WeekStartDate, 
                     global::System.Nullable<global::System.DateTime> Original_WeekMeetingDateTime, 
                     global::System.Nullable<global::System.DateTime> Original_WeekendMeetingDateTime, 
@@ -23960,7 +23959,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Microphone2, 
                     string Original_Order1, 
                     string Original_Order2, 
-                    string Original_CleaningGroup) {
+                    global::System.Nullable<int> Original_CleaningGroup) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(WeekStartDate));
             if ((WeekMeetingDateTime.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(WeekMeetingDateTime.Value));
@@ -24220,11 +24219,11 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Order2));
             }
-            if ((CleaningGroup == null)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            if ((CleaningGroup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(CleaningGroup.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(CleaningGroup));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_WeekStartDate));
             if ((Original_WeekMeetingDateTime.HasValue == true)) {
@@ -24523,13 +24522,13 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 this.Adapter.UpdateCommand.Parameters[118].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[119].Value = ((string)(Original_Order2));
             }
-            if ((Original_CleaningGroup == null)) {
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[121].Value = global::System.DBNull.Value;
+            if ((Original_CleaningGroup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((int)(Original_CleaningGroup.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[121].Value = ((string)(Original_CleaningGroup));
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[121].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -24595,7 +24594,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Microphone2, 
                     string Order1, 
                     string Order2, 
-                    string CleaningGroup, 
+                    global::System.Nullable<int> CleaningGroup, 
                     System.DateTime Original_WeekStartDate, 
                     global::System.Nullable<global::System.DateTime> Original_WeekMeetingDateTime, 
                     global::System.Nullable<global::System.DateTime> Original_WeekendMeetingDateTime, 
@@ -24634,7 +24633,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Microphone2, 
                     string Original_Order1, 
                     string Original_Order2, 
-                    string Original_CleaningGroup) {
+                    global::System.Nullable<int> Original_CleaningGroup) {
             return this.Update(Original_WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup, Original_WeekStartDate, Original_WeekMeetingDateTime, Original_WeekendMeetingDateTime, Original_Convention, Original_Memorial, Original_Supervisor, Original_President, Original_Treasures, Original_Gems, Original_Reading, Original_Assignment1Type, Original_Assignment1, Original_Assignment2Type, Original_Assignment2, Original_Assignment3Type, Original_Assignment3, Original_Assignment4Type, Original_Assignment4, Original_ChristianLifeAssignment1OnlyVideo, Original_ChristianLifeAssignment1Needs, Original_ChristianLifeAssignment1, Original_ChristianLifeAssignment2OnlyVideo, Original_ChristianLifeAssignment2Needs, Original_ChristianLifeAssignment2, Original_BibleStudy, Original_BibleStudyReader, Original_WeekPrayer, Original_WeekendPresident, Original_PublicSpeech, Original_Watchtower, Original_WatchtowerReader, Original_FinalSpeech, Original_WeekendPrayer, Original_AV, Original_Microphone1, Original_Microphone2, Original_Order1, Original_Order2, Original_CleaningGroup);
         }
     }
