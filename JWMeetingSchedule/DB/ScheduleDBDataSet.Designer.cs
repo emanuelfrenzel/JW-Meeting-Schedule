@@ -70,9 +70,9 @@ namespace JWMeetingSchedule.DB {
         
         private WeekendPresidentDataTable tableWeekendPresident;
         
-        private WeeklyScheduleDataTable tableWeeklySchedule;
-        
         private WeekPresidentDataTable tableWeekPresident;
+        
+        private WeekScheduleDataTable tableWeekSchedule;
         
         private global::System.Data.DataRelation relationFK_Assist_ToPerson;
         
@@ -215,11 +215,11 @@ namespace JWMeetingSchedule.DB {
                 if ((ds.Tables["WeekendPresident"] != null)) {
                     base.Tables.Add(new WeekendPresidentDataTable(ds.Tables["WeekendPresident"]));
                 }
-                if ((ds.Tables["WeeklySchedule"] != null)) {
-                    base.Tables.Add(new WeeklyScheduleDataTable(ds.Tables["WeeklySchedule"]));
-                }
                 if ((ds.Tables["WeekPresident"] != null)) {
                     base.Tables.Add(new WeekPresidentDataTable(ds.Tables["WeekPresident"]));
+                }
+                if ((ds.Tables["WeekSchedule"] != null)) {
+                    base.Tables.Add(new WeekScheduleDataTable(ds.Tables["WeekSchedule"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -473,9 +473,9 @@ namespace JWMeetingSchedule.DB {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public WeeklyScheduleDataTable WeeklySchedule {
+        public WeekPresidentDataTable WeekPresident {
             get {
-                return this.tableWeeklySchedule;
+                return this.tableWeekPresident;
             }
         }
         
@@ -483,9 +483,9 @@ namespace JWMeetingSchedule.DB {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public WeekPresidentDataTable WeekPresident {
+        public WeekScheduleDataTable WeekSchedule {
             get {
-                return this.tableWeekPresident;
+                return this.tableWeekSchedule;
             }
         }
         
@@ -625,11 +625,11 @@ namespace JWMeetingSchedule.DB {
                 if ((ds.Tables["WeekendPresident"] != null)) {
                     base.Tables.Add(new WeekendPresidentDataTable(ds.Tables["WeekendPresident"]));
                 }
-                if ((ds.Tables["WeeklySchedule"] != null)) {
-                    base.Tables.Add(new WeeklyScheduleDataTable(ds.Tables["WeeklySchedule"]));
-                }
                 if ((ds.Tables["WeekPresident"] != null)) {
                     base.Tables.Add(new WeekPresidentDataTable(ds.Tables["WeekPresident"]));
+                }
+                if ((ds.Tables["WeekSchedule"] != null)) {
+                    base.Tables.Add(new WeekScheduleDataTable(ds.Tables["WeekSchedule"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -802,16 +802,16 @@ namespace JWMeetingSchedule.DB {
                     this.tableWeekendPresident.InitVars();
                 }
             }
-            this.tableWeeklySchedule = ((WeeklyScheduleDataTable)(base.Tables["WeeklySchedule"]));
-            if ((initTable == true)) {
-                if ((this.tableWeeklySchedule != null)) {
-                    this.tableWeeklySchedule.InitVars();
-                }
-            }
             this.tableWeekPresident = ((WeekPresidentDataTable)(base.Tables["WeekPresident"]));
             if ((initTable == true)) {
                 if ((this.tableWeekPresident != null)) {
                     this.tableWeekPresident.InitVars();
+                }
+            }
+            this.tableWeekSchedule = ((WeekScheduleDataTable)(base.Tables["WeekSchedule"]));
+            if ((initTable == true)) {
+                if ((this.tableWeekSchedule != null)) {
+                    this.tableWeekSchedule.InitVars();
                 }
             }
             this.relationFK_Assist_ToPerson = this.Relations["FK_Assist_ToPerson"];
@@ -892,10 +892,10 @@ namespace JWMeetingSchedule.DB {
             base.Tables.Add(this.tableWeekendPrayer);
             this.tableWeekendPresident = new WeekendPresidentDataTable();
             base.Tables.Add(this.tableWeekendPresident);
-            this.tableWeeklySchedule = new WeeklyScheduleDataTable();
-            base.Tables.Add(this.tableWeeklySchedule);
             this.tableWeekPresident = new WeekPresidentDataTable();
             base.Tables.Add(this.tableWeekPresident);
+            this.tableWeekSchedule = new WeekScheduleDataTable();
+            base.Tables.Add(this.tableWeekSchedule);
             this.relationFK_Assist_ToPerson = new global::System.Data.DataRelation("FK_Assist_ToPerson", new global::System.Data.DataColumn[] {
                         this.tablePerson.PersonNameColumn}, new global::System.Data.DataColumn[] {
                         this.tableAssist.PersonNameColumn}, false);
@@ -1126,13 +1126,13 @@ namespace JWMeetingSchedule.DB {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeWeeklySchedule() {
+        private bool ShouldSerializeWeekPresident() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeWeekPresident() {
+        private bool ShouldSerializeWeekSchedule() {
             return false;
         }
         
@@ -1261,10 +1261,10 @@ namespace JWMeetingSchedule.DB {
         public delegate void WeekendPresidentRowChangeEventHandler(object sender, WeekendPresidentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void WeeklyScheduleRowChangeEventHandler(object sender, WeeklyScheduleRowChangeEvent e);
+        public delegate void WeekPresidentRowChangeEventHandler(object sender, WeekPresidentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void WeekPresidentRowChangeEventHandler(object sender, WeekPresidentRowChangeEvent e);
+        public delegate void WeekScheduleRowChangeEventHandler(object sender, WeekScheduleRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -8295,7 +8295,313 @@ namespace JWMeetingSchedule.DB {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class WeeklyScheduleDataTable : global::System.Data.TypedTableBase<WeeklyScheduleRow> {
+        public partial class WeekPresidentDataTable : global::System.Data.TypedTableBase<WeekPresidentRow> {
+            
+            private global::System.Data.DataColumn columnPersonName;
+            
+            private global::System.Data.DataColumn columnDefaultFrequency;
+            
+            private global::System.Data.DataColumn columnFrequency;
+            
+            private global::System.Data.DataColumn columnNextAssignmentInWeeks;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WeekPresidentDataTable() {
+                this.TableName = "WeekPresident";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal WeekPresidentDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected WeekPresidentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PersonNameColumn {
+                get {
+                    return this.columnPersonName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DefaultFrequencyColumn {
+                get {
+                    return this.columnDefaultFrequency;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn FrequencyColumn {
+                get {
+                    return this.columnFrequency;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NextAssignmentInWeeksColumn {
+                get {
+                    return this.columnNextAssignmentInWeeks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WeekPresidentRow this[int index] {
+                get {
+                    return ((WeekPresidentRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WeekPresidentRowChangeEventHandler WeekPresidentRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WeekPresidentRowChangeEventHandler WeekPresidentRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WeekPresidentRowChangeEventHandler WeekPresidentRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event WeekPresidentRowChangeEventHandler WeekPresidentRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddWeekPresidentRow(WeekPresidentRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WeekPresidentRow AddWeekPresidentRow(PersonRow parentPersonRowByFK_WeekPresident_ToPerson, bool DefaultFrequency, int Frequency, int NextAssignmentInWeeks) {
+                WeekPresidentRow rowWeekPresidentRow = ((WeekPresidentRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        DefaultFrequency,
+                        Frequency,
+                        NextAssignmentInWeeks};
+                if ((parentPersonRowByFK_WeekPresident_ToPerson != null)) {
+                    columnValuesArray[0] = parentPersonRowByFK_WeekPresident_ToPerson[0];
+                }
+                rowWeekPresidentRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWeekPresidentRow);
+                return rowWeekPresidentRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WeekPresidentRow FindByPersonName(string PersonName) {
+                return ((WeekPresidentRow)(this.Rows.Find(new object[] {
+                            PersonName})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                WeekPresidentDataTable cln = ((WeekPresidentDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new WeekPresidentDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnPersonName = base.Columns["PersonName"];
+                this.columnDefaultFrequency = base.Columns["DefaultFrequency"];
+                this.columnFrequency = base.Columns["Frequency"];
+                this.columnNextAssignmentInWeeks = base.Columns["NextAssignmentInWeeks"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnPersonName = new global::System.Data.DataColumn("PersonName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPersonName);
+                this.columnDefaultFrequency = new global::System.Data.DataColumn("DefaultFrequency", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDefaultFrequency);
+                this.columnFrequency = new global::System.Data.DataColumn("Frequency", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFrequency);
+                this.columnNextAssignmentInWeeks = new global::System.Data.DataColumn("NextAssignmentInWeeks", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNextAssignmentInWeeks);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnPersonName}, true));
+                this.columnPersonName.AllowDBNull = false;
+                this.columnPersonName.Unique = true;
+                this.columnPersonName.MaxLength = 50;
+                this.columnDefaultFrequency.AllowDBNull = false;
+                this.columnNextAssignmentInWeeks.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public WeekPresidentRow NewWeekPresidentRow() {
+                return ((WeekPresidentRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new WeekPresidentRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(WeekPresidentRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.WeekPresidentRowChanged != null)) {
+                    this.WeekPresidentRowChanged(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.WeekPresidentRowChanging != null)) {
+                    this.WeekPresidentRowChanging(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.WeekPresidentRowDeleted != null)) {
+                    this.WeekPresidentRowDeleted(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.WeekPresidentRowDeleting != null)) {
+                    this.WeekPresidentRowDeleting(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveWeekPresidentRow(WeekPresidentRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ScheduleDBDataSet ds = new ScheduleDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "WeekPresidentDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class WeekScheduleDataTable : global::System.Data.TypedTableBase<WeekScheduleRow> {
             
             private global::System.Data.DataColumn columnWeekStartDate;
             
@@ -8389,8 +8695,8 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleDataTable() {
-                this.TableName = "WeeklySchedule";
+            public WeekScheduleDataTable() {
+                this.TableName = "WeekSchedule";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -8398,7 +8704,7 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal WeeklyScheduleDataTable(global::System.Data.DataTable table) {
+            internal WeekScheduleDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -8415,7 +8721,7 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected WeeklyScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected WeekScheduleDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -8791,33 +9097,33 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRow this[int index] {
+            public WeekScheduleRow this[int index] {
                 get {
-                    return ((WeeklyScheduleRow)(this.Rows[index]));
+                    return ((WeekScheduleRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeeklyScheduleRowChangeEventHandler WeeklyScheduleRowChanging;
+            public event WeekScheduleRowChangeEventHandler WeekScheduleRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeeklyScheduleRowChangeEventHandler WeeklyScheduleRowChanged;
+            public event WeekScheduleRowChangeEventHandler WeekScheduleRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeeklyScheduleRowChangeEventHandler WeeklyScheduleRowDeleting;
+            public event WeekScheduleRowChangeEventHandler WeekScheduleRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeeklyScheduleRowChangeEventHandler WeeklyScheduleRowDeleted;
+            public event WeekScheduleRowChangeEventHandler WeekScheduleRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddWeeklyScheduleRow(WeeklyScheduleRow row) {
+            public void AddWeekScheduleRow(WeekScheduleRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRow AddWeeklyScheduleRow(
+            public WeekScheduleRow AddWeekScheduleRow(
                         System.DateTime WeekStartDate, 
                         System.DateTime WeekMeetingDateTime, 
                         System.DateTime WeekendMeetingDateTime, 
@@ -8863,7 +9169,7 @@ namespace JWMeetingSchedule.DB {
                         string Order1, 
                         string Order2, 
                         string CleaningGroup) {
-                WeeklyScheduleRow rowWeeklyScheduleRow = ((WeeklyScheduleRow)(this.NewRow()));
+                WeekScheduleRow rowWeekScheduleRow = ((WeekScheduleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         WeekStartDate,
                         WeekMeetingDateTime,
@@ -8910,22 +9216,22 @@ namespace JWMeetingSchedule.DB {
                         Order1,
                         Order2,
                         CleaningGroup};
-                rowWeeklyScheduleRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowWeeklyScheduleRow);
-                return rowWeeklyScheduleRow;
+                rowWeekScheduleRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWeekScheduleRow);
+                return rowWeekScheduleRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRow FindByWeekStartDate(System.DateTime WeekStartDate) {
-                return ((WeeklyScheduleRow)(this.Rows.Find(new object[] {
+            public WeekScheduleRow FindByWeekStartDate(System.DateTime WeekStartDate) {
+                return ((WeekScheduleRow)(this.Rows.Find(new object[] {
                             WeekStartDate})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                WeeklyScheduleDataTable cln = ((WeeklyScheduleDataTable)(base.Clone()));
+                WeekScheduleDataTable cln = ((WeekScheduleDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -8933,7 +9239,7 @@ namespace JWMeetingSchedule.DB {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new WeeklyScheduleDataTable();
+                return new WeekScheduleDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9122,28 +9428,28 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRow NewWeeklyScheduleRow() {
-                return ((WeeklyScheduleRow)(this.NewRow()));
+            public WeekScheduleRow NewWeekScheduleRow() {
+                return ((WeekScheduleRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new WeeklyScheduleRow(builder);
+                return new WeekScheduleRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(WeeklyScheduleRow);
+                return typeof(WeekScheduleRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.WeeklyScheduleRowChanged != null)) {
-                    this.WeeklyScheduleRowChanged(this, new WeeklyScheduleRowChangeEvent(((WeeklyScheduleRow)(e.Row)), e.Action));
+                if ((this.WeekScheduleRowChanged != null)) {
+                    this.WeekScheduleRowChanged(this, new WeekScheduleRowChangeEvent(((WeekScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -9151,8 +9457,8 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.WeeklyScheduleRowChanging != null)) {
-                    this.WeeklyScheduleRowChanging(this, new WeeklyScheduleRowChangeEvent(((WeeklyScheduleRow)(e.Row)), e.Action));
+                if ((this.WeekScheduleRowChanging != null)) {
+                    this.WeekScheduleRowChanging(this, new WeekScheduleRowChangeEvent(((WeekScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -9160,8 +9466,8 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.WeeklyScheduleRowDeleted != null)) {
-                    this.WeeklyScheduleRowDeleted(this, new WeeklyScheduleRowChangeEvent(((WeeklyScheduleRow)(e.Row)), e.Action));
+                if ((this.WeekScheduleRowDeleted != null)) {
+                    this.WeekScheduleRowDeleted(this, new WeekScheduleRowChangeEvent(((WeekScheduleRow)(e.Row)), e.Action));
                 }
             }
             
@@ -9169,14 +9475,14 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.WeeklyScheduleRowDeleting != null)) {
-                    this.WeeklyScheduleRowDeleting(this, new WeeklyScheduleRowChangeEvent(((WeeklyScheduleRow)(e.Row)), e.Action));
+                if ((this.WeekScheduleRowDeleting != null)) {
+                    this.WeekScheduleRowDeleting(this, new WeekScheduleRowChangeEvent(((WeekScheduleRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveWeeklyScheduleRow(WeeklyScheduleRow row) {
+            public void RemoveWeekScheduleRow(WeekScheduleRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -9203,313 +9509,7 @@ namespace JWMeetingSchedule.DB {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "WeeklyScheduleDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class WeekPresidentDataTable : global::System.Data.TypedTableBase<WeekPresidentRow> {
-            
-            private global::System.Data.DataColumn columnPersonName;
-            
-            private global::System.Data.DataColumn columnDefaultFrequency;
-            
-            private global::System.Data.DataColumn columnFrequency;
-            
-            private global::System.Data.DataColumn columnNextAssignmentInWeeks;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentDataTable() {
-                this.TableName = "WeekPresident";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal WeekPresidentDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected WeekPresidentDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PersonNameColumn {
-                get {
-                    return this.columnPersonName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DefaultFrequencyColumn {
-                get {
-                    return this.columnDefaultFrequency;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn FrequencyColumn {
-                get {
-                    return this.columnFrequency;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NextAssignmentInWeeksColumn {
-                get {
-                    return this.columnNextAssignmentInWeeks;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRow this[int index] {
-                get {
-                    return ((WeekPresidentRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeekPresidentRowChangeEventHandler WeekPresidentRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeekPresidentRowChangeEventHandler WeekPresidentRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeekPresidentRowChangeEventHandler WeekPresidentRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event WeekPresidentRowChangeEventHandler WeekPresidentRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddWeekPresidentRow(WeekPresidentRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRow AddWeekPresidentRow(PersonRow parentPersonRowByFK_WeekPresident_ToPerson, bool DefaultFrequency, int Frequency, int NextAssignmentInWeeks) {
-                WeekPresidentRow rowWeekPresidentRow = ((WeekPresidentRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        DefaultFrequency,
-                        Frequency,
-                        NextAssignmentInWeeks};
-                if ((parentPersonRowByFK_WeekPresident_ToPerson != null)) {
-                    columnValuesArray[0] = parentPersonRowByFK_WeekPresident_ToPerson[0];
-                }
-                rowWeekPresidentRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowWeekPresidentRow);
-                return rowWeekPresidentRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRow FindByPersonName(string PersonName) {
-                return ((WeekPresidentRow)(this.Rows.Find(new object[] {
-                            PersonName})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                WeekPresidentDataTable cln = ((WeekPresidentDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new WeekPresidentDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnPersonName = base.Columns["PersonName"];
-                this.columnDefaultFrequency = base.Columns["DefaultFrequency"];
-                this.columnFrequency = base.Columns["Frequency"];
-                this.columnNextAssignmentInWeeks = base.Columns["NextAssignmentInWeeks"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnPersonName = new global::System.Data.DataColumn("PersonName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPersonName);
-                this.columnDefaultFrequency = new global::System.Data.DataColumn("DefaultFrequency", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDefaultFrequency);
-                this.columnFrequency = new global::System.Data.DataColumn("Frequency", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFrequency);
-                this.columnNextAssignmentInWeeks = new global::System.Data.DataColumn("NextAssignmentInWeeks", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNextAssignmentInWeeks);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnPersonName}, true));
-                this.columnPersonName.AllowDBNull = false;
-                this.columnPersonName.Unique = true;
-                this.columnPersonName.MaxLength = 50;
-                this.columnDefaultFrequency.AllowDBNull = false;
-                this.columnNextAssignmentInWeeks.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRow NewWeekPresidentRow() {
-                return ((WeekPresidentRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new WeekPresidentRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(WeekPresidentRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.WeekPresidentRowChanged != null)) {
-                    this.WeekPresidentRowChanged(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.WeekPresidentRowChanging != null)) {
-                    this.WeekPresidentRowChanging(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.WeekPresidentRowDeleted != null)) {
-                    this.WeekPresidentRowDeleted(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.WeekPresidentRowDeleting != null)) {
-                    this.WeekPresidentRowDeleting(this, new WeekPresidentRowChangeEvent(((WeekPresidentRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveWeekPresidentRow(WeekPresidentRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ScheduleDBDataSet ds = new ScheduleDBDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "WeekPresidentDataTable";
+                attribute2.FixedValue = "WeekScheduleDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -11695,1274 +11695,6 @@ namespace JWMeetingSchedule.DB {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class WeeklyScheduleRow : global::System.Data.DataRow {
-            
-            private WeeklyScheduleDataTable tableWeeklySchedule;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal WeeklyScheduleRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableWeeklySchedule = ((WeeklyScheduleDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime WeekStartDate {
-                get {
-                    return ((global::System.DateTime)(this[this.tableWeeklySchedule.WeekStartDateColumn]));
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekStartDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime WeekMeetingDateTime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableWeeklySchedule.WeekMeetingDateTimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeekMeetingDateTime\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekMeetingDateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime WeekendMeetingDateTime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableWeeklySchedule.WeekendMeetingDateTimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendMeetingDateTime\' in table \'WeeklySchedule\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekendMeetingDateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Convention {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.ConventionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Convention\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ConventionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Memorial {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.MemorialColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Memorial\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.MemorialColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Supervisor {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.SupervisorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Supervisor\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.SupervisorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string President {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.PresidentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'President\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.PresidentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TreasuresTitle {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.TreasuresTitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TreasuresTitle\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.TreasuresTitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Treasures {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.TreasuresColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Treasures\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.TreasuresColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Gems {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.GemsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Gems\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.GemsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Reading {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.ReadingColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Reading\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ReadingColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment1Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment1TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment1Type\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment1TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment1\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment2Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment2TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment2Type\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment2TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment2\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment3Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment3TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment3Type\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment3TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment3 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment3\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment4Type {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment4TypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment4Type\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment4TypeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Assignment4 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Assignment4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment4\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Assignment4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool ChristianLifeAssignment1OnlyVideo {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.ChristianLifeAssignment1OnlyVideoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1OnlyVideo\' in table \'WeeklySchedule" +
-                                "\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment1OnlyVideoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool ChristianLifeAssignment1Needs {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.ChristianLifeAssignment1NeedsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1Needs\' in table \'WeeklySchedule\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment1NeedsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChristianLifeAssignment1Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.ChristianLifeAssignment1TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1Title\' in table \'WeeklySchedule\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment1TitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChristianLifeAssignment1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.ChristianLifeAssignment1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1\' in table \'WeeklySchedule\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool ChristianLifeAssignment2OnlyVideo {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.ChristianLifeAssignment2OnlyVideoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2OnlyVideo\' in table \'WeeklySchedule" +
-                                "\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment2OnlyVideoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool ChristianLifeAssignment2Needs {
-                get {
-                    try {
-                        return ((bool)(this[this.tableWeeklySchedule.ChristianLifeAssignment2NeedsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2Needs\' in table \'WeeklySchedule\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment2NeedsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChristianLifeAssignment2Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.ChristianLifeAssignment2TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2Title\' in table \'WeeklySchedule\' is" +
-                                " DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment2TitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ChristianLifeAssignment2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.ChristianLifeAssignment2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2\' in table \'WeeklySchedule\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.ChristianLifeAssignment2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string BibleStudy {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.BibleStudyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BibleStudy\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.BibleStudyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string BibleStudyReader {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.BibleStudyReaderColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BibleStudyReader\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.BibleStudyReaderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string SupervisorWeekSpeechTitle {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.SupervisorWeekSpeechTitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SupervisorWeekSpeechTitle\' in table \'WeeklySchedule\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.SupervisorWeekSpeechTitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string WeekPrayer {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.WeekPrayerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeekPrayer\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekPrayerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string WeekendPresident {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.WeekendPresidentColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendPresident\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekendPresidentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PublicSpeechTitle {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.PublicSpeechTitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PublicSpeechTitle\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.PublicSpeechTitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PublicSpeech {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.PublicSpeechColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PublicSpeech\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.PublicSpeechColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Watchtower {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.WatchtowerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Watchtower\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WatchtowerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string WatchtowerReader {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.WatchtowerReaderColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WatchtowerReader\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WatchtowerReaderColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string FinalSpeechTitle {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.FinalSpeechTitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FinalSpeechTitle\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.FinalSpeechTitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string FinalSpeech {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.FinalSpeechColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FinalSpeech\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.FinalSpeechColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string WeekendPrayer {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.WeekendPrayerColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendPrayer\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.WeekendPrayerColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string AV {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.AVColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AV\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.AVColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Microphone1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Microphone1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Microphone1\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Microphone1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Microphone2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Microphone2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Microphone2\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Microphone2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Order1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Order1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Order1\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Order1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Order2 {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.Order2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Order2\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.Order2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CleaningGroup {
-                get {
-                    try {
-                        return ((string)(this[this.tableWeeklySchedule.CleaningGroupColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CleaningGroup\' in table \'WeeklySchedule\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableWeeklySchedule.CleaningGroupColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWeekMeetingDateTimeNull() {
-                return this.IsNull(this.tableWeeklySchedule.WeekMeetingDateTimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWeekMeetingDateTimeNull() {
-                this[this.tableWeeklySchedule.WeekMeetingDateTimeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWeekendMeetingDateTimeNull() {
-                return this.IsNull(this.tableWeeklySchedule.WeekendMeetingDateTimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWeekendMeetingDateTimeNull() {
-                this[this.tableWeeklySchedule.WeekendMeetingDateTimeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsConventionNull() {
-                return this.IsNull(this.tableWeeklySchedule.ConventionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetConventionNull() {
-                this[this.tableWeeklySchedule.ConventionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMemorialNull() {
-                return this.IsNull(this.tableWeeklySchedule.MemorialColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMemorialNull() {
-                this[this.tableWeeklySchedule.MemorialColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSupervisorNull() {
-                return this.IsNull(this.tableWeeklySchedule.SupervisorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSupervisorNull() {
-                this[this.tableWeeklySchedule.SupervisorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPresidentNull() {
-                return this.IsNull(this.tableWeeklySchedule.PresidentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPresidentNull() {
-                this[this.tableWeeklySchedule.PresidentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTreasuresTitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.TreasuresTitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTreasuresTitleNull() {
-                this[this.tableWeeklySchedule.TreasuresTitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTreasuresNull() {
-                return this.IsNull(this.tableWeeklySchedule.TreasuresColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTreasuresNull() {
-                this[this.tableWeeklySchedule.TreasuresColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGemsNull() {
-                return this.IsNull(this.tableWeeklySchedule.GemsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGemsNull() {
-                this[this.tableWeeklySchedule.GemsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsReadingNull() {
-                return this.IsNull(this.tableWeeklySchedule.ReadingColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetReadingNull() {
-                this[this.tableWeeklySchedule.ReadingColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment1TypeNull() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment1TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment1TypeNull() {
-                this[this.tableWeeklySchedule.Assignment1TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment1Null() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment1Null() {
-                this[this.tableWeeklySchedule.Assignment1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment2TypeNull() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment2TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment2TypeNull() {
-                this[this.tableWeeklySchedule.Assignment2TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment2Null() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment2Null() {
-                this[this.tableWeeklySchedule.Assignment2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment3TypeNull() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment3TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment3TypeNull() {
-                this[this.tableWeeklySchedule.Assignment3TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment3Null() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment3Null() {
-                this[this.tableWeeklySchedule.Assignment3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment4TypeNull() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment4TypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment4TypeNull() {
-                this[this.tableWeeklySchedule.Assignment4TypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAssignment4Null() {
-                return this.IsNull(this.tableWeeklySchedule.Assignment4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAssignment4Null() {
-                this[this.tableWeeklySchedule.Assignment4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment1OnlyVideoNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment1OnlyVideoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment1OnlyVideoNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment1OnlyVideoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment1NeedsNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment1NeedsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment1NeedsNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment1NeedsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment1TitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment1TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment1TitleNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment1TitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment1Null() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment1Null() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment2OnlyVideoNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment2OnlyVideoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment2OnlyVideoNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment2OnlyVideoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment2NeedsNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment2NeedsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment2NeedsNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment2NeedsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment2TitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment2TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment2TitleNull() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment2TitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsChristianLifeAssignment2Null() {
-                return this.IsNull(this.tableWeeklySchedule.ChristianLifeAssignment2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetChristianLifeAssignment2Null() {
-                this[this.tableWeeklySchedule.ChristianLifeAssignment2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBibleStudyNull() {
-                return this.IsNull(this.tableWeeklySchedule.BibleStudyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBibleStudyNull() {
-                this[this.tableWeeklySchedule.BibleStudyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBibleStudyReaderNull() {
-                return this.IsNull(this.tableWeeklySchedule.BibleStudyReaderColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBibleStudyReaderNull() {
-                this[this.tableWeeklySchedule.BibleStudyReaderColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsSupervisorWeekSpeechTitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.SupervisorWeekSpeechTitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetSupervisorWeekSpeechTitleNull() {
-                this[this.tableWeeklySchedule.SupervisorWeekSpeechTitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWeekPrayerNull() {
-                return this.IsNull(this.tableWeeklySchedule.WeekPrayerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWeekPrayerNull() {
-                this[this.tableWeeklySchedule.WeekPrayerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWeekendPresidentNull() {
-                return this.IsNull(this.tableWeeklySchedule.WeekendPresidentColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWeekendPresidentNull() {
-                this[this.tableWeeklySchedule.WeekendPresidentColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPublicSpeechTitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.PublicSpeechTitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPublicSpeechTitleNull() {
-                this[this.tableWeeklySchedule.PublicSpeechTitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPublicSpeechNull() {
-                return this.IsNull(this.tableWeeklySchedule.PublicSpeechColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPublicSpeechNull() {
-                this[this.tableWeeklySchedule.PublicSpeechColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWatchtowerNull() {
-                return this.IsNull(this.tableWeeklySchedule.WatchtowerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWatchtowerNull() {
-                this[this.tableWeeklySchedule.WatchtowerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWatchtowerReaderNull() {
-                return this.IsNull(this.tableWeeklySchedule.WatchtowerReaderColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWatchtowerReaderNull() {
-                this[this.tableWeeklySchedule.WatchtowerReaderColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFinalSpeechTitleNull() {
-                return this.IsNull(this.tableWeeklySchedule.FinalSpeechTitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFinalSpeechTitleNull() {
-                this[this.tableWeeklySchedule.FinalSpeechTitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsFinalSpeechNull() {
-                return this.IsNull(this.tableWeeklySchedule.FinalSpeechColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetFinalSpeechNull() {
-                this[this.tableWeeklySchedule.FinalSpeechColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsWeekendPrayerNull() {
-                return this.IsNull(this.tableWeeklySchedule.WeekendPrayerColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetWeekendPrayerNull() {
-                this[this.tableWeeklySchedule.WeekendPrayerColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsAVNull() {
-                return this.IsNull(this.tableWeeklySchedule.AVColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetAVNull() {
-                this[this.tableWeeklySchedule.AVColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMicrophone1Null() {
-                return this.IsNull(this.tableWeeklySchedule.Microphone1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMicrophone1Null() {
-                this[this.tableWeeklySchedule.Microphone1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMicrophone2Null() {
-                return this.IsNull(this.tableWeeklySchedule.Microphone2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMicrophone2Null() {
-                this[this.tableWeeklySchedule.Microphone2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrder1Null() {
-                return this.IsNull(this.tableWeeklySchedule.Order1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrder1Null() {
-                this[this.tableWeeklySchedule.Order1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrder2Null() {
-                return this.IsNull(this.tableWeeklySchedule.Order2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrder2Null() {
-                this[this.tableWeeklySchedule.Order2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCleaningGroupNull() {
-                return this.IsNull(this.tableWeeklySchedule.CleaningGroupColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCleaningGroupNull() {
-                this[this.tableWeeklySchedule.CleaningGroupColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class WeekPresidentRow : global::System.Data.DataRow {
             
             private WeekPresidentDataTable tableWeekPresident;
@@ -13044,6 +11776,1273 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetFrequencyNull() {
                 this[this.tableWeekPresident.FrequencyColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class WeekScheduleRow : global::System.Data.DataRow {
+            
+            private WeekScheduleDataTable tableWeekSchedule;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal WeekScheduleRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableWeekSchedule = ((WeekScheduleDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime WeekStartDate {
+                get {
+                    return ((global::System.DateTime)(this[this.tableWeekSchedule.WeekStartDateColumn]));
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekStartDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime WeekMeetingDateTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableWeekSchedule.WeekMeetingDateTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WeekMeetingDateTime\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekMeetingDateTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime WeekendMeetingDateTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableWeekSchedule.WeekendMeetingDateTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendMeetingDateTime\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekendMeetingDateTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Convention {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.ConventionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Convention\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ConventionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Memorial {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.MemorialColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Memorial\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.MemorialColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Supervisor {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.SupervisorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Supervisor\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.SupervisorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string President {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.PresidentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'President\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.PresidentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TreasuresTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.TreasuresTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TreasuresTitle\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.TreasuresTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Treasures {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.TreasuresColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Treasures\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.TreasuresColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Gems {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.GemsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Gems\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.GemsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Reading {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ReadingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reading\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ReadingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment1Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment1TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment1Type\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment1TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment1\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment2Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment2TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment2Type\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment2TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment2\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment3Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment3TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment3Type\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment3TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment3\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment4Type {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment4TypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment4Type\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment4TypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment4\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ChristianLifeAssignment1OnlyVideo {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.ChristianLifeAssignment1OnlyVideoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1OnlyVideo\' in table \'WeekSchedule\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment1OnlyVideoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ChristianLifeAssignment1Needs {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.ChristianLifeAssignment1NeedsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1Needs\' in table \'WeekSchedule\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment1NeedsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ChristianLifeAssignment1Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ChristianLifeAssignment1TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1Title\' in table \'WeekSchedule\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment1TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ChristianLifeAssignment1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ChristianLifeAssignment1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment1\' in table \'WeekSchedule\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ChristianLifeAssignment2OnlyVideo {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.ChristianLifeAssignment2OnlyVideoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2OnlyVideo\' in table \'WeekSchedule\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment2OnlyVideoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ChristianLifeAssignment2Needs {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWeekSchedule.ChristianLifeAssignment2NeedsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2Needs\' in table \'WeekSchedule\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment2NeedsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ChristianLifeAssignment2Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ChristianLifeAssignment2TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2Title\' in table \'WeekSchedule\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment2TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ChristianLifeAssignment2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ChristianLifeAssignment2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ChristianLifeAssignment2\' in table \'WeekSchedule\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ChristianLifeAssignment2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BibleStudy {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.BibleStudyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BibleStudy\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.BibleStudyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BibleStudyReader {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.BibleStudyReaderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BibleStudyReader\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.BibleStudyReaderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SupervisorWeekSpeechTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.SupervisorWeekSpeechTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SupervisorWeekSpeechTitle\' in table \'WeekSchedule\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.SupervisorWeekSpeechTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string WeekPrayer {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.WeekPrayerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WeekPrayer\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekPrayerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string WeekendPresident {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.WeekendPresidentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendPresident\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekendPresidentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PublicSpeechTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.PublicSpeechTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PublicSpeechTitle\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.PublicSpeechTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PublicSpeech {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.PublicSpeechColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PublicSpeech\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.PublicSpeechColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Watchtower {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.WatchtowerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Watchtower\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WatchtowerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string WatchtowerReader {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.WatchtowerReaderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WatchtowerReader\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WatchtowerReaderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FinalSpeechTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.FinalSpeechTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalSpeechTitle\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.FinalSpeechTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string FinalSpeech {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.FinalSpeechColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalSpeech\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.FinalSpeechColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string WeekendPrayer {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.WeekendPrayerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WeekendPrayer\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.WeekendPrayerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AV {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.AVColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AV\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.AVColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Microphone1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Microphone1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Microphone1\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Microphone1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Microphone2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Microphone2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Microphone2\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Microphone2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Order1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Order1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order1\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Order1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Order2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Order2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Order2\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Order2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CleaningGroup {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.CleaningGroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CleaningGroup\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.CleaningGroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWeekMeetingDateTimeNull() {
+                return this.IsNull(this.tableWeekSchedule.WeekMeetingDateTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWeekMeetingDateTimeNull() {
+                this[this.tableWeekSchedule.WeekMeetingDateTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWeekendMeetingDateTimeNull() {
+                return this.IsNull(this.tableWeekSchedule.WeekendMeetingDateTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWeekendMeetingDateTimeNull() {
+                this[this.tableWeekSchedule.WeekendMeetingDateTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsConventionNull() {
+                return this.IsNull(this.tableWeekSchedule.ConventionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetConventionNull() {
+                this[this.tableWeekSchedule.ConventionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMemorialNull() {
+                return this.IsNull(this.tableWeekSchedule.MemorialColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMemorialNull() {
+                this[this.tableWeekSchedule.MemorialColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupervisorNull() {
+                return this.IsNull(this.tableWeekSchedule.SupervisorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupervisorNull() {
+                this[this.tableWeekSchedule.SupervisorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPresidentNull() {
+                return this.IsNull(this.tableWeekSchedule.PresidentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPresidentNull() {
+                this[this.tableWeekSchedule.PresidentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTreasuresTitleNull() {
+                return this.IsNull(this.tableWeekSchedule.TreasuresTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTreasuresTitleNull() {
+                this[this.tableWeekSchedule.TreasuresTitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTreasuresNull() {
+                return this.IsNull(this.tableWeekSchedule.TreasuresColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTreasuresNull() {
+                this[this.tableWeekSchedule.TreasuresColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGemsNull() {
+                return this.IsNull(this.tableWeekSchedule.GemsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGemsNull() {
+                this[this.tableWeekSchedule.GemsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReadingNull() {
+                return this.IsNull(this.tableWeekSchedule.ReadingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReadingNull() {
+                this[this.tableWeekSchedule.ReadingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment1TypeNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment1TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment1TypeNull() {
+                this[this.tableWeekSchedule.Assignment1TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment1Null() {
+                return this.IsNull(this.tableWeekSchedule.Assignment1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment1Null() {
+                this[this.tableWeekSchedule.Assignment1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment2TypeNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment2TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment2TypeNull() {
+                this[this.tableWeekSchedule.Assignment2TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment2Null() {
+                return this.IsNull(this.tableWeekSchedule.Assignment2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment2Null() {
+                this[this.tableWeekSchedule.Assignment2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment3TypeNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment3TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment3TypeNull() {
+                this[this.tableWeekSchedule.Assignment3TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment3Null() {
+                return this.IsNull(this.tableWeekSchedule.Assignment3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment3Null() {
+                this[this.tableWeekSchedule.Assignment3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment4TypeNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment4TypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment4TypeNull() {
+                this[this.tableWeekSchedule.Assignment4TypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment4Null() {
+                return this.IsNull(this.tableWeekSchedule.Assignment4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment4Null() {
+                this[this.tableWeekSchedule.Assignment4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment1OnlyVideoNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment1OnlyVideoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment1OnlyVideoNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment1OnlyVideoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment1NeedsNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment1NeedsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment1NeedsNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment1NeedsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment1TitleNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment1TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment1TitleNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment1TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment1Null() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment1Null() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment2OnlyVideoNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment2OnlyVideoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment2OnlyVideoNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment2OnlyVideoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment2NeedsNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment2NeedsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment2NeedsNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment2NeedsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment2TitleNull() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment2TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment2TitleNull() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment2TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsChristianLifeAssignment2Null() {
+                return this.IsNull(this.tableWeekSchedule.ChristianLifeAssignment2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetChristianLifeAssignment2Null() {
+                this[this.tableWeekSchedule.ChristianLifeAssignment2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBibleStudyNull() {
+                return this.IsNull(this.tableWeekSchedule.BibleStudyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBibleStudyNull() {
+                this[this.tableWeekSchedule.BibleStudyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBibleStudyReaderNull() {
+                return this.IsNull(this.tableWeekSchedule.BibleStudyReaderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBibleStudyReaderNull() {
+                this[this.tableWeekSchedule.BibleStudyReaderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupervisorWeekSpeechTitleNull() {
+                return this.IsNull(this.tableWeekSchedule.SupervisorWeekSpeechTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupervisorWeekSpeechTitleNull() {
+                this[this.tableWeekSchedule.SupervisorWeekSpeechTitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWeekPrayerNull() {
+                return this.IsNull(this.tableWeekSchedule.WeekPrayerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWeekPrayerNull() {
+                this[this.tableWeekSchedule.WeekPrayerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWeekendPresidentNull() {
+                return this.IsNull(this.tableWeekSchedule.WeekendPresidentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWeekendPresidentNull() {
+                this[this.tableWeekSchedule.WeekendPresidentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPublicSpeechTitleNull() {
+                return this.IsNull(this.tableWeekSchedule.PublicSpeechTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPublicSpeechTitleNull() {
+                this[this.tableWeekSchedule.PublicSpeechTitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPublicSpeechNull() {
+                return this.IsNull(this.tableWeekSchedule.PublicSpeechColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPublicSpeechNull() {
+                this[this.tableWeekSchedule.PublicSpeechColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWatchtowerNull() {
+                return this.IsNull(this.tableWeekSchedule.WatchtowerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWatchtowerNull() {
+                this[this.tableWeekSchedule.WatchtowerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWatchtowerReaderNull() {
+                return this.IsNull(this.tableWeekSchedule.WatchtowerReaderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWatchtowerReaderNull() {
+                this[this.tableWeekSchedule.WatchtowerReaderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFinalSpeechTitleNull() {
+                return this.IsNull(this.tableWeekSchedule.FinalSpeechTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFinalSpeechTitleNull() {
+                this[this.tableWeekSchedule.FinalSpeechTitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFinalSpeechNull() {
+                return this.IsNull(this.tableWeekSchedule.FinalSpeechColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFinalSpeechNull() {
+                this[this.tableWeekSchedule.FinalSpeechColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsWeekendPrayerNull() {
+                return this.IsNull(this.tableWeekSchedule.WeekendPrayerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetWeekendPrayerNull() {
+                this[this.tableWeekSchedule.WeekendPrayerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAVNull() {
+                return this.IsNull(this.tableWeekSchedule.AVColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAVNull() {
+                this[this.tableWeekSchedule.AVColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMicrophone1Null() {
+                return this.IsNull(this.tableWeekSchedule.Microphone1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMicrophone1Null() {
+                this[this.tableWeekSchedule.Microphone1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMicrophone2Null() {
+                return this.IsNull(this.tableWeekSchedule.Microphone2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMicrophone2Null() {
+                this[this.tableWeekSchedule.Microphone2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOrder1Null() {
+                return this.IsNull(this.tableWeekSchedule.Order1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOrder1Null() {
+                this[this.tableWeekSchedule.Order1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOrder2Null() {
+                return this.IsNull(this.tableWeekSchedule.Order2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOrder2Null() {
+                this[this.tableWeekSchedule.Order2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCleaningGroupNull() {
+                return this.IsNull(this.tableWeekSchedule.CleaningGroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCleaningGroupNull() {
+                this[this.tableWeekSchedule.CleaningGroupColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -13833,22 +13832,22 @@ namespace JWMeetingSchedule.DB {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class WeeklyScheduleRowChangeEvent : global::System.EventArgs {
+        public class WeekPresidentRowChangeEvent : global::System.EventArgs {
             
-            private WeeklyScheduleRow eventRow;
+            private WeekPresidentRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRowChangeEvent(WeeklyScheduleRow row, global::System.Data.DataRowAction action) {
+            public WeekPresidentRowChangeEvent(WeekPresidentRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeeklyScheduleRow Row {
+            public WeekPresidentRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -13867,22 +13866,22 @@ namespace JWMeetingSchedule.DB {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class WeekPresidentRowChangeEvent : global::System.EventArgs {
+        public class WeekScheduleRowChangeEvent : global::System.EventArgs {
             
-            private WeekPresidentRow eventRow;
+            private WeekScheduleRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRowChangeEvent(WeekPresidentRow row, global::System.Data.DataRowAction action) {
+            public WeekScheduleRowChangeEvent(WeekScheduleRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public WeekPresidentRow Row {
+            public WeekScheduleRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -22157,7 +22156,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class WeeklyScheduleTableAdapter : global::System.ComponentModel.Component {
+    public partial class WeekPresidentTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -22171,7 +22170,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public WeeklyScheduleTableAdapter() {
+        public WeekPresidentTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -22268,7 +22267,370 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "WeeklySchedule";
+            tableMapping.DataSetTable = "WeekPresident";
+            tableMapping.ColumnMappings.Add("PersonName", "PersonName");
+            tableMapping.ColumnMappings.Add("DefaultFrequency", "DefaultFrequency");
+            tableMapping.ColumnMappings.Add("Frequency", "Frequency");
+            tableMapping.ColumnMappings.Add("NextAssignmentInWeeks", "NextAssignmentInWeeks");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[WeekPresident] WHERE (([PersonName] = @Original_PersonName) AND ([DefaultFrequency] = @Original_DefaultFrequency) AND ((@IsNull_Frequency = 1 AND [Frequency] IS NULL) OR ([Frequency] = @Original_Frequency)) AND ([NextAssignmentInWeeks] = @Original_NextAssignmentInWeeks))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[WeekPresident] ([PersonName], [DefaultFrequency], [Frequency], [NextAssignmentInWeeks]) VALUES (@PersonName, @DefaultFrequency, @Frequency, @NextAssignmentInWeeks);
+SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekPresident WHERE (PersonName = @PersonName)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[WeekPresident] SET [PersonName] = @PersonName, [DefaultFrequency] = @DefaultFrequency, [Frequency] = @Frequency, [NextAssignmentInWeeks] = @NextAssignmentInWeeks WHERE (([PersonName] = @Original_PersonName) AND ([DefaultFrequency] = @Original_DefaultFrequency) AND ((@IsNull_Frequency = 1 AND [Frequency] IS NULL) OR ([Frequency] = @Original_Frequency)) AND ([NextAssignmentInWeeks] = @Original_NextAssignmentInWeeks));
+SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekPresident WHERE (PersonName = @PersonName)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::JWMeetingSchedule.Properties.Settings.Default.ScheduleDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM dbo.We" +
+                "ekPresident";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ScheduleDBDataSet.WeekPresidentDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ScheduleDBDataSet.WeekPresidentDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleDBDataSet.WeekPresidentDataTable dataTable = new ScheduleDBDataSet.WeekPresidentDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleDBDataSet.WeekPresidentDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleDBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "WeekPresident");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
+            if ((Original_PersonName == null)) {
+                throw new global::System.ArgumentNullException("Original_PersonName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_PersonName));
+            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_DefaultFrequency));
+            if ((Original_Frequency.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Frequency.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_NextAssignmentInWeeks));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string PersonName, bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks) {
+            if ((PersonName == null)) {
+                throw new global::System.ArgumentNullException("PersonName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(PersonName));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((bool)(DefaultFrequency));
+            if ((Frequency.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Frequency.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NextAssignmentInWeeks));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string PersonName, bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks, string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
+            if ((PersonName == null)) {
+                throw new global::System.ArgumentNullException("PersonName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PersonName));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((bool)(DefaultFrequency));
+            if ((Frequency.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Frequency.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NextAssignmentInWeeks));
+            if ((Original_PersonName == null)) {
+                throw new global::System.ArgumentNullException("Original_PersonName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_PersonName));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Original_DefaultFrequency));
+            if ((Original_Frequency.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Frequency.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_NextAssignmentInWeeks));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks, string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
+            return this.Update(Original_PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks, Original_PersonName, Original_DefaultFrequency, Original_Frequency, Original_NextAssignmentInWeeks);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class WeekScheduleTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public WeekScheduleTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "WeekSchedule";
             tableMapping.ColumnMappings.Add("WeekStartDate", "WeekStartDate");
             tableMapping.ColumnMappings.Add("WeekMeetingDateTime", "WeekMeetingDateTime");
             tableMapping.ColumnMappings.Add("WeekendMeetingDateTime", "WeekendMeetingDateTime");
@@ -22317,61 +22679,61 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[WeeklySchedule] WHERE (([WeekStartDate] = @Original_WeekStartD" +
-                "ate) AND ((@IsNull_WeekMeetingDateTime = 1 AND [WeekMeetingDateTime] IS NULL) OR" +
-                " ([WeekMeetingDateTime] = @Original_WeekMeetingDateTime)) AND ((@IsNull_WeekendM" +
-                "eetingDateTime = 1 AND [WeekendMeetingDateTime] IS NULL) OR ([WeekendMeetingDate" +
-                "Time] = @Original_WeekendMeetingDateTime)) AND ((@IsNull_Convention = 1 AND [Con" +
-                "vention] IS NULL) OR ([Convention] = @Original_Convention)) AND ((@IsNull_Memori" +
-                "al = 1 AND [Memorial] IS NULL) OR ([Memorial] = @Original_Memorial)) AND ((@IsNu" +
-                "ll_Supervisor = 1 AND [Supervisor] IS NULL) OR ([Supervisor] = @Original_Supervi" +
-                "sor)) AND ((@IsNull_President = 1 AND [President] IS NULL) OR ([President] = @Or" +
-                "iginal_President)) AND ((@IsNull_Treasures = 1 AND [Treasures] IS NULL) OR ([Tre" +
-                "asures] = @Original_Treasures)) AND ((@IsNull_Gems = 1 AND [Gems] IS NULL) OR ([" +
-                "Gems] = @Original_Gems)) AND ((@IsNull_Reading = 1 AND [Reading] IS NULL) OR ([R" +
-                "eading] = @Original_Reading)) AND ((@IsNull_Assignment1Type = 1 AND [Assignment1" +
-                "Type] IS NULL) OR ([Assignment1Type] = @Original_Assignment1Type)) AND ((@IsNull" +
-                "_Assignment1 = 1 AND [Assignment1] IS NULL) OR ([Assignment1] = @Original_Assign" +
-                "ment1)) AND ((@IsNull_Assignment2Type = 1 AND [Assignment2Type] IS NULL) OR ([As" +
-                "signment2Type] = @Original_Assignment2Type)) AND ((@IsNull_Assignment2 = 1 AND [" +
-                "Assignment2] IS NULL) OR ([Assignment2] = @Original_Assignment2)) AND ((@IsNull_" +
-                "Assignment3Type = 1 AND [Assignment3Type] IS NULL) OR ([Assignment3Type] = @Orig" +
-                "inal_Assignment3Type)) AND ((@IsNull_Assignment3 = 1 AND [Assignment3] IS NULL) " +
-                "OR ([Assignment3] = @Original_Assignment3)) AND ((@IsNull_Assignment4Type = 1 AN" +
-                "D [Assignment4Type] IS NULL) OR ([Assignment4Type] = @Original_Assignment4Type))" +
-                " AND ((@IsNull_Assignment4 = 1 AND [Assignment4] IS NULL) OR ([Assignment4] = @O" +
-                "riginal_Assignment4)) AND ((@IsNull_ChristianLifeAssignment1OnlyVideo = 1 AND [C" +
-                "hristianLifeAssignment1OnlyVideo] IS NULL) OR ([ChristianLifeAssignment1OnlyVide" +
-                "o] = @Original_ChristianLifeAssignment1OnlyVideo)) AND ((@IsNull_ChristianLifeAs" +
-                "signment1Needs = 1 AND [ChristianLifeAssignment1Needs] IS NULL) OR ([ChristianLi" +
-                "feAssignment1Needs] = @Original_ChristianLifeAssignment1Needs)) AND ((@IsNull_Ch" +
-                "ristianLifeAssignment1 = 1 AND [ChristianLifeAssignment1] IS NULL) OR ([Christia" +
-                "nLifeAssignment1] = @Original_ChristianLifeAssignment1)) AND ((@IsNull_Christian" +
-                "LifeAssignment2OnlyVideo = 1 AND [ChristianLifeAssignment2OnlyVideo] IS NULL) OR" +
-                " ([ChristianLifeAssignment2OnlyVideo] = @Original_ChristianLifeAssignment2OnlyVi" +
-                "deo)) AND ((@IsNull_ChristianLifeAssignment2Needs = 1 AND [ChristianLifeAssignme" +
-                "nt2Needs] IS NULL) OR ([ChristianLifeAssignment2Needs] = @Original_ChristianLife" +
-                "Assignment2Needs)) AND ((@IsNull_ChristianLifeAssignment2 = 1 AND [ChristianLife" +
-                "Assignment2] IS NULL) OR ([ChristianLifeAssignment2] = @Original_ChristianLifeAs" +
-                "signment2)) AND ((@IsNull_BibleStudy = 1 AND [BibleStudy] IS NULL) OR ([BibleStu" +
-                "dy] = @Original_BibleStudy)) AND ((@IsNull_BibleStudyReader = 1 AND [BibleStudyR" +
-                "eader] IS NULL) OR ([BibleStudyReader] = @Original_BibleStudyReader)) AND ((@IsN" +
-                "ull_WeekPrayer = 1 AND [WeekPrayer] IS NULL) OR ([WeekPrayer] = @Original_WeekPr" +
-                "ayer)) AND ((@IsNull_WeekendPresident = 1 AND [WeekendPresident] IS NULL) OR ([W" +
-                "eekendPresident] = @Original_WeekendPresident)) AND ((@IsNull_PublicSpeech = 1 A" +
-                "ND [PublicSpeech] IS NULL) OR ([PublicSpeech] = @Original_PublicSpeech)) AND ((@" +
-                "IsNull_Watchtower = 1 AND [Watchtower] IS NULL) OR ([Watchtower] = @Original_Wat" +
-                "chtower)) AND ((@IsNull_WatchtowerReader = 1 AND [WatchtowerReader] IS NULL) OR " +
-                "([WatchtowerReader] = @Original_WatchtowerReader)) AND ((@IsNull_FinalSpeech = 1" +
-                " AND [FinalSpeech] IS NULL) OR ([FinalSpeech] = @Original_FinalSpeech)) AND ((@I" +
-                "sNull_WeekendPrayer = 1 AND [WeekendPrayer] IS NULL) OR ([WeekendPrayer] = @Orig" +
-                "inal_WeekendPrayer)) AND ((@IsNull_AV = 1 AND [AV] IS NULL) OR ([AV] = @Original" +
-                "_AV)) AND ((@IsNull_Microphone1 = 1 AND [Microphone1] IS NULL) OR ([Microphone1]" +
-                " = @Original_Microphone1)) AND ((@IsNull_Microphone2 = 1 AND [Microphone2] IS NU" +
-                "LL) OR ([Microphone2] = @Original_Microphone2)) AND ((@IsNull_Order1 = 1 AND [Or" +
-                "der1] IS NULL) OR ([Order1] = @Original_Order1)) AND ((@IsNull_Order2 = 1 AND [O" +
-                "rder2] IS NULL) OR ([Order2] = @Original_Order2)) AND ((@IsNull_CleaningGroup = " +
-                "1 AND [CleaningGroup] IS NULL) OR ([CleaningGroup] = @Original_CleaningGroup)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[WeekSchedule] WHERE (([WeekStartDate] = @Original_WeekStartDat" +
+                "e) AND ((@IsNull_WeekMeetingDateTime = 1 AND [WeekMeetingDateTime] IS NULL) OR (" +
+                "[WeekMeetingDateTime] = @Original_WeekMeetingDateTime)) AND ((@IsNull_WeekendMee" +
+                "tingDateTime = 1 AND [WeekendMeetingDateTime] IS NULL) OR ([WeekendMeetingDateTi" +
+                "me] = @Original_WeekendMeetingDateTime)) AND ((@IsNull_Convention = 1 AND [Conve" +
+                "ntion] IS NULL) OR ([Convention] = @Original_Convention)) AND ((@IsNull_Memorial" +
+                " = 1 AND [Memorial] IS NULL) OR ([Memorial] = @Original_Memorial)) AND ((@IsNull" +
+                "_Supervisor = 1 AND [Supervisor] IS NULL) OR ([Supervisor] = @Original_Superviso" +
+                "r)) AND ((@IsNull_President = 1 AND [President] IS NULL) OR ([President] = @Orig" +
+                "inal_President)) AND ((@IsNull_Treasures = 1 AND [Treasures] IS NULL) OR ([Treas" +
+                "ures] = @Original_Treasures)) AND ((@IsNull_Gems = 1 AND [Gems] IS NULL) OR ([Ge" +
+                "ms] = @Original_Gems)) AND ((@IsNull_Reading = 1 AND [Reading] IS NULL) OR ([Rea" +
+                "ding] = @Original_Reading)) AND ((@IsNull_Assignment1Type = 1 AND [Assignment1Ty" +
+                "pe] IS NULL) OR ([Assignment1Type] = @Original_Assignment1Type)) AND ((@IsNull_A" +
+                "ssignment1 = 1 AND [Assignment1] IS NULL) OR ([Assignment1] = @Original_Assignme" +
+                "nt1)) AND ((@IsNull_Assignment2Type = 1 AND [Assignment2Type] IS NULL) OR ([Assi" +
+                "gnment2Type] = @Original_Assignment2Type)) AND ((@IsNull_Assignment2 = 1 AND [As" +
+                "signment2] IS NULL) OR ([Assignment2] = @Original_Assignment2)) AND ((@IsNull_As" +
+                "signment3Type = 1 AND [Assignment3Type] IS NULL) OR ([Assignment3Type] = @Origin" +
+                "al_Assignment3Type)) AND ((@IsNull_Assignment3 = 1 AND [Assignment3] IS NULL) OR" +
+                " ([Assignment3] = @Original_Assignment3)) AND ((@IsNull_Assignment4Type = 1 AND " +
+                "[Assignment4Type] IS NULL) OR ([Assignment4Type] = @Original_Assignment4Type)) A" +
+                "ND ((@IsNull_Assignment4 = 1 AND [Assignment4] IS NULL) OR ([Assignment4] = @Ori" +
+                "ginal_Assignment4)) AND ((@IsNull_ChristianLifeAssignment1OnlyVideo = 1 AND [Chr" +
+                "istianLifeAssignment1OnlyVideo] IS NULL) OR ([ChristianLifeAssignment1OnlyVideo]" +
+                " = @Original_ChristianLifeAssignment1OnlyVideo)) AND ((@IsNull_ChristianLifeAssi" +
+                "gnment1Needs = 1 AND [ChristianLifeAssignment1Needs] IS NULL) OR ([ChristianLife" +
+                "Assignment1Needs] = @Original_ChristianLifeAssignment1Needs)) AND ((@IsNull_Chri" +
+                "stianLifeAssignment1 = 1 AND [ChristianLifeAssignment1] IS NULL) OR ([ChristianL" +
+                "ifeAssignment1] = @Original_ChristianLifeAssignment1)) AND ((@IsNull_ChristianLi" +
+                "feAssignment2OnlyVideo = 1 AND [ChristianLifeAssignment2OnlyVideo] IS NULL) OR (" +
+                "[ChristianLifeAssignment2OnlyVideo] = @Original_ChristianLifeAssignment2OnlyVide" +
+                "o)) AND ((@IsNull_ChristianLifeAssignment2Needs = 1 AND [ChristianLifeAssignment" +
+                "2Needs] IS NULL) OR ([ChristianLifeAssignment2Needs] = @Original_ChristianLifeAs" +
+                "signment2Needs)) AND ((@IsNull_ChristianLifeAssignment2 = 1 AND [ChristianLifeAs" +
+                "signment2] IS NULL) OR ([ChristianLifeAssignment2] = @Original_ChristianLifeAssi" +
+                "gnment2)) AND ((@IsNull_BibleStudy = 1 AND [BibleStudy] IS NULL) OR ([BibleStudy" +
+                "] = @Original_BibleStudy)) AND ((@IsNull_BibleStudyReader = 1 AND [BibleStudyRea" +
+                "der] IS NULL) OR ([BibleStudyReader] = @Original_BibleStudyReader)) AND ((@IsNul" +
+                "l_WeekPrayer = 1 AND [WeekPrayer] IS NULL) OR ([WeekPrayer] = @Original_WeekPray" +
+                "er)) AND ((@IsNull_WeekendPresident = 1 AND [WeekendPresident] IS NULL) OR ([Wee" +
+                "kendPresident] = @Original_WeekendPresident)) AND ((@IsNull_PublicSpeech = 1 AND" +
+                " [PublicSpeech] IS NULL) OR ([PublicSpeech] = @Original_PublicSpeech)) AND ((@Is" +
+                "Null_Watchtower = 1 AND [Watchtower] IS NULL) OR ([Watchtower] = @Original_Watch" +
+                "tower)) AND ((@IsNull_WatchtowerReader = 1 AND [WatchtowerReader] IS NULL) OR ([" +
+                "WatchtowerReader] = @Original_WatchtowerReader)) AND ((@IsNull_FinalSpeech = 1 A" +
+                "ND [FinalSpeech] IS NULL) OR ([FinalSpeech] = @Original_FinalSpeech)) AND ((@IsN" +
+                "ull_WeekendPrayer = 1 AND [WeekendPrayer] IS NULL) OR ([WeekendPrayer] = @Origin" +
+                "al_WeekendPrayer)) AND ((@IsNull_AV = 1 AND [AV] IS NULL) OR ([AV] = @Original_A" +
+                "V)) AND ((@IsNull_Microphone1 = 1 AND [Microphone1] IS NULL) OR ([Microphone1] =" +
+                " @Original_Microphone1)) AND ((@IsNull_Microphone2 = 1 AND [Microphone2] IS NULL" +
+                ") OR ([Microphone2] = @Original_Microphone2)) AND ((@IsNull_Order1 = 1 AND [Orde" +
+                "r1] IS NULL) OR ([Order1] = @Original_Order1)) AND ((@IsNull_Order2 = 1 AND [Ord" +
+                "er2] IS NULL) OR ([Order2] = @Original_Order2)) AND ((@IsNull_CleaningGroup = 1 " +
+                "AND [CleaningGroup] IS NULL) OR ([CleaningGroup] = @Original_CleaningGroup)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WeekMeetingDateTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -22452,38 +22814,38 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WeeklySchedule] ([WeekStartDate], [WeekMeetingDateTime], [Week" +
-                "endMeetingDateTime], [Convention], [Memorial], [Supervisor], [President], [Treas" +
-                "uresTitle], [Treasures], [Gems], [Reading], [Assignment1Type], [Assignment1], [A" +
-                "ssignment2Type], [Assignment2], [Assignment3Type], [Assignment3], [Assignment4Ty" +
-                "pe], [Assignment4], [ChristianLifeAssignment1OnlyVideo], [ChristianLifeAssignmen" +
-                "t1Needs], [ChristianLifeAssignment1Title], [ChristianLifeAssignment1], [Christia" +
-                "nLifeAssignment2OnlyVideo], [ChristianLifeAssignment2Needs], [ChristianLifeAssig" +
-                "nment2Title], [ChristianLifeAssignment2], [BibleStudy], [BibleStudyReader], [Sup" +
-                "ervisorWeekSpeechTitle], [WeekPrayer], [WeekendPresident], [PublicSpeechTitle], " +
-                "[PublicSpeech], [Watchtower], [WatchtowerReader], [FinalSpeechTitle], [FinalSpee" +
-                "ch], [WeekendPrayer], [AV], [Microphone1], [Microphone2], [Order1], [Order2], [C" +
-                "leaningGroup]) VALUES (@WeekStartDate, @WeekMeetingDateTime, @WeekendMeetingDate" +
-                "Time, @Convention, @Memorial, @Supervisor, @President, @TreasuresTitle, @Treasur" +
-                "es, @Gems, @Reading, @Assignment1Type, @Assignment1, @Assignment2Type, @Assignme" +
-                "nt2, @Assignment3Type, @Assignment3, @Assignment4Type, @Assignment4, @ChristianL" +
-                "ifeAssignment1OnlyVideo, @ChristianLifeAssignment1Needs, @ChristianLifeAssignmen" +
-                "t1Title, @ChristianLifeAssignment1, @ChristianLifeAssignment2OnlyVideo, @Christi" +
-                "anLifeAssignment2Needs, @ChristianLifeAssignment2Title, @ChristianLifeAssignment" +
-                "2, @BibleStudy, @BibleStudyReader, @SupervisorWeekSpeechTitle, @WeekPrayer, @Wee" +
-                "kendPresident, @PublicSpeechTitle, @PublicSpeech, @Watchtower, @WatchtowerReader" +
-                ", @FinalSpeechTitle, @FinalSpeech, @WeekendPrayer, @AV, @Microphone1, @Microphon" +
-                "e2, @Order1, @Order2, @CleaningGroup);\r\nSELECT WeekStartDate, WeekMeetingDateTim" +
-                "e, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, Treasure" +
-                "sTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type," +
-                " Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christ" +
-                "ianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignm" +
-                "ent1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, Christia" +
-                "nLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, " +
-                "BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPres" +
-                "ident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeec" +
-                "hTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2" +
-                ", CleaningGroup FROM WeeklySchedule WHERE (WeekStartDate = @WeekStartDate)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WeekSchedule] ([WeekStartDate], [WeekMeetingDateTime], [Weeken" +
+                "dMeetingDateTime], [Convention], [Memorial], [Supervisor], [President], [Treasur" +
+                "esTitle], [Treasures], [Gems], [Reading], [Assignment1Type], [Assignment1], [Ass" +
+                "ignment2Type], [Assignment2], [Assignment3Type], [Assignment3], [Assignment4Type" +
+                "], [Assignment4], [ChristianLifeAssignment1OnlyVideo], [ChristianLifeAssignment1" +
+                "Needs], [ChristianLifeAssignment1Title], [ChristianLifeAssignment1], [ChristianL" +
+                "ifeAssignment2OnlyVideo], [ChristianLifeAssignment2Needs], [ChristianLifeAssignm" +
+                "ent2Title], [ChristianLifeAssignment2], [BibleStudy], [BibleStudyReader], [Super" +
+                "visorWeekSpeechTitle], [WeekPrayer], [WeekendPresident], [PublicSpeechTitle], [P" +
+                "ublicSpeech], [Watchtower], [WatchtowerReader], [FinalSpeechTitle], [FinalSpeech" +
+                "], [WeekendPrayer], [AV], [Microphone1], [Microphone2], [Order1], [Order2], [Cle" +
+                "aningGroup]) VALUES (@WeekStartDate, @WeekMeetingDateTime, @WeekendMeetingDateTi" +
+                "me, @Convention, @Memorial, @Supervisor, @President, @TreasuresTitle, @Treasures" +
+                ", @Gems, @Reading, @Assignment1Type, @Assignment1, @Assignment2Type, @Assignment" +
+                "2, @Assignment3Type, @Assignment3, @Assignment4Type, @Assignment4, @ChristianLif" +
+                "eAssignment1OnlyVideo, @ChristianLifeAssignment1Needs, @ChristianLifeAssignment1" +
+                "Title, @ChristianLifeAssignment1, @ChristianLifeAssignment2OnlyVideo, @Christian" +
+                "LifeAssignment2Needs, @ChristianLifeAssignment2Title, @ChristianLifeAssignment2," +
+                " @BibleStudy, @BibleStudyReader, @SupervisorWeekSpeechTitle, @WeekPrayer, @Weeke" +
+                "ndPresident, @PublicSpeechTitle, @PublicSpeech, @Watchtower, @WatchtowerReader, " +
+                "@FinalSpeechTitle, @FinalSpeech, @WeekendPrayer, @AV, @Microphone1, @Microphone2" +
+                ", @Order1, @Order2, @CleaningGroup);\r\nSELECT WeekStartDate, WeekMeetingDateTime," +
+                " WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresT" +
+                "itle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, A" +
+                "ssignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christia" +
+                "nLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignmen" +
+                "t1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianL" +
+                "ifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, Bi" +
+                "bleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresid" +
+                "ent, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechT" +
+                "itle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, " +
+                "CleaningGroup FROM WeekSchedule WHERE (WeekStartDate = @WeekStartDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22532,93 +22894,93 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CleaningGroup", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CleaningGroup", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WeeklySchedule] SET [WeekStartDate] = @WeekStartDate, [WeekMeetingD" +
-                "ateTime] = @WeekMeetingDateTime, [WeekendMeetingDateTime] = @WeekendMeetingDateT" +
-                "ime, [Convention] = @Convention, [Memorial] = @Memorial, [Supervisor] = @Supervi" +
-                "sor, [President] = @President, [TreasuresTitle] = @TreasuresTitle, [Treasures] =" +
-                " @Treasures, [Gems] = @Gems, [Reading] = @Reading, [Assignment1Type] = @Assignme" +
-                "nt1Type, [Assignment1] = @Assignment1, [Assignment2Type] = @Assignment2Type, [As" +
-                "signment2] = @Assignment2, [Assignment3Type] = @Assignment3Type, [Assignment3] =" +
-                " @Assignment3, [Assignment4Type] = @Assignment4Type, [Assignment4] = @Assignment" +
-                "4, [ChristianLifeAssignment1OnlyVideo] = @ChristianLifeAssignment1OnlyVideo, [Ch" +
-                "ristianLifeAssignment1Needs] = @ChristianLifeAssignment1Needs, [ChristianLifeAss" +
-                "ignment1Title] = @ChristianLifeAssignment1Title, [ChristianLifeAssignment1] = @C" +
-                "hristianLifeAssignment1, [ChristianLifeAssignment2OnlyVideo] = @ChristianLifeAss" +
-                "ignment2OnlyVideo, [ChristianLifeAssignment2Needs] = @ChristianLifeAssignment2Ne" +
-                "eds, [ChristianLifeAssignment2Title] = @ChristianLifeAssignment2Title, [Christia" +
-                "nLifeAssignment2] = @ChristianLifeAssignment2, [BibleStudy] = @BibleStudy, [Bibl" +
-                "eStudyReader] = @BibleStudyReader, [SupervisorWeekSpeechTitle] = @SupervisorWeek" +
-                "SpeechTitle, [WeekPrayer] = @WeekPrayer, [WeekendPresident] = @WeekendPresident," +
-                " [PublicSpeechTitle] = @PublicSpeechTitle, [PublicSpeech] = @PublicSpeech, [Watc" +
-                "htower] = @Watchtower, [WatchtowerReader] = @WatchtowerReader, [FinalSpeechTitle" +
-                "] = @FinalSpeechTitle, [FinalSpeech] = @FinalSpeech, [WeekendPrayer] = @WeekendP" +
-                "rayer, [AV] = @AV, [Microphone1] = @Microphone1, [Microphone2] = @Microphone2, [" +
-                "Order1] = @Order1, [Order2] = @Order2, [CleaningGroup] = @CleaningGroup WHERE ((" +
-                "[WeekStartDate] = @Original_WeekStartDate) AND ((@IsNull_WeekMeetingDateTime = 1" +
-                " AND [WeekMeetingDateTime] IS NULL) OR ([WeekMeetingDateTime] = @Original_WeekMe" +
-                "etingDateTime)) AND ((@IsNull_WeekendMeetingDateTime = 1 AND [WeekendMeetingDate" +
-                "Time] IS NULL) OR ([WeekendMeetingDateTime] = @Original_WeekendMeetingDateTime))" +
-                " AND ((@IsNull_Convention = 1 AND [Convention] IS NULL) OR ([Convention] = @Orig" +
-                "inal_Convention)) AND ((@IsNull_Memorial = 1 AND [Memorial] IS NULL) OR ([Memori" +
-                "al] = @Original_Memorial)) AND ((@IsNull_Supervisor = 1 AND [Supervisor] IS NULL" +
-                ") OR ([Supervisor] = @Original_Supervisor)) AND ((@IsNull_President = 1 AND [Pre" +
-                "sident] IS NULL) OR ([President] = @Original_President)) AND ((@IsNull_Treasures" +
-                " = 1 AND [Treasures] IS NULL) OR ([Treasures] = @Original_Treasures)) AND ((@IsN" +
-                "ull_Gems = 1 AND [Gems] IS NULL) OR ([Gems] = @Original_Gems)) AND ((@IsNull_Rea" +
-                "ding = 1 AND [Reading] IS NULL) OR ([Reading] = @Original_Reading)) AND ((@IsNul" +
-                "l_Assignment1Type = 1 AND [Assignment1Type] IS NULL) OR ([Assignment1Type] = @Or" +
-                "iginal_Assignment1Type)) AND ((@IsNull_Assignment1 = 1 AND [Assignment1] IS NULL" +
-                ") OR ([Assignment1] = @Original_Assignment1)) AND ((@IsNull_Assignment2Type = 1 " +
-                "AND [Assignment2Type] IS NULL) OR ([Assignment2Type] = @Original_Assignment2Type" +
-                ")) AND ((@IsNull_Assignment2 = 1 AND [Assignment2] IS NULL) OR ([Assignment2] = " +
-                "@Original_Assignment2)) AND ((@IsNull_Assignment3Type = 1 AND [Assignment3Type] " +
-                "IS NULL) OR ([Assignment3Type] = @Original_Assignment3Type)) AND ((@IsNull_Assig" +
-                "nment3 = 1 AND [Assignment3] IS NULL) OR ([Assignment3] = @Original_Assignment3)" +
-                ") AND ((@IsNull_Assignment4Type = 1 AND [Assignment4Type] IS NULL) OR ([Assignme" +
-                "nt4Type] = @Original_Assignment4Type)) AND ((@IsNull_Assignment4 = 1 AND [Assign" +
-                "ment4] IS NULL) OR ([Assignment4] = @Original_Assignment4)) AND ((@IsNull_Christ" +
-                "ianLifeAssignment1OnlyVideo = 1 AND [ChristianLifeAssignment1OnlyVideo] IS NULL)" +
-                " OR ([ChristianLifeAssignment1OnlyVideo] = @Original_ChristianLifeAssignment1Onl" +
-                "yVideo)) AND ((@IsNull_ChristianLifeAssignment1Needs = 1 AND [ChristianLifeAssig" +
-                "nment1Needs] IS NULL) OR ([ChristianLifeAssignment1Needs] = @Original_ChristianL" +
-                "ifeAssignment1Needs)) AND ((@IsNull_ChristianLifeAssignment1 = 1 AND [ChristianL" +
-                "ifeAssignment1] IS NULL) OR ([ChristianLifeAssignment1] = @Original_ChristianLif" +
-                "eAssignment1)) AND ((@IsNull_ChristianLifeAssignment2OnlyVideo = 1 AND [Christia" +
-                "nLifeAssignment2OnlyVideo] IS NULL) OR ([ChristianLifeAssignment2OnlyVideo] = @O" +
-                "riginal_ChristianLifeAssignment2OnlyVideo)) AND ((@IsNull_ChristianLifeAssignmen" +
-                "t2Needs = 1 AND [ChristianLifeAssignment2Needs] IS NULL) OR ([ChristianLifeAssig" +
-                "nment2Needs] = @Original_ChristianLifeAssignment2Needs)) AND ((@IsNull_Christian" +
-                "LifeAssignment2 = 1 AND [ChristianLifeAssignment2] IS NULL) OR ([ChristianLifeAs" +
-                "signment2] = @Original_ChristianLifeAssignment2)) AND ((@IsNull_BibleStudy = 1 A" +
-                "ND [BibleStudy] IS NULL) OR ([BibleStudy] = @Original_BibleStudy)) AND ((@IsNull" +
-                "_BibleStudyReader = 1 AND [BibleStudyReader] IS NULL) OR ([BibleStudyReader] = @" +
-                "Original_BibleStudyReader)) AND ((@IsNull_WeekPrayer = 1 AND [WeekPrayer] IS NUL" +
-                "L) OR ([WeekPrayer] = @Original_WeekPrayer)) AND ((@IsNull_WeekendPresident = 1 " +
-                "AND [WeekendPresident] IS NULL) OR ([WeekendPresident] = @Original_WeekendPresid" +
-                "ent)) AND ((@IsNull_PublicSpeech = 1 AND [PublicSpeech] IS NULL) OR ([PublicSpee" +
-                "ch] = @Original_PublicSpeech)) AND ((@IsNull_Watchtower = 1 AND [Watchtower] IS " +
-                "NULL) OR ([Watchtower] = @Original_Watchtower)) AND ((@IsNull_WatchtowerReader =" +
-                " 1 AND [WatchtowerReader] IS NULL) OR ([WatchtowerReader] = @Original_Watchtower" +
-                "Reader)) AND ((@IsNull_FinalSpeech = 1 AND [FinalSpeech] IS NULL) OR ([FinalSpee" +
-                "ch] = @Original_FinalSpeech)) AND ((@IsNull_WeekendPrayer = 1 AND [WeekendPrayer" +
-                "] IS NULL) OR ([WeekendPrayer] = @Original_WeekendPrayer)) AND ((@IsNull_AV = 1 " +
-                "AND [AV] IS NULL) OR ([AV] = @Original_AV)) AND ((@IsNull_Microphone1 = 1 AND [M" +
-                "icrophone1] IS NULL) OR ([Microphone1] = @Original_Microphone1)) AND ((@IsNull_M" +
-                "icrophone2 = 1 AND [Microphone2] IS NULL) OR ([Microphone2] = @Original_Micropho" +
-                "ne2)) AND ((@IsNull_Order1 = 1 AND [Order1] IS NULL) OR ([Order1] = @Original_Or" +
-                "der1)) AND ((@IsNull_Order2 = 1 AND [Order2] IS NULL) OR ([Order2] = @Original_O" +
-                "rder2)) AND ((@IsNull_CleaningGroup = 1 AND [CleaningGroup] IS NULL) OR ([Cleani" +
-                "ngGroup] = @Original_CleaningGroup)));\r\nSELECT WeekStartDate, WeekMeetingDateTim" +
-                "e, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, Treasure" +
-                "sTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type," +
-                " Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christ" +
-                "ianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignm" +
-                "ent1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, Christia" +
-                "nLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, " +
-                "BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPres" +
-                "ident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeec" +
-                "hTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2" +
-                ", CleaningGroup FROM WeeklySchedule WHERE (WeekStartDate = @WeekStartDate)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WeekSchedule] SET [WeekStartDate] = @WeekStartDate, [WeekMeetingDat" +
+                "eTime] = @WeekMeetingDateTime, [WeekendMeetingDateTime] = @WeekendMeetingDateTim" +
+                "e, [Convention] = @Convention, [Memorial] = @Memorial, [Supervisor] = @Superviso" +
+                "r, [President] = @President, [TreasuresTitle] = @TreasuresTitle, [Treasures] = @" +
+                "Treasures, [Gems] = @Gems, [Reading] = @Reading, [Assignment1Type] = @Assignment" +
+                "1Type, [Assignment1] = @Assignment1, [Assignment2Type] = @Assignment2Type, [Assi" +
+                "gnment2] = @Assignment2, [Assignment3Type] = @Assignment3Type, [Assignment3] = @" +
+                "Assignment3, [Assignment4Type] = @Assignment4Type, [Assignment4] = @Assignment4," +
+                " [ChristianLifeAssignment1OnlyVideo] = @ChristianLifeAssignment1OnlyVideo, [Chri" +
+                "stianLifeAssignment1Needs] = @ChristianLifeAssignment1Needs, [ChristianLifeAssig" +
+                "nment1Title] = @ChristianLifeAssignment1Title, [ChristianLifeAssignment1] = @Chr" +
+                "istianLifeAssignment1, [ChristianLifeAssignment2OnlyVideo] = @ChristianLifeAssig" +
+                "nment2OnlyVideo, [ChristianLifeAssignment2Needs] = @ChristianLifeAssignment2Need" +
+                "s, [ChristianLifeAssignment2Title] = @ChristianLifeAssignment2Title, [ChristianL" +
+                "ifeAssignment2] = @ChristianLifeAssignment2, [BibleStudy] = @BibleStudy, [BibleS" +
+                "tudyReader] = @BibleStudyReader, [SupervisorWeekSpeechTitle] = @SupervisorWeekSp" +
+                "eechTitle, [WeekPrayer] = @WeekPrayer, [WeekendPresident] = @WeekendPresident, [" +
+                "PublicSpeechTitle] = @PublicSpeechTitle, [PublicSpeech] = @PublicSpeech, [Watcht" +
+                "ower] = @Watchtower, [WatchtowerReader] = @WatchtowerReader, [FinalSpeechTitle] " +
+                "= @FinalSpeechTitle, [FinalSpeech] = @FinalSpeech, [WeekendPrayer] = @WeekendPra" +
+                "yer, [AV] = @AV, [Microphone1] = @Microphone1, [Microphone2] = @Microphone2, [Or" +
+                "der1] = @Order1, [Order2] = @Order2, [CleaningGroup] = @CleaningGroup WHERE (([W" +
+                "eekStartDate] = @Original_WeekStartDate) AND ((@IsNull_WeekMeetingDateTime = 1 A" +
+                "ND [WeekMeetingDateTime] IS NULL) OR ([WeekMeetingDateTime] = @Original_WeekMeet" +
+                "ingDateTime)) AND ((@IsNull_WeekendMeetingDateTime = 1 AND [WeekendMeetingDateTi" +
+                "me] IS NULL) OR ([WeekendMeetingDateTime] = @Original_WeekendMeetingDateTime)) A" +
+                "ND ((@IsNull_Convention = 1 AND [Convention] IS NULL) OR ([Convention] = @Origin" +
+                "al_Convention)) AND ((@IsNull_Memorial = 1 AND [Memorial] IS NULL) OR ([Memorial" +
+                "] = @Original_Memorial)) AND ((@IsNull_Supervisor = 1 AND [Supervisor] IS NULL) " +
+                "OR ([Supervisor] = @Original_Supervisor)) AND ((@IsNull_President = 1 AND [Presi" +
+                "dent] IS NULL) OR ([President] = @Original_President)) AND ((@IsNull_Treasures =" +
+                " 1 AND [Treasures] IS NULL) OR ([Treasures] = @Original_Treasures)) AND ((@IsNul" +
+                "l_Gems = 1 AND [Gems] IS NULL) OR ([Gems] = @Original_Gems)) AND ((@IsNull_Readi" +
+                "ng = 1 AND [Reading] IS NULL) OR ([Reading] = @Original_Reading)) AND ((@IsNull_" +
+                "Assignment1Type = 1 AND [Assignment1Type] IS NULL) OR ([Assignment1Type] = @Orig" +
+                "inal_Assignment1Type)) AND ((@IsNull_Assignment1 = 1 AND [Assignment1] IS NULL) " +
+                "OR ([Assignment1] = @Original_Assignment1)) AND ((@IsNull_Assignment2Type = 1 AN" +
+                "D [Assignment2Type] IS NULL) OR ([Assignment2Type] = @Original_Assignment2Type))" +
+                " AND ((@IsNull_Assignment2 = 1 AND [Assignment2] IS NULL) OR ([Assignment2] = @O" +
+                "riginal_Assignment2)) AND ((@IsNull_Assignment3Type = 1 AND [Assignment3Type] IS" +
+                " NULL) OR ([Assignment3Type] = @Original_Assignment3Type)) AND ((@IsNull_Assignm" +
+                "ent3 = 1 AND [Assignment3] IS NULL) OR ([Assignment3] = @Original_Assignment3)) " +
+                "AND ((@IsNull_Assignment4Type = 1 AND [Assignment4Type] IS NULL) OR ([Assignment" +
+                "4Type] = @Original_Assignment4Type)) AND ((@IsNull_Assignment4 = 1 AND [Assignme" +
+                "nt4] IS NULL) OR ([Assignment4] = @Original_Assignment4)) AND ((@IsNull_Christia" +
+                "nLifeAssignment1OnlyVideo = 1 AND [ChristianLifeAssignment1OnlyVideo] IS NULL) O" +
+                "R ([ChristianLifeAssignment1OnlyVideo] = @Original_ChristianLifeAssignment1OnlyV" +
+                "ideo)) AND ((@IsNull_ChristianLifeAssignment1Needs = 1 AND [ChristianLifeAssignm" +
+                "ent1Needs] IS NULL) OR ([ChristianLifeAssignment1Needs] = @Original_ChristianLif" +
+                "eAssignment1Needs)) AND ((@IsNull_ChristianLifeAssignment1 = 1 AND [ChristianLif" +
+                "eAssignment1] IS NULL) OR ([ChristianLifeAssignment1] = @Original_ChristianLifeA" +
+                "ssignment1)) AND ((@IsNull_ChristianLifeAssignment2OnlyVideo = 1 AND [ChristianL" +
+                "ifeAssignment2OnlyVideo] IS NULL) OR ([ChristianLifeAssignment2OnlyVideo] = @Ori" +
+                "ginal_ChristianLifeAssignment2OnlyVideo)) AND ((@IsNull_ChristianLifeAssignment2" +
+                "Needs = 1 AND [ChristianLifeAssignment2Needs] IS NULL) OR ([ChristianLifeAssignm" +
+                "ent2Needs] = @Original_ChristianLifeAssignment2Needs)) AND ((@IsNull_ChristianLi" +
+                "feAssignment2 = 1 AND [ChristianLifeAssignment2] IS NULL) OR ([ChristianLifeAssi" +
+                "gnment2] = @Original_ChristianLifeAssignment2)) AND ((@IsNull_BibleStudy = 1 AND" +
+                " [BibleStudy] IS NULL) OR ([BibleStudy] = @Original_BibleStudy)) AND ((@IsNull_B" +
+                "ibleStudyReader = 1 AND [BibleStudyReader] IS NULL) OR ([BibleStudyReader] = @Or" +
+                "iginal_BibleStudyReader)) AND ((@IsNull_WeekPrayer = 1 AND [WeekPrayer] IS NULL)" +
+                " OR ([WeekPrayer] = @Original_WeekPrayer)) AND ((@IsNull_WeekendPresident = 1 AN" +
+                "D [WeekendPresident] IS NULL) OR ([WeekendPresident] = @Original_WeekendPresiden" +
+                "t)) AND ((@IsNull_PublicSpeech = 1 AND [PublicSpeech] IS NULL) OR ([PublicSpeech" +
+                "] = @Original_PublicSpeech)) AND ((@IsNull_Watchtower = 1 AND [Watchtower] IS NU" +
+                "LL) OR ([Watchtower] = @Original_Watchtower)) AND ((@IsNull_WatchtowerReader = 1" +
+                " AND [WatchtowerReader] IS NULL) OR ([WatchtowerReader] = @Original_WatchtowerRe" +
+                "ader)) AND ((@IsNull_FinalSpeech = 1 AND [FinalSpeech] IS NULL) OR ([FinalSpeech" +
+                "] = @Original_FinalSpeech)) AND ((@IsNull_WeekendPrayer = 1 AND [WeekendPrayer] " +
+                "IS NULL) OR ([WeekendPrayer] = @Original_WeekendPrayer)) AND ((@IsNull_AV = 1 AN" +
+                "D [AV] IS NULL) OR ([AV] = @Original_AV)) AND ((@IsNull_Microphone1 = 1 AND [Mic" +
+                "rophone1] IS NULL) OR ([Microphone1] = @Original_Microphone1)) AND ((@IsNull_Mic" +
+                "rophone2 = 1 AND [Microphone2] IS NULL) OR ([Microphone2] = @Original_Microphone" +
+                "2)) AND ((@IsNull_Order1 = 1 AND [Order1] IS NULL) OR ([Order1] = @Original_Orde" +
+                "r1)) AND ((@IsNull_Order2 = 1 AND [Order2] IS NULL) OR ([Order2] = @Original_Ord" +
+                "er2)) AND ((@IsNull_CleaningGroup = 1 AND [CleaningGroup] IS NULL) OR ([Cleaning" +
+                "Group] = @Original_CleaningGroup)));\r\nSELECT WeekStartDate, WeekMeetingDateTime," +
+                " WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresT" +
+                "itle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, A" +
+                "ssignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christia" +
+                "nLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignmen" +
+                "t1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianL" +
+                "ifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, Bi" +
+                "bleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresid" +
+                "ent, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechT" +
+                "itle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, " +
+                "CleaningGroup FROM WeekSchedule WHERE (WeekStartDate = @WeekStartDate)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22757,7 +23119,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup FROM dbo.WeeklySchedule";
+            this._commandCollection[0].CommandText = @"SELECT WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup FROM dbo.WeekSchedule";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -22765,7 +23127,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ScheduleDBDataSet.WeeklyScheduleDataTable dataTable) {
+        public virtual int Fill(ScheduleDBDataSet.WeekScheduleDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -22778,9 +23140,9 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ScheduleDBDataSet.WeeklyScheduleDataTable GetData() {
+        public virtual ScheduleDBDataSet.WeekScheduleDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ScheduleDBDataSet.WeeklyScheduleDataTable dataTable = new ScheduleDBDataSet.WeeklyScheduleDataTable();
+            ScheduleDBDataSet.WeekScheduleDataTable dataTable = new ScheduleDBDataSet.WeekScheduleDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -22788,7 +23150,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScheduleDBDataSet.WeeklyScheduleDataTable dataTable) {
+        public virtual int Update(ScheduleDBDataSet.WeekScheduleDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -22796,7 +23158,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(ScheduleDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "WeeklySchedule");
+            return this.Adapter.Update(dataSet, "WeekSchedule");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -24278,369 +24640,6 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM Weeke
     }
     
     /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class WeekPresidentTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public WeekPresidentTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "WeekPresident";
-            tableMapping.ColumnMappings.Add("PersonName", "PersonName");
-            tableMapping.ColumnMappings.Add("DefaultFrequency", "DefaultFrequency");
-            tableMapping.ColumnMappings.Add("Frequency", "Frequency");
-            tableMapping.ColumnMappings.Add("NextAssignmentInWeeks", "NextAssignmentInWeeks");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[WeekPresident] WHERE (([PersonName] = @Original_PersonName) AND ([DefaultFrequency] = @Original_DefaultFrequency) AND ((@IsNull_Frequency = 1 AND [Frequency] IS NULL) OR ([Frequency] = @Original_Frequency)) AND ([NextAssignmentInWeeks] = @Original_NextAssignmentInWeeks))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[WeekPresident] ([PersonName], [DefaultFrequency], [Frequency], [NextAssignmentInWeeks]) VALUES (@PersonName, @DefaultFrequency, @Frequency, @NextAssignmentInWeeks);
-SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekPresident WHERE (PersonName = @PersonName)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[WeekPresident] SET [PersonName] = @PersonName, [DefaultFrequency] = @DefaultFrequency, [Frequency] = @Frequency, [NextAssignmentInWeeks] = @NextAssignmentInWeeks WHERE (([PersonName] = @Original_PersonName) AND ([DefaultFrequency] = @Original_DefaultFrequency) AND ((@IsNull_Frequency = 1 AND [Frequency] IS NULL) OR ([Frequency] = @Original_Frequency)) AND ([NextAssignmentInWeeks] = @Original_NextAssignmentInWeeks));
-SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekPresident WHERE (PersonName = @PersonName)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PersonName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PersonName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DefaultFrequency", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DefaultFrequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Frequency", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Frequency", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NextAssignmentInWeeks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NextAssignmentInWeeks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::JWMeetingSchedule.Properties.Settings.Default.ScheduleDBConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM dbo.We" +
-                "ekPresident";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ScheduleDBDataSet.WeekPresidentDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ScheduleDBDataSet.WeekPresidentDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            ScheduleDBDataSet.WeekPresidentDataTable dataTable = new ScheduleDBDataSet.WeekPresidentDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScheduleDBDataSet.WeekPresidentDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ScheduleDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "WeekPresident");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
-            if ((Original_PersonName == null)) {
-                throw new global::System.ArgumentNullException("Original_PersonName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_PersonName));
-            }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_DefaultFrequency));
-            if ((Original_Frequency.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Frequency.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_NextAssignmentInWeeks));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string PersonName, bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks) {
-            if ((PersonName == null)) {
-                throw new global::System.ArgumentNullException("PersonName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(PersonName));
-            }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((bool)(DefaultFrequency));
-            if ((Frequency.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Frequency.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(NextAssignmentInWeeks));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string PersonName, bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks, string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
-            if ((PersonName == null)) {
-                throw new global::System.ArgumentNullException("PersonName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(PersonName));
-            }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((bool)(DefaultFrequency));
-            if ((Frequency.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Frequency.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(NextAssignmentInWeeks));
-            if ((Original_PersonName == null)) {
-                throw new global::System.ArgumentNullException("Original_PersonName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_PersonName));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Original_DefaultFrequency));
-            if ((Original_Frequency.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Frequency.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_NextAssignmentInWeeks));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(bool DefaultFrequency, global::System.Nullable<int> Frequency, int NextAssignmentInWeeks, string Original_PersonName, bool Original_DefaultFrequency, global::System.Nullable<int> Original_Frequency, int Original_NextAssignmentInWeeks) {
-            return this.Update(Original_PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks, Original_PersonName, Original_DefaultFrequency, Original_Frequency, Original_NextAssignmentInWeeks);
-        }
-    }
-    
-    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -24698,9 +24697,9 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
         
         private WeekendPresidentTableAdapter _weekendPresidentTableAdapter;
         
-        private WeeklyScheduleTableAdapter _weeklyScheduleTableAdapter;
-        
         private WeekPresidentTableAdapter _weekPresidentTableAdapter;
+        
+        private WeekScheduleTableAdapter _weekScheduleTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -25044,12 +25043,12 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public WeeklyScheduleTableAdapter WeeklyScheduleTableAdapter {
+        public WeekPresidentTableAdapter WeekPresidentTableAdapter {
             get {
-                return this._weeklyScheduleTableAdapter;
+                return this._weekPresidentTableAdapter;
             }
             set {
-                this._weeklyScheduleTableAdapter = value;
+                this._weekPresidentTableAdapter = value;
             }
         }
         
@@ -25058,12 +25057,12 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public WeekPresidentTableAdapter WeekPresidentTableAdapter {
+        public WeekScheduleTableAdapter WeekScheduleTableAdapter {
             get {
-                return this._weekPresidentTableAdapter;
+                return this._weekScheduleTableAdapter;
             }
             set {
-                this._weekPresidentTableAdapter = value;
+                this._weekScheduleTableAdapter = value;
             }
         }
         
@@ -25178,13 +25177,13 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                             && (this._weekendPresidentTableAdapter.Connection != null))) {
                     return this._weekendPresidentTableAdapter.Connection;
                 }
-                if (((this._weeklyScheduleTableAdapter != null) 
-                            && (this._weeklyScheduleTableAdapter.Connection != null))) {
-                    return this._weeklyScheduleTableAdapter.Connection;
-                }
                 if (((this._weekPresidentTableAdapter != null) 
                             && (this._weekPresidentTableAdapter.Connection != null))) {
                     return this._weekPresidentTableAdapter.Connection;
+                }
+                if (((this._weekScheduleTableAdapter != null) 
+                            && (this._weekScheduleTableAdapter.Connection != null))) {
+                    return this._weekScheduleTableAdapter.Connection;
                 }
                 return null;
             }
@@ -25268,10 +25267,10 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 if ((this._weekendPresidentTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._weeklyScheduleTableAdapter != null)) {
+                if ((this._weekPresidentTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._weekPresidentTableAdapter != null)) {
+                if ((this._weekScheduleTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -25492,21 +25491,21 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._weeklyScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.WeeklySchedule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._weeklyScheduleTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._weekPresidentTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.WeekPresident.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._weekPresidentTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._weekScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.WeekSchedule.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._weekScheduleTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -25704,19 +25703,19 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._weeklyScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.WeeklySchedule.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._weeklyScheduleTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._weekPresidentTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.WeekPresident.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._weekPresidentTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._weekScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.WeekSchedule.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._weekScheduleTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -25730,19 +25729,19 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(ScheduleDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._weekScheduleTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.WeekSchedule.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._weekScheduleTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._weekPresidentTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.WeekPresident.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._weekPresidentTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._weeklyScheduleTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.WeeklySchedule.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._weeklyScheduleTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -26084,13 +26083,13 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._weeklyScheduleTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._weeklyScheduleTableAdapter.Connection) == false))) {
+            if (((this._weekPresidentTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._weekPresidentTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._weekPresidentTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._weekPresidentTableAdapter.Connection) == false))) {
+            if (((this._weekScheduleTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._weekScheduleTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -26333,15 +26332,6 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                         adaptersWithAcceptChangesDuringUpdate.Add(this._weekendPresidentTableAdapter.Adapter);
                     }
                 }
-                if ((this._weeklyScheduleTableAdapter != null)) {
-                    revertConnections.Add(this._weeklyScheduleTableAdapter, this._weeklyScheduleTableAdapter.Connection);
-                    this._weeklyScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._weeklyScheduleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._weeklyScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._weeklyScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._weeklyScheduleTableAdapter.Adapter);
-                    }
-                }
                 if ((this._weekPresidentTableAdapter != null)) {
                     revertConnections.Add(this._weekPresidentTableAdapter, this._weekPresidentTableAdapter.Connection);
                     this._weekPresidentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -26349,6 +26339,15 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     if (this._weekPresidentTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._weekPresidentTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._weekPresidentTableAdapter.Adapter);
+                    }
+                }
+                if ((this._weekScheduleTableAdapter != null)) {
+                    revertConnections.Add(this._weekScheduleTableAdapter, this._weekScheduleTableAdapter.Connection);
+                    this._weekScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._weekScheduleTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._weekScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._weekScheduleTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._weekScheduleTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -26501,13 +26500,13 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     this._weekendPresidentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weekendPresidentTableAdapter]));
                     this._weekendPresidentTableAdapter.Transaction = null;
                 }
-                if ((this._weeklyScheduleTableAdapter != null)) {
-                    this._weeklyScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weeklyScheduleTableAdapter]));
-                    this._weeklyScheduleTableAdapter.Transaction = null;
-                }
                 if ((this._weekPresidentTableAdapter != null)) {
                     this._weekPresidentTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weekPresidentTableAdapter]));
                     this._weekPresidentTableAdapter.Transaction = null;
+                }
+                if ((this._weekScheduleTableAdapter != null)) {
+                    this._weekScheduleTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._weekScheduleTableAdapter]));
+                    this._weekScheduleTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

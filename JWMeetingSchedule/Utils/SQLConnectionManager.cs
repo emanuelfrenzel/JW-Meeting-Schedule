@@ -20,38 +20,46 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System.Collections.Generic;
-using System.IO;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace Utils.Collections.Generic
+namespace Utils
 {
-    public static class UtilsCollectionsGeneric
+    public static class SQLConnectionManager
     {
-        public static bool AddLinesFromFile(this List<string> list, string fileName, uint numberOfLines = uint.MaxValue)
+        public static string ConnectionString { get; set; }
+
+        //Use this method only if the ConnectionString property was already set
+        public static DataTable Read(string command)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            {
+                return ReadTransaction(connection, command);
+            }
+        }
+
+        public static DataTable Read(string connectionString, string command)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                return ReadTransaction(connection, command);
+            }
+        }
+
+        public static DataTable ReadTransaction(SqlConnection connection, string command)
         {
             try
             {
-                var reader = new StreamReader(fileName);
-                if (numberOfLines != uint.MaxValue)
-                {
-                    for (var i = 0; i < numberOfLines; ++i)
-                    {
-                        list.Add(reader.ReadLine());
-                    }
-                }
-                else
-                {
-                    while (!reader.EndOfStream)
-                    {
-                        list.Add(reader.ReadLine());
-                    }
-                }
+                connection.Open();
+                var dataAdapter = new SqlDataAdapter(command, connection);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
             }
             catch
             {
-                return true;
+                return null;
             }
-            return false;
         }
     }
 }

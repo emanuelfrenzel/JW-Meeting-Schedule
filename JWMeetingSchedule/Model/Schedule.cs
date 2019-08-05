@@ -22,6 +22,7 @@ namespace JWMeetingSchedule.Model
             {
                 var stringStart = match.Index + match.Length;
                 var startDate = fileContent.Substring(stringStart, 10);
+                //var week = new WeekScheduleDataSet.
                 var week = new WeekSchedule(DateTime.Parse(startDate,
                           new CultureInfo("ro-Ro")));
                 weeks.Add(week);
