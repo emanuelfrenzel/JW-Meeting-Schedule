@@ -18,8 +18,7 @@ namespace JWMeetingSchedule.Model
             var weeks = new List<WeekSchedule>();
             foreach (Match match in Regex.Matches(fileContent, "Săptămâna care începe la "))
             {
-                var stringStart = match.Index + match.Length;
-                var dataString = fileContent.Substring(stringStart);
+                var dataString = fileContent.Substring(match.Index + match.Length);
                 var week = new WeekSchedule(dataString);
                 weeks.Add(week);
             }

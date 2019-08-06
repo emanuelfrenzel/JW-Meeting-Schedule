@@ -27,6 +27,11 @@ namespace JWMeetingSchedule.Utils
 {
     public static class Utils
     {
+        public static string TrimEnd(this string s, string trimString)
+        {
+            return s.Remove(trimString);
+        }
+
         public static string Remove(this string s, string startString)
         {
             var match = Regex.Match(s, startString);

@@ -24,6 +24,8 @@ namespace JWMeetingSchedule.DB {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class ScheduleDBDataSet : global::System.Data.DataSet {
         
+        private AssignmentTypesDataTable tableAssignmentTypes;
+        
         private AssistDataTable tableAssist;
         
         private AVDataTable tableAV;
@@ -146,6 +148,9 @@ namespace JWMeetingSchedule.DB {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                if ((ds.Tables["AssignmentTypes"] != null)) {
+                    base.Tables.Add(new AssignmentTypesDataTable(ds.Tables["AssignmentTypes"]));
+                }
                 if ((ds.Tables["Assist"] != null)) {
                     base.Tables.Add(new AssistDataTable(ds.Tables["Assist"]));
                 }
@@ -237,6 +242,16 @@ namespace JWMeetingSchedule.DB {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AssignmentTypesDataTable AssignmentTypes {
+            get {
+                return this.tableAssignmentTypes;
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -556,6 +571,9 @@ namespace JWMeetingSchedule.DB {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
+                if ((ds.Tables["AssignmentTypes"] != null)) {
+                    base.Tables.Add(new AssignmentTypesDataTable(ds.Tables["AssignmentTypes"]));
+                }
                 if ((ds.Tables["Assist"] != null)) {
                     base.Tables.Add(new AssistDataTable(ds.Tables["Assist"]));
                 }
@@ -664,6 +682,12 @@ namespace JWMeetingSchedule.DB {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
+            this.tableAssignmentTypes = ((AssignmentTypesDataTable)(base.Tables["AssignmentTypes"]));
+            if ((initTable == true)) {
+                if ((this.tableAssignmentTypes != null)) {
+                    this.tableAssignmentTypes.InitVars();
+                }
+            }
             this.tableAssist = ((AssistDataTable)(base.Tables["Assist"]));
             if ((initTable == true)) {
                 if ((this.tableAssist != null)) {
@@ -846,6 +870,8 @@ namespace JWMeetingSchedule.DB {
             this.Namespace = "http://tempuri.org/ScheduleDBDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
+            this.tableAssignmentTypes = new AssignmentTypesDataTable();
+            base.Tables.Add(this.tableAssignmentTypes);
             this.tableAssist = new AssistDataTable();
             base.Tables.Add(this.tableAssist);
             this.tableAV = new AVDataTable();
@@ -984,6 +1010,12 @@ namespace JWMeetingSchedule.DB {
                         this.tablePerson.PersonNameColumn}, new global::System.Data.DataColumn[] {
                         this.tableWeekPresident.PersonNameColumn}, false);
             this.Relations.Add(this.relationFK_WeekPresident_ToPerson);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeAssignmentTypes() {
+            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1192,6 +1224,9 @@ namespace JWMeetingSchedule.DB {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void AssignmentTypesRowChangeEventHandler(object sender, AssignmentTypesRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void AssistRowChangeEventHandler(object sender, AssistRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1265,6 +1300,280 @@ namespace JWMeetingSchedule.DB {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void WeekScheduleRowChangeEventHandler(object sender, WeekScheduleRowChangeEvent e);
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class AssignmentTypesDataTable : global::System.Data.TypedTableBase<AssignmentTypesRow> {
+            
+            private global::System.Data.DataColumn columnAssignmentName;
+            
+            private global::System.Data.DataColumn columnChristianLifeAssignment;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesDataTable() {
+                this.TableName = "AssignmentTypes";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal AssignmentTypesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected AssignmentTypesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AssignmentNameColumn {
+                get {
+                    return this.columnAssignmentName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ChristianLifeAssignmentColumn {
+                get {
+                    return this.columnChristianLifeAssignment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRow this[int index] {
+                get {
+                    return ((AssignmentTypesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event AssignmentTypesRowChangeEventHandler AssignmentTypesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event AssignmentTypesRowChangeEventHandler AssignmentTypesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event AssignmentTypesRowChangeEventHandler AssignmentTypesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event AssignmentTypesRowChangeEventHandler AssignmentTypesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddAssignmentTypesRow(AssignmentTypesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRow AddAssignmentTypesRow(string AssignmentName, bool ChristianLifeAssignment) {
+                AssignmentTypesRow rowAssignmentTypesRow = ((AssignmentTypesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        AssignmentName,
+                        ChristianLifeAssignment};
+                rowAssignmentTypesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAssignmentTypesRow);
+                return rowAssignmentTypesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRow FindByAssignmentName(string AssignmentName) {
+                return ((AssignmentTypesRow)(this.Rows.Find(new object[] {
+                            AssignmentName})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                AssignmentTypesDataTable cln = ((AssignmentTypesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new AssignmentTypesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnAssignmentName = base.Columns["AssignmentName"];
+                this.columnChristianLifeAssignment = base.Columns["ChristianLifeAssignment"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnAssignmentName = new global::System.Data.DataColumn("AssignmentName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssignmentName);
+                this.columnChristianLifeAssignment = new global::System.Data.DataColumn("ChristianLifeAssignment", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChristianLifeAssignment);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnAssignmentName}, true));
+                this.columnAssignmentName.AllowDBNull = false;
+                this.columnAssignmentName.Unique = true;
+                this.columnAssignmentName.MaxLength = 50;
+                this.columnChristianLifeAssignment.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRow NewAssignmentTypesRow() {
+                return ((AssignmentTypesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new AssignmentTypesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(AssignmentTypesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AssignmentTypesRowChanged != null)) {
+                    this.AssignmentTypesRowChanged(this, new AssignmentTypesRowChangeEvent(((AssignmentTypesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AssignmentTypesRowChanging != null)) {
+                    this.AssignmentTypesRowChanging(this, new AssignmentTypesRowChangeEvent(((AssignmentTypesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AssignmentTypesRowDeleted != null)) {
+                    this.AssignmentTypesRowDeleted(this, new AssignmentTypesRowChangeEvent(((AssignmentTypesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AssignmentTypesRowDeleting != null)) {
+                    this.AssignmentTypesRowDeleting(this, new AssignmentTypesRowChangeEvent(((AssignmentTypesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveAssignmentTypesRow(AssignmentTypesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ScheduleDBDataSet ds = new ScheduleDBDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "AssignmentTypesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -8613,6 +8922,8 @@ namespace JWMeetingSchedule.DB {
             
             private global::System.Data.DataColumn columnMemorial;
             
+            private global::System.Data.DataColumn columnExtraInfo;
+            
             private global::System.Data.DataColumn columnSupervisor;
             
             private global::System.Data.DataColumn columnPresident;
@@ -8629,17 +8940,25 @@ namespace JWMeetingSchedule.DB {
             
             private global::System.Data.DataColumn columnAssignment1;
             
+            private global::System.Data.DataColumn columnAssignment1Assist;
+            
             private global::System.Data.DataColumn columnAssignment2Type;
             
             private global::System.Data.DataColumn columnAssignment2;
+            
+            private global::System.Data.DataColumn columnAssignment2Assist;
             
             private global::System.Data.DataColumn columnAssignment3Type;
             
             private global::System.Data.DataColumn columnAssignment3;
             
+            private global::System.Data.DataColumn columnAssignment3Assist;
+            
             private global::System.Data.DataColumn columnAssignment4Type;
             
             private global::System.Data.DataColumn columnAssignment4;
+            
+            private global::System.Data.DataColumn columnAssignment4Assist;
             
             private global::System.Data.DataColumn columnChristianLifeAssignment1OnlyVideo;
             
@@ -8768,6 +9087,14 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ExtraInfoColumn {
+                get {
+                    return this.columnExtraInfo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn SupervisorColumn {
                 get {
                     return this.columnSupervisor;
@@ -8832,6 +9159,14 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Assignment1AssistColumn {
+                get {
+                    return this.columnAssignment1Assist;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Assignment2TypeColumn {
                 get {
                     return this.columnAssignment2Type;
@@ -8843,6 +9178,14 @@ namespace JWMeetingSchedule.DB {
             public global::System.Data.DataColumn Assignment2Column {
                 get {
                     return this.columnAssignment2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Assignment2AssistColumn {
+                get {
+                    return this.columnAssignment2Assist;
                 }
             }
             
@@ -8864,6 +9207,14 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Assignment3AssistColumn {
+                get {
+                    return this.columnAssignment3Assist;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn Assignment4TypeColumn {
                 get {
                     return this.columnAssignment4Type;
@@ -8875,6 +9226,14 @@ namespace JWMeetingSchedule.DB {
             public global::System.Data.DataColumn Assignment4Column {
                 get {
                     return this.columnAssignment4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Assignment4AssistColumn {
+                get {
+                    return this.columnAssignment4Assist;
                 }
             }
             
@@ -9129,6 +9488,7 @@ namespace JWMeetingSchedule.DB {
                         System.DateTime WeekendMeetingDateTime, 
                         bool Convention, 
                         bool Memorial, 
+                        string ExtraInfo, 
                         bool Supervisor, 
                         string President, 
                         string TreasuresTitle, 
@@ -9137,12 +9497,16 @@ namespace JWMeetingSchedule.DB {
                         string Reading, 
                         string Assignment1Type, 
                         string Assignment1, 
+                        string Assignment1Assist, 
                         string Assignment2Type, 
                         string Assignment2, 
+                        string Assignment2Assist, 
                         string Assignment3Type, 
                         string Assignment3, 
+                        string Assignment3Assist, 
                         string Assignment4Type, 
                         string Assignment4, 
+                        string Assignment4Assist, 
                         bool ChristianLifeAssignment1OnlyVideo, 
                         bool ChristianLifeAssignment1Needs, 
                         string ChristianLifeAssignment1Title, 
@@ -9176,6 +9540,7 @@ namespace JWMeetingSchedule.DB {
                         WeekendMeetingDateTime,
                         Convention,
                         Memorial,
+                        ExtraInfo,
                         Supervisor,
                         President,
                         TreasuresTitle,
@@ -9184,12 +9549,16 @@ namespace JWMeetingSchedule.DB {
                         Reading,
                         Assignment1Type,
                         Assignment1,
+                        Assignment1Assist,
                         Assignment2Type,
                         Assignment2,
+                        Assignment2Assist,
                         Assignment3Type,
                         Assignment3,
+                        Assignment3Assist,
                         Assignment4Type,
                         Assignment4,
+                        Assignment4Assist,
                         ChristianLifeAssignment1OnlyVideo,
                         ChristianLifeAssignment1Needs,
                         ChristianLifeAssignment1Title,
@@ -9250,6 +9619,7 @@ namespace JWMeetingSchedule.DB {
                 this.columnWeekendMeetingDateTime = base.Columns["WeekendMeetingDateTime"];
                 this.columnConvention = base.Columns["Convention"];
                 this.columnMemorial = base.Columns["Memorial"];
+                this.columnExtraInfo = base.Columns["ExtraInfo"];
                 this.columnSupervisor = base.Columns["Supervisor"];
                 this.columnPresident = base.Columns["President"];
                 this.columnTreasuresTitle = base.Columns["TreasuresTitle"];
@@ -9258,12 +9628,16 @@ namespace JWMeetingSchedule.DB {
                 this.columnReading = base.Columns["Reading"];
                 this.columnAssignment1Type = base.Columns["Assignment1Type"];
                 this.columnAssignment1 = base.Columns["Assignment1"];
+                this.columnAssignment1Assist = base.Columns["Assignment1Assist"];
                 this.columnAssignment2Type = base.Columns["Assignment2Type"];
                 this.columnAssignment2 = base.Columns["Assignment2"];
+                this.columnAssignment2Assist = base.Columns["Assignment2Assist"];
                 this.columnAssignment3Type = base.Columns["Assignment3Type"];
                 this.columnAssignment3 = base.Columns["Assignment3"];
+                this.columnAssignment3Assist = base.Columns["Assignment3Assist"];
                 this.columnAssignment4Type = base.Columns["Assignment4Type"];
                 this.columnAssignment4 = base.Columns["Assignment4"];
+                this.columnAssignment4Assist = base.Columns["Assignment4Assist"];
                 this.columnChristianLifeAssignment1OnlyVideo = base.Columns["ChristianLifeAssignment1OnlyVideo"];
                 this.columnChristianLifeAssignment1Needs = base.Columns["ChristianLifeAssignment1Needs"];
                 this.columnChristianLifeAssignment1Title = base.Columns["ChristianLifeAssignment1Title"];
@@ -9305,6 +9679,8 @@ namespace JWMeetingSchedule.DB {
                 base.Columns.Add(this.columnConvention);
                 this.columnMemorial = new global::System.Data.DataColumn("Memorial", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMemorial);
+                this.columnExtraInfo = new global::System.Data.DataColumn("ExtraInfo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExtraInfo);
                 this.columnSupervisor = new global::System.Data.DataColumn("Supervisor", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSupervisor);
                 this.columnPresident = new global::System.Data.DataColumn("President", typeof(string), null, global::System.Data.MappingType.Element);
@@ -9321,18 +9697,26 @@ namespace JWMeetingSchedule.DB {
                 base.Columns.Add(this.columnAssignment1Type);
                 this.columnAssignment1 = new global::System.Data.DataColumn("Assignment1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment1);
+                this.columnAssignment1Assist = new global::System.Data.DataColumn("Assignment1Assist", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssignment1Assist);
                 this.columnAssignment2Type = new global::System.Data.DataColumn("Assignment2Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment2Type);
                 this.columnAssignment2 = new global::System.Data.DataColumn("Assignment2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment2);
+                this.columnAssignment2Assist = new global::System.Data.DataColumn("Assignment2Assist", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssignment2Assist);
                 this.columnAssignment3Type = new global::System.Data.DataColumn("Assignment3Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment3Type);
                 this.columnAssignment3 = new global::System.Data.DataColumn("Assignment3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment3);
+                this.columnAssignment3Assist = new global::System.Data.DataColumn("Assignment3Assist", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssignment3Assist);
                 this.columnAssignment4Type = new global::System.Data.DataColumn("Assignment4Type", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment4Type);
                 this.columnAssignment4 = new global::System.Data.DataColumn("Assignment4", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAssignment4);
+                this.columnAssignment4Assist = new global::System.Data.DataColumn("Assignment4Assist", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAssignment4Assist);
                 this.columnChristianLifeAssignment1OnlyVideo = new global::System.Data.DataColumn("ChristianLifeAssignment1OnlyVideo", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChristianLifeAssignment1OnlyVideo);
                 this.columnChristianLifeAssignment1Needs = new global::System.Data.DataColumn("ChristianLifeAssignment1Needs", typeof(bool), null, global::System.Data.MappingType.Element);
@@ -9389,6 +9773,7 @@ namespace JWMeetingSchedule.DB {
                                 this.columnWeekStartDate}, true));
                 this.columnWeekStartDate.AllowDBNull = false;
                 this.columnWeekStartDate.Unique = true;
+                this.columnExtraInfo.MaxLength = 2147483647;
                 this.columnPresident.MaxLength = 50;
                 this.columnTreasuresTitle.MaxLength = 2147483647;
                 this.columnTreasures.MaxLength = 50;
@@ -9396,12 +9781,16 @@ namespace JWMeetingSchedule.DB {
                 this.columnReading.MaxLength = 50;
                 this.columnAssignment1Type.MaxLength = 50;
                 this.columnAssignment1.MaxLength = 50;
+                this.columnAssignment1Assist.MaxLength = 50;
                 this.columnAssignment2Type.MaxLength = 50;
                 this.columnAssignment2.MaxLength = 50;
+                this.columnAssignment2Assist.MaxLength = 50;
                 this.columnAssignment3Type.MaxLength = 50;
                 this.columnAssignment3.MaxLength = 50;
+                this.columnAssignment3Assist.MaxLength = 50;
                 this.columnAssignment4Type.MaxLength = 50;
                 this.columnAssignment4.MaxLength = 50;
+                this.columnAssignment4Assist.MaxLength = 50;
                 this.columnChristianLifeAssignment1Title.MaxLength = 2147483647;
                 this.columnChristianLifeAssignment1.MaxLength = 50;
                 this.columnChristianLifeAssignment2Title.MaxLength = 2147483647;
@@ -9546,6 +9935,43 @@ namespace JWMeetingSchedule.DB {
                 }
                 xs.Add(dsSchema);
                 return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AssignmentTypesRow : global::System.Data.DataRow {
+            
+            private AssignmentTypesDataTable tableAssignmentTypes;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal AssignmentTypesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAssignmentTypes = ((AssignmentTypesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AssignmentName {
+                get {
+                    return ((string)(this[this.tableAssignmentTypes.AssignmentNameColumn]));
+                }
+                set {
+                    this[this.tableAssignmentTypes.AssignmentNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool ChristianLifeAssignment {
+                get {
+                    return ((bool)(this[this.tableAssignmentTypes.ChristianLifeAssignmentColumn]));
+                }
+                set {
+                    this[this.tableAssignmentTypes.ChristianLifeAssignmentColumn] = value;
+                }
             }
         }
         
@@ -11869,6 +12295,22 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ExtraInfo {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.ExtraInfoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ExtraInfo\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.ExtraInfoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Supervisor {
                 get {
                     try {
@@ -11997,6 +12439,22 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment1Assist {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment1AssistColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment1Assist\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment1AssistColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Assignment2Type {
                 get {
                     try {
@@ -12024,6 +12482,22 @@ namespace JWMeetingSchedule.DB {
                 }
                 set {
                     this[this.tableWeekSchedule.Assignment2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment2Assist {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment2AssistColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment2Assist\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment2AssistColumn] = value;
                 }
             }
             
@@ -12061,6 +12535,22 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment3Assist {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment3AssistColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment3Assist\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment3AssistColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Assignment4Type {
                 get {
                     try {
@@ -12088,6 +12578,22 @@ namespace JWMeetingSchedule.DB {
                 }
                 set {
                     this[this.tableWeekSchedule.Assignment4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Assignment4Assist {
+                get {
+                    try {
+                        return ((string)(this[this.tableWeekSchedule.Assignment4AssistColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Assignment4Assist\' in table \'WeekSchedule\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWeekSchedule.Assignment4AssistColumn] = value;
                 }
             }
             
@@ -12566,6 +13072,18 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsExtraInfoNull() {
+                return this.IsNull(this.tableWeekSchedule.ExtraInfoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetExtraInfoNull() {
+                this[this.tableWeekSchedule.ExtraInfoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSupervisorNull() {
                 return this.IsNull(this.tableWeekSchedule.SupervisorColumn);
             }
@@ -12662,6 +13180,18 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment1AssistNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment1AssistColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment1AssistNull() {
+                this[this.tableWeekSchedule.Assignment1AssistColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAssignment2TypeNull() {
                 return this.IsNull(this.tableWeekSchedule.Assignment2TypeColumn);
             }
@@ -12682,6 +13212,18 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAssignment2Null() {
                 this[this.tableWeekSchedule.Assignment2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment2AssistNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment2AssistColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment2AssistNull() {
+                this[this.tableWeekSchedule.Assignment2AssistColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12710,6 +13252,18 @@ namespace JWMeetingSchedule.DB {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment3AssistNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment3AssistColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment3AssistNull() {
+                this[this.tableWeekSchedule.Assignment3AssistColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsAssignment4TypeNull() {
                 return this.IsNull(this.tableWeekSchedule.Assignment4TypeColumn);
             }
@@ -12730,6 +13284,18 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetAssignment4Null() {
                 this[this.tableWeekSchedule.Assignment4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAssignment4AssistNull() {
+                return this.IsNull(this.tableWeekSchedule.Assignment4AssistColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAssignment4AssistNull() {
+                this[this.tableWeekSchedule.Assignment4AssistColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13042,6 +13608,40 @@ namespace JWMeetingSchedule.DB {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCleaningGroupNull() {
                 this[this.tableWeekSchedule.CleaningGroupColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class AssignmentTypesRowChangeEvent : global::System.EventArgs {
+            
+            private AssignmentTypesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRowChangeEvent(AssignmentTypesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public AssignmentTypesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
             }
         }
         
@@ -13898,6 +14498,327 @@ namespace JWMeetingSchedule.DB {
 }
 namespace JWMeetingSchedule.DB.ScheduleDBDataSetTableAdapters {
     
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class AssignmentTypesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public AssignmentTypesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "AssignmentTypes";
+            tableMapping.ColumnMappings.Add("AssignmentName", "AssignmentName");
+            tableMapping.ColumnMappings.Add("ChristianLifeAssignment", "ChristianLifeAssignment");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[AssignmentTypes] WHERE (([AssignmentName] = @Original_Assignme" +
+                "ntName) AND ([ChristianLifeAssignment] = @Original_ChristianLifeAssignment))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssignmentName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChristianLifeAssignment", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[AssignmentTypes] ([AssignmentName], [ChristianLifeAssignment])" +
+                " VALUES (@AssignmentName, @ChristianLifeAssignment);\r\nSELECT AssignmentName, Chr" +
+                "istianLifeAssignment FROM AssignmentTypes WHERE (AssignmentName = @AssignmentNam" +
+                "e)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[AssignmentTypes] SET [AssignmentName] = @AssignmentName, [ChristianLifeAssignment] = @ChristianLifeAssignment WHERE (([AssignmentName] = @Original_AssignmentName) AND ([ChristianLifeAssignment] = @Original_ChristianLifeAssignment));
+SELECT AssignmentName, ChristianLifeAssignment FROM AssignmentTypes WHERE (AssignmentName = @AssignmentName)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AssignmentName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AssignmentName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AssignmentName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChristianLifeAssignment", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::JWMeetingSchedule.Properties.Settings.Default.ScheduleDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT AssignmentName, ChristianLifeAssignment FROM dbo.AssignmentTypes";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(ScheduleDBDataSet.AssignmentTypesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual ScheduleDBDataSet.AssignmentTypesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            ScheduleDBDataSet.AssignmentTypesDataTable dataTable = new ScheduleDBDataSet.AssignmentTypesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleDBDataSet.AssignmentTypesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(ScheduleDBDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "AssignmentTypes");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(string Original_AssignmentName, bool Original_ChristianLifeAssignment) {
+            if ((Original_AssignmentName == null)) {
+                throw new global::System.ArgumentNullException("Original_AssignmentName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_AssignmentName));
+            }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_ChristianLifeAssignment));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string AssignmentName, bool ChristianLifeAssignment) {
+            if ((AssignmentName == null)) {
+                throw new global::System.ArgumentNullException("AssignmentName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(AssignmentName));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((bool)(ChristianLifeAssignment));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string AssignmentName, bool ChristianLifeAssignment, string Original_AssignmentName, bool Original_ChristianLifeAssignment) {
+            if ((AssignmentName == null)) {
+                throw new global::System.ArgumentNullException("AssignmentName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(AssignmentName));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((bool)(ChristianLifeAssignment));
+            if ((Original_AssignmentName == null)) {
+                throw new global::System.ArgumentNullException("Original_AssignmentName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_AssignmentName));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((bool)(Original_ChristianLifeAssignment));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(bool ChristianLifeAssignment, string Original_AssignmentName, bool Original_ChristianLifeAssignment) {
+            return this.Update(Original_AssignmentName, ChristianLifeAssignment, Original_AssignmentName, Original_ChristianLifeAssignment);
+        }
+    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -22635,6 +23556,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             tableMapping.ColumnMappings.Add("WeekendMeetingDateTime", "WeekendMeetingDateTime");
             tableMapping.ColumnMappings.Add("Convention", "Convention");
             tableMapping.ColumnMappings.Add("Memorial", "Memorial");
+            tableMapping.ColumnMappings.Add("ExtraInfo", "ExtraInfo");
             tableMapping.ColumnMappings.Add("Supervisor", "Supervisor");
             tableMapping.ColumnMappings.Add("President", "President");
             tableMapping.ColumnMappings.Add("TreasuresTitle", "TreasuresTitle");
@@ -22643,12 +23565,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             tableMapping.ColumnMappings.Add("Reading", "Reading");
             tableMapping.ColumnMappings.Add("Assignment1Type", "Assignment1Type");
             tableMapping.ColumnMappings.Add("Assignment1", "Assignment1");
+            tableMapping.ColumnMappings.Add("Assignment1Assist", "Assignment1Assist");
             tableMapping.ColumnMappings.Add("Assignment2Type", "Assignment2Type");
             tableMapping.ColumnMappings.Add("Assignment2", "Assignment2");
+            tableMapping.ColumnMappings.Add("Assignment2Assist", "Assignment2Assist");
             tableMapping.ColumnMappings.Add("Assignment3Type", "Assignment3Type");
             tableMapping.ColumnMappings.Add("Assignment3", "Assignment3");
+            tableMapping.ColumnMappings.Add("Assignment3Assist", "Assignment3Assist");
             tableMapping.ColumnMappings.Add("Assignment4Type", "Assignment4Type");
             tableMapping.ColumnMappings.Add("Assignment4", "Assignment4");
+            tableMapping.ColumnMappings.Add("Assignment4Assist", "Assignment4Assist");
             tableMapping.ColumnMappings.Add("ChristianLifeAssignment1OnlyVideo", "ChristianLifeAssignment1OnlyVideo");
             tableMapping.ColumnMappings.Add("ChristianLifeAssignment1Needs", "ChristianLifeAssignment1Needs");
             tableMapping.ColumnMappings.Add("ChristianLifeAssignment1Title", "ChristianLifeAssignment1Title");
@@ -22693,46 +23619,53 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 "ding] = @Original_Reading)) AND ((@IsNull_Assignment1Type = 1 AND [Assignment1Ty" +
                 "pe] IS NULL) OR ([Assignment1Type] = @Original_Assignment1Type)) AND ((@IsNull_A" +
                 "ssignment1 = 1 AND [Assignment1] IS NULL) OR ([Assignment1] = @Original_Assignme" +
-                "nt1)) AND ((@IsNull_Assignment2Type = 1 AND [Assignment2Type] IS NULL) OR ([Assi" +
-                "gnment2Type] = @Original_Assignment2Type)) AND ((@IsNull_Assignment2 = 1 AND [As" +
-                "signment2] IS NULL) OR ([Assignment2] = @Original_Assignment2)) AND ((@IsNull_As" +
-                "signment3Type = 1 AND [Assignment3Type] IS NULL) OR ([Assignment3Type] = @Origin" +
-                "al_Assignment3Type)) AND ((@IsNull_Assignment3 = 1 AND [Assignment3] IS NULL) OR" +
-                " ([Assignment3] = @Original_Assignment3)) AND ((@IsNull_Assignment4Type = 1 AND " +
-                "[Assignment4Type] IS NULL) OR ([Assignment4Type] = @Original_Assignment4Type)) A" +
-                "ND ((@IsNull_Assignment4 = 1 AND [Assignment4] IS NULL) OR ([Assignment4] = @Ori" +
-                "ginal_Assignment4)) AND ((@IsNull_ChristianLifeAssignment1OnlyVideo = 1 AND [Chr" +
-                "istianLifeAssignment1OnlyVideo] IS NULL) OR ([ChristianLifeAssignment1OnlyVideo]" +
-                " = @Original_ChristianLifeAssignment1OnlyVideo)) AND ((@IsNull_ChristianLifeAssi" +
-                "gnment1Needs = 1 AND [ChristianLifeAssignment1Needs] IS NULL) OR ([ChristianLife" +
-                "Assignment1Needs] = @Original_ChristianLifeAssignment1Needs)) AND ((@IsNull_Chri" +
-                "stianLifeAssignment1 = 1 AND [ChristianLifeAssignment1] IS NULL) OR ([ChristianL" +
-                "ifeAssignment1] = @Original_ChristianLifeAssignment1)) AND ((@IsNull_ChristianLi" +
-                "feAssignment2OnlyVideo = 1 AND [ChristianLifeAssignment2OnlyVideo] IS NULL) OR (" +
-                "[ChristianLifeAssignment2OnlyVideo] = @Original_ChristianLifeAssignment2OnlyVide" +
-                "o)) AND ((@IsNull_ChristianLifeAssignment2Needs = 1 AND [ChristianLifeAssignment" +
-                "2Needs] IS NULL) OR ([ChristianLifeAssignment2Needs] = @Original_ChristianLifeAs" +
-                "signment2Needs)) AND ((@IsNull_ChristianLifeAssignment2 = 1 AND [ChristianLifeAs" +
-                "signment2] IS NULL) OR ([ChristianLifeAssignment2] = @Original_ChristianLifeAssi" +
-                "gnment2)) AND ((@IsNull_BibleStudy = 1 AND [BibleStudy] IS NULL) OR ([BibleStudy" +
-                "] = @Original_BibleStudy)) AND ((@IsNull_BibleStudyReader = 1 AND [BibleStudyRea" +
-                "der] IS NULL) OR ([BibleStudyReader] = @Original_BibleStudyReader)) AND ((@IsNul" +
-                "l_WeekPrayer = 1 AND [WeekPrayer] IS NULL) OR ([WeekPrayer] = @Original_WeekPray" +
-                "er)) AND ((@IsNull_WeekendPresident = 1 AND [WeekendPresident] IS NULL) OR ([Wee" +
-                "kendPresident] = @Original_WeekendPresident)) AND ((@IsNull_PublicSpeech = 1 AND" +
-                " [PublicSpeech] IS NULL) OR ([PublicSpeech] = @Original_PublicSpeech)) AND ((@Is" +
-                "Null_Watchtower = 1 AND [Watchtower] IS NULL) OR ([Watchtower] = @Original_Watch" +
-                "tower)) AND ((@IsNull_WatchtowerReader = 1 AND [WatchtowerReader] IS NULL) OR ([" +
-                "WatchtowerReader] = @Original_WatchtowerReader)) AND ((@IsNull_FinalSpeech = 1 A" +
-                "ND [FinalSpeech] IS NULL) OR ([FinalSpeech] = @Original_FinalSpeech)) AND ((@IsN" +
-                "ull_WeekendPrayer = 1 AND [WeekendPrayer] IS NULL) OR ([WeekendPrayer] = @Origin" +
-                "al_WeekendPrayer)) AND ((@IsNull_AV = 1 AND [AV] IS NULL) OR ([AV] = @Original_A" +
-                "V)) AND ((@IsNull_Microphone1 = 1 AND [Microphone1] IS NULL) OR ([Microphone1] =" +
-                " @Original_Microphone1)) AND ((@IsNull_Microphone2 = 1 AND [Microphone2] IS NULL" +
-                ") OR ([Microphone2] = @Original_Microphone2)) AND ((@IsNull_Order1 = 1 AND [Orde" +
-                "r1] IS NULL) OR ([Order1] = @Original_Order1)) AND ((@IsNull_Order2 = 1 AND [Ord" +
-                "er2] IS NULL) OR ([Order2] = @Original_Order2)) AND ((@IsNull_CleaningGroup = 1 " +
-                "AND [CleaningGroup] IS NULL) OR ([CleaningGroup] = @Original_CleaningGroup)))";
+                "nt1)) AND ((@IsNull_Assignment1Assist = 1 AND [Assignment1Assist] IS NULL) OR ([" +
+                "Assignment1Assist] = @Original_Assignment1Assist)) AND ((@IsNull_Assignment2Type" +
+                " = 1 AND [Assignment2Type] IS NULL) OR ([Assignment2Type] = @Original_Assignment" +
+                "2Type)) AND ((@IsNull_Assignment2 = 1 AND [Assignment2] IS NULL) OR ([Assignment" +
+                "2] = @Original_Assignment2)) AND ((@IsNull_Assignment2Assist = 1 AND [Assignment" +
+                "2Assist] IS NULL) OR ([Assignment2Assist] = @Original_Assignment2Assist)) AND ((" +
+                "@IsNull_Assignment3Type = 1 AND [Assignment3Type] IS NULL) OR ([Assignment3Type]" +
+                " = @Original_Assignment3Type)) AND ((@IsNull_Assignment3 = 1 AND [Assignment3] I" +
+                "S NULL) OR ([Assignment3] = @Original_Assignment3)) AND ((@IsNull_Assignment3Ass" +
+                "ist = 1 AND [Assignment3Assist] IS NULL) OR ([Assignment3Assist] = @Original_Ass" +
+                "ignment3Assist)) AND ((@IsNull_Assignment4Type = 1 AND [Assignment4Type] IS NULL" +
+                ") OR ([Assignment4Type] = @Original_Assignment4Type)) AND ((@IsNull_Assignment4 " +
+                "= 1 AND [Assignment4] IS NULL) OR ([Assignment4] = @Original_Assignment4)) AND (" +
+                "(@IsNull_Assignment4Assist = 1 AND [Assignment4Assist] IS NULL) OR ([Assignment4" +
+                "Assist] = @Original_Assignment4Assist)) AND ((@IsNull_ChristianLifeAssignment1On" +
+                "lyVideo = 1 AND [ChristianLifeAssignment1OnlyVideo] IS NULL) OR ([ChristianLifeA" +
+                "ssignment1OnlyVideo] = @Original_ChristianLifeAssignment1OnlyVideo)) AND ((@IsNu" +
+                "ll_ChristianLifeAssignment1Needs = 1 AND [ChristianLifeAssignment1Needs] IS NULL" +
+                ") OR ([ChristianLifeAssignment1Needs] = @Original_ChristianLifeAssignment1Needs)" +
+                ") AND ((@IsNull_ChristianLifeAssignment1 = 1 AND [ChristianLifeAssignment1] IS N" +
+                "ULL) OR ([ChristianLifeAssignment1] = @Original_ChristianLifeAssignment1)) AND (" +
+                "(@IsNull_ChristianLifeAssignment2OnlyVideo = 1 AND [ChristianLifeAssignment2Only" +
+                "Video] IS NULL) OR ([ChristianLifeAssignment2OnlyVideo] = @Original_ChristianLif" +
+                "eAssignment2OnlyVideo)) AND ((@IsNull_ChristianLifeAssignment2Needs = 1 AND [Chr" +
+                "istianLifeAssignment2Needs] IS NULL) OR ([ChristianLifeAssignment2Needs] = @Orig" +
+                "inal_ChristianLifeAssignment2Needs)) AND ((@IsNull_ChristianLifeAssignment2 = 1 " +
+                "AND [ChristianLifeAssignment2] IS NULL) OR ([ChristianLifeAssignment2] = @Origin" +
+                "al_ChristianLifeAssignment2)) AND ((@IsNull_BibleStudy = 1 AND [BibleStudy] IS N" +
+                "ULL) OR ([BibleStudy] = @Original_BibleStudy)) AND ((@IsNull_BibleStudyReader = " +
+                "1 AND [BibleStudyReader] IS NULL) OR ([BibleStudyReader] = @Original_BibleStudyR" +
+                "eader)) AND ((@IsNull_WeekPrayer = 1 AND [WeekPrayer] IS NULL) OR ([WeekPrayer] " +
+                "= @Original_WeekPrayer)) AND ((@IsNull_WeekendPresident = 1 AND [WeekendPresiden" +
+                "t] IS NULL) OR ([WeekendPresident] = @Original_WeekendPresident)) AND ((@IsNull_" +
+                "PublicSpeech = 1 AND [PublicSpeech] IS NULL) OR ([PublicSpeech] = @Original_Publ" +
+                "icSpeech)) AND ((@IsNull_Watchtower = 1 AND [Watchtower] IS NULL) OR ([Watchtowe" +
+                "r] = @Original_Watchtower)) AND ((@IsNull_WatchtowerReader = 1 AND [WatchtowerRe" +
+                "ader] IS NULL) OR ([WatchtowerReader] = @Original_WatchtowerReader)) AND ((@IsNu" +
+                "ll_FinalSpeech = 1 AND [FinalSpeech] IS NULL) OR ([FinalSpeech] = @Original_Fina" +
+                "lSpeech)) AND ((@IsNull_WeekendPrayer = 1 AND [WeekendPrayer] IS NULL) OR ([Week" +
+                "endPrayer] = @Original_WeekendPrayer)) AND ((@IsNull_AV = 1 AND [AV] IS NULL) OR" +
+                " ([AV] = @Original_AV)) AND ((@IsNull_Microphone1 = 1 AND [Microphone1] IS NULL)" +
+                " OR ([Microphone1] = @Original_Microphone1)) AND ((@IsNull_Microphone2 = 1 AND [" +
+                "Microphone2] IS NULL) OR ([Microphone2] = @Original_Microphone2)) AND ((@IsNull_" +
+                "Order1 = 1 AND [Order1] IS NULL) OR ([Order1] = @Original_Order1)) AND ((@IsNull" +
+                "_Order2 = 1 AND [Order2] IS NULL) OR ([Order2] = @Original_Order2)) AND ((@IsNul" +
+                "l_CleaningGroup = 1 AND [CleaningGroup] IS NULL) OR ([CleaningGroup] = @Original" +
+                "_CleaningGroup)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_WeekMeetingDateTime", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -22757,18 +23690,26 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment1Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChristianLifeAssignment1Needs", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Needs", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -22814,43 +23755,48 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[WeekSchedule] ([WeekStartDate], [WeekMeetingDateTime], [Weeken" +
-                "dMeetingDateTime], [Convention], [Memorial], [Supervisor], [President], [Treasur" +
-                "esTitle], [Treasures], [Gems], [Reading], [Assignment1Type], [Assignment1], [Ass" +
-                "ignment2Type], [Assignment2], [Assignment3Type], [Assignment3], [Assignment4Type" +
-                "], [Assignment4], [ChristianLifeAssignment1OnlyVideo], [ChristianLifeAssignment1" +
-                "Needs], [ChristianLifeAssignment1Title], [ChristianLifeAssignment1], [ChristianL" +
-                "ifeAssignment2OnlyVideo], [ChristianLifeAssignment2Needs], [ChristianLifeAssignm" +
-                "ent2Title], [ChristianLifeAssignment2], [BibleStudy], [BibleStudyReader], [Super" +
-                "visorWeekSpeechTitle], [WeekPrayer], [WeekendPresident], [PublicSpeechTitle], [P" +
-                "ublicSpeech], [Watchtower], [WatchtowerReader], [FinalSpeechTitle], [FinalSpeech" +
-                "], [WeekendPrayer], [AV], [Microphone1], [Microphone2], [Order1], [Order2], [Cle" +
-                "aningGroup]) VALUES (@WeekStartDate, @WeekMeetingDateTime, @WeekendMeetingDateTi" +
-                "me, @Convention, @Memorial, @Supervisor, @President, @TreasuresTitle, @Treasures" +
-                ", @Gems, @Reading, @Assignment1Type, @Assignment1, @Assignment2Type, @Assignment" +
-                "2, @Assignment3Type, @Assignment3, @Assignment4Type, @Assignment4, @ChristianLif" +
-                "eAssignment1OnlyVideo, @ChristianLifeAssignment1Needs, @ChristianLifeAssignment1" +
-                "Title, @ChristianLifeAssignment1, @ChristianLifeAssignment2OnlyVideo, @Christian" +
-                "LifeAssignment2Needs, @ChristianLifeAssignment2Title, @ChristianLifeAssignment2," +
-                " @BibleStudy, @BibleStudyReader, @SupervisorWeekSpeechTitle, @WeekPrayer, @Weeke" +
-                "ndPresident, @PublicSpeechTitle, @PublicSpeech, @Watchtower, @WatchtowerReader, " +
-                "@FinalSpeechTitle, @FinalSpeech, @WeekendPrayer, @AV, @Microphone1, @Microphone2" +
-                ", @Order1, @Order2, @CleaningGroup);\r\nSELECT WeekStartDate, WeekMeetingDateTime," +
-                " WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresT" +
-                "itle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, A" +
-                "ssignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christia" +
-                "nLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignmen" +
-                "t1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianL" +
-                "ifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, Bi" +
-                "bleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresid" +
-                "ent, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechT" +
-                "itle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, " +
-                "CleaningGroup FROM WeekSchedule WHERE (WeekStartDate = @WeekStartDate)";
+                "dMeetingDateTime], [Convention], [Memorial], [ExtraInfo], [Supervisor], [Preside" +
+                "nt], [TreasuresTitle], [Treasures], [Gems], [Reading], [Assignment1Type], [Assig" +
+                "nment1], [Assignment1Assist], [Assignment2Type], [Assignment2], [Assignment2Assi" +
+                "st], [Assignment3Type], [Assignment3], [Assignment3Assist], [Assignment4Type], [" +
+                "Assignment4], [Assignment4Assist], [ChristianLifeAssignment1OnlyVideo], [Christi" +
+                "anLifeAssignment1Needs], [ChristianLifeAssignment1Title], [ChristianLifeAssignme" +
+                "nt1], [ChristianLifeAssignment2OnlyVideo], [ChristianLifeAssignment2Needs], [Chr" +
+                "istianLifeAssignment2Title], [ChristianLifeAssignment2], [BibleStudy], [BibleStu" +
+                "dyReader], [SupervisorWeekSpeechTitle], [WeekPrayer], [WeekendPresident], [Publi" +
+                "cSpeechTitle], [PublicSpeech], [Watchtower], [WatchtowerReader], [FinalSpeechTit" +
+                "le], [FinalSpeech], [WeekendPrayer], [AV], [Microphone1], [Microphone2], [Order1" +
+                "], [Order2], [CleaningGroup]) VALUES (@WeekStartDate, @WeekMeetingDateTime, @Wee" +
+                "kendMeetingDateTime, @Convention, @Memorial, @ExtraInfo, @Supervisor, @President" +
+                ", @TreasuresTitle, @Treasures, @Gems, @Reading, @Assignment1Type, @Assignment1, " +
+                "@Assignment1Assist, @Assignment2Type, @Assignment2, @Assignment2Assist, @Assignm" +
+                "ent3Type, @Assignment3, @Assignment3Assist, @Assignment4Type, @Assignment4, @Ass" +
+                "ignment4Assist, @ChristianLifeAssignment1OnlyVideo, @ChristianLifeAssignment1Nee" +
+                "ds, @ChristianLifeAssignment1Title, @ChristianLifeAssignment1, @ChristianLifeAss" +
+                "ignment2OnlyVideo, @ChristianLifeAssignment2Needs, @ChristianLifeAssignment2Titl" +
+                "e, @ChristianLifeAssignment2, @BibleStudy, @BibleStudyReader, @SupervisorWeekSpe" +
+                "echTitle, @WeekPrayer, @WeekendPresident, @PublicSpeechTitle, @PublicSpeech, @Wa" +
+                "tchtower, @WatchtowerReader, @FinalSpeechTitle, @FinalSpeech, @WeekendPrayer, @A" +
+                "V, @Microphone1, @Microphone2, @Order1, @Order2, @CleaningGroup);\r\nSELECT WeekSt" +
+                "artDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Extr" +
+                "aInfo, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignme" +
+                "nt1Type, Assignment1, Assignment1Assist, Assignment2Type, Assignment2, Assignmen" +
+                "t2Assist, Assignment3Type, Assignment3, Assignment3Assist, Assignment4Type, Assi" +
+                "gnment4, Assignment4Assist, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssi" +
+                "gnment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, Christian" +
+                "LifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment" +
+                "2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSp" +
+                "eechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watcht" +
+                "ower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microp" +
+                "hone1, Microphone2, Order1, Order2, CleaningGroup FROM WeekSchedule WHERE (WeekS" +
+                "tartDate = @WeekStartDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekendMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekendMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Convention", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Convention", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memorial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memorial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExtraInfo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExtraInfo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Supervisor", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@President", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "President", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TreasuresTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TreasuresTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22859,12 +23805,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reading", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reading", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1Needs", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Needs", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22895,97 +23845,108 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[WeekSchedule] SET [WeekStartDate] = @WeekStartDate, [WeekMeetingDat" +
                 "eTime] = @WeekMeetingDateTime, [WeekendMeetingDateTime] = @WeekendMeetingDateTim" +
-                "e, [Convention] = @Convention, [Memorial] = @Memorial, [Supervisor] = @Superviso" +
-                "r, [President] = @President, [TreasuresTitle] = @TreasuresTitle, [Treasures] = @" +
-                "Treasures, [Gems] = @Gems, [Reading] = @Reading, [Assignment1Type] = @Assignment" +
-                "1Type, [Assignment1] = @Assignment1, [Assignment2Type] = @Assignment2Type, [Assi" +
-                "gnment2] = @Assignment2, [Assignment3Type] = @Assignment3Type, [Assignment3] = @" +
-                "Assignment3, [Assignment4Type] = @Assignment4Type, [Assignment4] = @Assignment4," +
-                " [ChristianLifeAssignment1OnlyVideo] = @ChristianLifeAssignment1OnlyVideo, [Chri" +
-                "stianLifeAssignment1Needs] = @ChristianLifeAssignment1Needs, [ChristianLifeAssig" +
-                "nment1Title] = @ChristianLifeAssignment1Title, [ChristianLifeAssignment1] = @Chr" +
-                "istianLifeAssignment1, [ChristianLifeAssignment2OnlyVideo] = @ChristianLifeAssig" +
-                "nment2OnlyVideo, [ChristianLifeAssignment2Needs] = @ChristianLifeAssignment2Need" +
-                "s, [ChristianLifeAssignment2Title] = @ChristianLifeAssignment2Title, [ChristianL" +
-                "ifeAssignment2] = @ChristianLifeAssignment2, [BibleStudy] = @BibleStudy, [BibleS" +
-                "tudyReader] = @BibleStudyReader, [SupervisorWeekSpeechTitle] = @SupervisorWeekSp" +
-                "eechTitle, [WeekPrayer] = @WeekPrayer, [WeekendPresident] = @WeekendPresident, [" +
-                "PublicSpeechTitle] = @PublicSpeechTitle, [PublicSpeech] = @PublicSpeech, [Watcht" +
-                "ower] = @Watchtower, [WatchtowerReader] = @WatchtowerReader, [FinalSpeechTitle] " +
-                "= @FinalSpeechTitle, [FinalSpeech] = @FinalSpeech, [WeekendPrayer] = @WeekendPra" +
-                "yer, [AV] = @AV, [Microphone1] = @Microphone1, [Microphone2] = @Microphone2, [Or" +
-                "der1] = @Order1, [Order2] = @Order2, [CleaningGroup] = @CleaningGroup WHERE (([W" +
-                "eekStartDate] = @Original_WeekStartDate) AND ((@IsNull_WeekMeetingDateTime = 1 A" +
-                "ND [WeekMeetingDateTime] IS NULL) OR ([WeekMeetingDateTime] = @Original_WeekMeet" +
-                "ingDateTime)) AND ((@IsNull_WeekendMeetingDateTime = 1 AND [WeekendMeetingDateTi" +
-                "me] IS NULL) OR ([WeekendMeetingDateTime] = @Original_WeekendMeetingDateTime)) A" +
-                "ND ((@IsNull_Convention = 1 AND [Convention] IS NULL) OR ([Convention] = @Origin" +
-                "al_Convention)) AND ((@IsNull_Memorial = 1 AND [Memorial] IS NULL) OR ([Memorial" +
-                "] = @Original_Memorial)) AND ((@IsNull_Supervisor = 1 AND [Supervisor] IS NULL) " +
-                "OR ([Supervisor] = @Original_Supervisor)) AND ((@IsNull_President = 1 AND [Presi" +
-                "dent] IS NULL) OR ([President] = @Original_President)) AND ((@IsNull_Treasures =" +
-                " 1 AND [Treasures] IS NULL) OR ([Treasures] = @Original_Treasures)) AND ((@IsNul" +
-                "l_Gems = 1 AND [Gems] IS NULL) OR ([Gems] = @Original_Gems)) AND ((@IsNull_Readi" +
-                "ng = 1 AND [Reading] IS NULL) OR ([Reading] = @Original_Reading)) AND ((@IsNull_" +
-                "Assignment1Type = 1 AND [Assignment1Type] IS NULL) OR ([Assignment1Type] = @Orig" +
-                "inal_Assignment1Type)) AND ((@IsNull_Assignment1 = 1 AND [Assignment1] IS NULL) " +
-                "OR ([Assignment1] = @Original_Assignment1)) AND ((@IsNull_Assignment2Type = 1 AN" +
-                "D [Assignment2Type] IS NULL) OR ([Assignment2Type] = @Original_Assignment2Type))" +
-                " AND ((@IsNull_Assignment2 = 1 AND [Assignment2] IS NULL) OR ([Assignment2] = @O" +
-                "riginal_Assignment2)) AND ((@IsNull_Assignment3Type = 1 AND [Assignment3Type] IS" +
-                " NULL) OR ([Assignment3Type] = @Original_Assignment3Type)) AND ((@IsNull_Assignm" +
-                "ent3 = 1 AND [Assignment3] IS NULL) OR ([Assignment3] = @Original_Assignment3)) " +
-                "AND ((@IsNull_Assignment4Type = 1 AND [Assignment4Type] IS NULL) OR ([Assignment" +
-                "4Type] = @Original_Assignment4Type)) AND ((@IsNull_Assignment4 = 1 AND [Assignme" +
-                "nt4] IS NULL) OR ([Assignment4] = @Original_Assignment4)) AND ((@IsNull_Christia" +
-                "nLifeAssignment1OnlyVideo = 1 AND [ChristianLifeAssignment1OnlyVideo] IS NULL) O" +
-                "R ([ChristianLifeAssignment1OnlyVideo] = @Original_ChristianLifeAssignment1OnlyV" +
-                "ideo)) AND ((@IsNull_ChristianLifeAssignment1Needs = 1 AND [ChristianLifeAssignm" +
-                "ent1Needs] IS NULL) OR ([ChristianLifeAssignment1Needs] = @Original_ChristianLif" +
-                "eAssignment1Needs)) AND ((@IsNull_ChristianLifeAssignment1 = 1 AND [ChristianLif" +
-                "eAssignment1] IS NULL) OR ([ChristianLifeAssignment1] = @Original_ChristianLifeA" +
-                "ssignment1)) AND ((@IsNull_ChristianLifeAssignment2OnlyVideo = 1 AND [ChristianL" +
-                "ifeAssignment2OnlyVideo] IS NULL) OR ([ChristianLifeAssignment2OnlyVideo] = @Ori" +
-                "ginal_ChristianLifeAssignment2OnlyVideo)) AND ((@IsNull_ChristianLifeAssignment2" +
-                "Needs = 1 AND [ChristianLifeAssignment2Needs] IS NULL) OR ([ChristianLifeAssignm" +
-                "ent2Needs] = @Original_ChristianLifeAssignment2Needs)) AND ((@IsNull_ChristianLi" +
-                "feAssignment2 = 1 AND [ChristianLifeAssignment2] IS NULL) OR ([ChristianLifeAssi" +
-                "gnment2] = @Original_ChristianLifeAssignment2)) AND ((@IsNull_BibleStudy = 1 AND" +
-                " [BibleStudy] IS NULL) OR ([BibleStudy] = @Original_BibleStudy)) AND ((@IsNull_B" +
-                "ibleStudyReader = 1 AND [BibleStudyReader] IS NULL) OR ([BibleStudyReader] = @Or" +
-                "iginal_BibleStudyReader)) AND ((@IsNull_WeekPrayer = 1 AND [WeekPrayer] IS NULL)" +
-                " OR ([WeekPrayer] = @Original_WeekPrayer)) AND ((@IsNull_WeekendPresident = 1 AN" +
-                "D [WeekendPresident] IS NULL) OR ([WeekendPresident] = @Original_WeekendPresiden" +
-                "t)) AND ((@IsNull_PublicSpeech = 1 AND [PublicSpeech] IS NULL) OR ([PublicSpeech" +
-                "] = @Original_PublicSpeech)) AND ((@IsNull_Watchtower = 1 AND [Watchtower] IS NU" +
-                "LL) OR ([Watchtower] = @Original_Watchtower)) AND ((@IsNull_WatchtowerReader = 1" +
-                " AND [WatchtowerReader] IS NULL) OR ([WatchtowerReader] = @Original_WatchtowerRe" +
-                "ader)) AND ((@IsNull_FinalSpeech = 1 AND [FinalSpeech] IS NULL) OR ([FinalSpeech" +
-                "] = @Original_FinalSpeech)) AND ((@IsNull_WeekendPrayer = 1 AND [WeekendPrayer] " +
-                "IS NULL) OR ([WeekendPrayer] = @Original_WeekendPrayer)) AND ((@IsNull_AV = 1 AN" +
-                "D [AV] IS NULL) OR ([AV] = @Original_AV)) AND ((@IsNull_Microphone1 = 1 AND [Mic" +
-                "rophone1] IS NULL) OR ([Microphone1] = @Original_Microphone1)) AND ((@IsNull_Mic" +
-                "rophone2 = 1 AND [Microphone2] IS NULL) OR ([Microphone2] = @Original_Microphone" +
-                "2)) AND ((@IsNull_Order1 = 1 AND [Order1] IS NULL) OR ([Order1] = @Original_Orde" +
-                "r1)) AND ((@IsNull_Order2 = 1 AND [Order2] IS NULL) OR ([Order2] = @Original_Ord" +
-                "er2)) AND ((@IsNull_CleaningGroup = 1 AND [CleaningGroup] IS NULL) OR ([Cleaning" +
-                "Group] = @Original_CleaningGroup)));\r\nSELECT WeekStartDate, WeekMeetingDateTime," +
-                " WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresT" +
-                "itle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, A" +
-                "ssignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, Christia" +
-                "nLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignmen" +
-                "t1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianL" +
-                "ifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, Bi" +
-                "bleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresid" +
-                "ent, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechT" +
-                "itle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, " +
-                "CleaningGroup FROM WeekSchedule WHERE (WeekStartDate = @WeekStartDate)";
+                "e, [Convention] = @Convention, [Memorial] = @Memorial, [ExtraInfo] = @ExtraInfo," +
+                " [Supervisor] = @Supervisor, [President] = @President, [TreasuresTitle] = @Treas" +
+                "uresTitle, [Treasures] = @Treasures, [Gems] = @Gems, [Reading] = @Reading, [Assi" +
+                "gnment1Type] = @Assignment1Type, [Assignment1] = @Assignment1, [Assignment1Assis" +
+                "t] = @Assignment1Assist, [Assignment2Type] = @Assignment2Type, [Assignment2] = @" +
+                "Assignment2, [Assignment2Assist] = @Assignment2Assist, [Assignment3Type] = @Assi" +
+                "gnment3Type, [Assignment3] = @Assignment3, [Assignment3Assist] = @Assignment3Ass" +
+                "ist, [Assignment4Type] = @Assignment4Type, [Assignment4] = @Assignment4, [Assign" +
+                "ment4Assist] = @Assignment4Assist, [ChristianLifeAssignment1OnlyVideo] = @Christ" +
+                "ianLifeAssignment1OnlyVideo, [ChristianLifeAssignment1Needs] = @ChristianLifeAss" +
+                "ignment1Needs, [ChristianLifeAssignment1Title] = @ChristianLifeAssignment1Title," +
+                " [ChristianLifeAssignment1] = @ChristianLifeAssignment1, [ChristianLifeAssignmen" +
+                "t2OnlyVideo] = @ChristianLifeAssignment2OnlyVideo, [ChristianLifeAssignment2Need" +
+                "s] = @ChristianLifeAssignment2Needs, [ChristianLifeAssignment2Title] = @Christia" +
+                "nLifeAssignment2Title, [ChristianLifeAssignment2] = @ChristianLifeAssignment2, [" +
+                "BibleStudy] = @BibleStudy, [BibleStudyReader] = @BibleStudyReader, [SupervisorWe" +
+                "ekSpeechTitle] = @SupervisorWeekSpeechTitle, [WeekPrayer] = @WeekPrayer, [Weeken" +
+                "dPresident] = @WeekendPresident, [PublicSpeechTitle] = @PublicSpeechTitle, [Publ" +
+                "icSpeech] = @PublicSpeech, [Watchtower] = @Watchtower, [WatchtowerReader] = @Wat" +
+                "chtowerReader, [FinalSpeechTitle] = @FinalSpeechTitle, [FinalSpeech] = @FinalSpe" +
+                "ech, [WeekendPrayer] = @WeekendPrayer, [AV] = @AV, [Microphone1] = @Microphone1," +
+                " [Microphone2] = @Microphone2, [Order1] = @Order1, [Order2] = @Order2, [Cleaning" +
+                "Group] = @CleaningGroup WHERE (([WeekStartDate] = @Original_WeekStartDate) AND (" +
+                "(@IsNull_WeekMeetingDateTime = 1 AND [WeekMeetingDateTime] IS NULL) OR ([WeekMee" +
+                "tingDateTime] = @Original_WeekMeetingDateTime)) AND ((@IsNull_WeekendMeetingDate" +
+                "Time = 1 AND [WeekendMeetingDateTime] IS NULL) OR ([WeekendMeetingDateTime] = @O" +
+                "riginal_WeekendMeetingDateTime)) AND ((@IsNull_Convention = 1 AND [Convention] I" +
+                "S NULL) OR ([Convention] = @Original_Convention)) AND ((@IsNull_Memorial = 1 AND" +
+                " [Memorial] IS NULL) OR ([Memorial] = @Original_Memorial)) AND ((@IsNull_Supervi" +
+                "sor = 1 AND [Supervisor] IS NULL) OR ([Supervisor] = @Original_Supervisor)) AND " +
+                "((@IsNull_President = 1 AND [President] IS NULL) OR ([President] = @Original_Pre" +
+                "sident)) AND ((@IsNull_Treasures = 1 AND [Treasures] IS NULL) OR ([Treasures] = " +
+                "@Original_Treasures)) AND ((@IsNull_Gems = 1 AND [Gems] IS NULL) OR ([Gems] = @O" +
+                "riginal_Gems)) AND ((@IsNull_Reading = 1 AND [Reading] IS NULL) OR ([Reading] = " +
+                "@Original_Reading)) AND ((@IsNull_Assignment1Type = 1 AND [Assignment1Type] IS N" +
+                "ULL) OR ([Assignment1Type] = @Original_Assignment1Type)) AND ((@IsNull_Assignmen" +
+                "t1 = 1 AND [Assignment1] IS NULL) OR ([Assignment1] = @Original_Assignment1)) AN" +
+                "D ((@IsNull_Assignment1Assist = 1 AND [Assignment1Assist] IS NULL) OR ([Assignme" +
+                "nt1Assist] = @Original_Assignment1Assist)) AND ((@IsNull_Assignment2Type = 1 AND" +
+                " [Assignment2Type] IS NULL) OR ([Assignment2Type] = @Original_Assignment2Type)) " +
+                "AND ((@IsNull_Assignment2 = 1 AND [Assignment2] IS NULL) OR ([Assignment2] = @Or" +
+                "iginal_Assignment2)) AND ((@IsNull_Assignment2Assist = 1 AND [Assignment2Assist]" +
+                " IS NULL) OR ([Assignment2Assist] = @Original_Assignment2Assist)) AND ((@IsNull_" +
+                "Assignment3Type = 1 AND [Assignment3Type] IS NULL) OR ([Assignment3Type] = @Orig" +
+                "inal_Assignment3Type)) AND ((@IsNull_Assignment3 = 1 AND [Assignment3] IS NULL) " +
+                "OR ([Assignment3] = @Original_Assignment3)) AND ((@IsNull_Assignment3Assist = 1 " +
+                "AND [Assignment3Assist] IS NULL) OR ([Assignment3Assist] = @Original_Assignment3" +
+                "Assist)) AND ((@IsNull_Assignment4Type = 1 AND [Assignment4Type] IS NULL) OR ([A" +
+                "ssignment4Type] = @Original_Assignment4Type)) AND ((@IsNull_Assignment4 = 1 AND " +
+                "[Assignment4] IS NULL) OR ([Assignment4] = @Original_Assignment4)) AND ((@IsNull" +
+                "_Assignment4Assist = 1 AND [Assignment4Assist] IS NULL) OR ([Assignment4Assist] " +
+                "= @Original_Assignment4Assist)) AND ((@IsNull_ChristianLifeAssignment1OnlyVideo " +
+                "= 1 AND [ChristianLifeAssignment1OnlyVideo] IS NULL) OR ([ChristianLifeAssignmen" +
+                "t1OnlyVideo] = @Original_ChristianLifeAssignment1OnlyVideo)) AND ((@IsNull_Chris" +
+                "tianLifeAssignment1Needs = 1 AND [ChristianLifeAssignment1Needs] IS NULL) OR ([C" +
+                "hristianLifeAssignment1Needs] = @Original_ChristianLifeAssignment1Needs)) AND ((" +
+                "@IsNull_ChristianLifeAssignment1 = 1 AND [ChristianLifeAssignment1] IS NULL) OR " +
+                "([ChristianLifeAssignment1] = @Original_ChristianLifeAssignment1)) AND ((@IsNull" +
+                "_ChristianLifeAssignment2OnlyVideo = 1 AND [ChristianLifeAssignment2OnlyVideo] I" +
+                "S NULL) OR ([ChristianLifeAssignment2OnlyVideo] = @Original_ChristianLifeAssignm" +
+                "ent2OnlyVideo)) AND ((@IsNull_ChristianLifeAssignment2Needs = 1 AND [ChristianLi" +
+                "feAssignment2Needs] IS NULL) OR ([ChristianLifeAssignment2Needs] = @Original_Chr" +
+                "istianLifeAssignment2Needs)) AND ((@IsNull_ChristianLifeAssignment2 = 1 AND [Chr" +
+                "istianLifeAssignment2] IS NULL) OR ([ChristianLifeAssignment2] = @Original_Chris" +
+                "tianLifeAssignment2)) AND ((@IsNull_BibleStudy = 1 AND [BibleStudy] IS NULL) OR " +
+                "([BibleStudy] = @Original_BibleStudy)) AND ((@IsNull_BibleStudyReader = 1 AND [B" +
+                "ibleStudyReader] IS NULL) OR ([BibleStudyReader] = @Original_BibleStudyReader)) " +
+                "AND ((@IsNull_WeekPrayer = 1 AND [WeekPrayer] IS NULL) OR ([WeekPrayer] = @Origi" +
+                "nal_WeekPrayer)) AND ((@IsNull_WeekendPresident = 1 AND [WeekendPresident] IS NU" +
+                "LL) OR ([WeekendPresident] = @Original_WeekendPresident)) AND ((@IsNull_PublicSp" +
+                "eech = 1 AND [PublicSpeech] IS NULL) OR ([PublicSpeech] = @Original_PublicSpeech" +
+                ")) AND ((@IsNull_Watchtower = 1 AND [Watchtower] IS NULL) OR ([Watchtower] = @Or" +
+                "iginal_Watchtower)) AND ((@IsNull_WatchtowerReader = 1 AND [WatchtowerReader] IS" +
+                " NULL) OR ([WatchtowerReader] = @Original_WatchtowerReader)) AND ((@IsNull_Final" +
+                "Speech = 1 AND [FinalSpeech] IS NULL) OR ([FinalSpeech] = @Original_FinalSpeech)" +
+                ") AND ((@IsNull_WeekendPrayer = 1 AND [WeekendPrayer] IS NULL) OR ([WeekendPraye" +
+                "r] = @Original_WeekendPrayer)) AND ((@IsNull_AV = 1 AND [AV] IS NULL) OR ([AV] =" +
+                " @Original_AV)) AND ((@IsNull_Microphone1 = 1 AND [Microphone1] IS NULL) OR ([Mi" +
+                "crophone1] = @Original_Microphone1)) AND ((@IsNull_Microphone2 = 1 AND [Micropho" +
+                "ne2] IS NULL) OR ([Microphone2] = @Original_Microphone2)) AND ((@IsNull_Order1 =" +
+                " 1 AND [Order1] IS NULL) OR ([Order1] = @Original_Order1)) AND ((@IsNull_Order2 " +
+                "= 1 AND [Order2] IS NULL) OR ([Order2] = @Original_Order2)) AND ((@IsNull_Cleani" +
+                "ngGroup = 1 AND [CleaningGroup] IS NULL) OR ([CleaningGroup] = @Original_Cleanin" +
+                "gGroup)));\r\nSELECT WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, C" +
+                "onvention, Memorial, ExtraInfo, Supervisor, President, TreasuresTitle, Treasures" +
+                ", Gems, Reading, Assignment1Type, Assignment1, Assignment1Assist, Assignment2Typ" +
+                "e, Assignment2, Assignment2Assist, Assignment3Type, Assignment3, Assignment3Assi" +
+                "st, Assignment4Type, Assignment4, Assignment4Assist, ChristianLifeAssignment1Onl" +
+                "yVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianL" +
+                "ifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs" +
+                ", ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStud" +
+                "yReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTi" +
+                "tle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, " +
+                "WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup FROM " +
+                "WeekSchedule WHERE (WeekStartDate = @WeekStartDate)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekStartDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekStartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WeekendMeetingDateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WeekendMeetingDateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Convention", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Convention", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memorial", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memorial", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ExtraInfo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ExtraInfo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Supervisor", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Supervisor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@President", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "President", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TreasuresTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TreasuresTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -22994,12 +23955,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Reading", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Reading", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment1Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment2Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment3Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Assignment4Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1Needs", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Needs", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ChristianLifeAssignment1Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -23049,18 +24014,26 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment1Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment1Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment1Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment2Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment2Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment2Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment3Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment3Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment3Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4Type", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Assignment4Assist", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Assignment4Assist", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Assignment4Assist", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ChristianLifeAssignment1OnlyVideo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1OnlyVideo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ChristianLifeAssignment1Needs", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ChristianLifeAssignment1Needs", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -23118,7 +24091,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup FROM dbo.WeekSchedule";
+            this._commandCollection[0].CommandText = @"SELECT WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, ExtraInfo, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment1Assist, Assignment2Type, Assignment2, Assignment2Assist, Assignment3Type, Assignment3, Assignment3Assist, Assignment4Type, Assignment4, Assignment4Assist, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup FROM dbo.WeekSchedule";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23192,12 +24165,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Reading, 
                     string Original_Assignment1Type, 
                     string Original_Assignment1, 
+                    string Original_Assignment1Assist, 
                     string Original_Assignment2Type, 
                     string Original_Assignment2, 
+                    string Original_Assignment2Assist, 
                     string Original_Assignment3Type, 
                     string Original_Assignment3, 
+                    string Original_Assignment3Assist, 
                     string Original_Assignment4Type, 
                     string Original_Assignment4, 
+                    string Original_Assignment4Assist, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1Needs, 
                     string Original_ChristianLifeAssignment1, 
@@ -23308,221 +24285,253 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_Assignment1));
             }
-            if ((Original_Assignment2Type == null)) {
+            if ((Original_Assignment1Assist == null)) {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Assignment2Type));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_Assignment1Assist));
             }
-            if ((Original_Assignment2 == null)) {
+            if ((Original_Assignment2Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Assignment2));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_Assignment2Type));
             }
-            if ((Original_Assignment3Type == null)) {
+            if ((Original_Assignment2 == null)) {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_Assignment3Type));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((string)(Original_Assignment2));
             }
-            if ((Original_Assignment3 == null)) {
+            if ((Original_Assignment2Assist == null)) {
                 this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_Assignment3));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((string)(Original_Assignment2Assist));
             }
-            if ((Original_Assignment4Type == null)) {
+            if ((Original_Assignment3Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_Assignment4Type));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((string)(Original_Assignment3Type));
             }
-            if ((Original_Assignment4 == null)) {
+            if ((Original_Assignment3 == null)) {
                 this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_Assignment4));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((string)(Original_Assignment3));
             }
-            if ((Original_ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[36].Value = ((bool)(Original_ChristianLifeAssignment1OnlyVideo.Value));
-            }
-            else {
+            if ((Original_Assignment3Assist == null)) {
                 this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
-            if ((Original_ChristianLifeAssignment1Needs.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[38].Value = ((bool)(Original_ChristianLifeAssignment1Needs.Value));
-            }
             else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Assignment3Assist));
+            }
+            if ((Original_Assignment4Type == null)) {
                 this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
-            if ((Original_ChristianLifeAssignment1 == null)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_Assignment4Type));
+            }
+            if ((Original_Assignment4 == null)) {
                 this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[40].Value = ((string)(Original_ChristianLifeAssignment1));
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((string)(Original_Assignment4));
             }
-            if ((Original_ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[42].Value = ((bool)(Original_ChristianLifeAssignment2OnlyVideo.Value));
-            }
-            else {
+            if ((Original_Assignment4Assist == null)) {
                 this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            if ((Original_ChristianLifeAssignment2Needs.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((string)(Original_Assignment4Assist));
+            }
+            if ((Original_ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[44].Value = ((bool)(Original_ChristianLifeAssignment2Needs.Value));
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((bool)(Original_ChristianLifeAssignment1OnlyVideo.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            if ((Original_ChristianLifeAssignment2 == null)) {
+            if ((Original_ChristianLifeAssignment1Needs.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((bool)(Original_ChristianLifeAssignment1Needs.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[46].Value = ((string)(Original_ChristianLifeAssignment2));
-            }
-            if ((Original_BibleStudy == null)) {
+            if ((Original_ChristianLifeAssignment1 == null)) {
                 this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[47].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[48].Value = ((string)(Original_BibleStudy));
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((string)(Original_ChristianLifeAssignment1));
             }
-            if ((Original_BibleStudyReader == null)) {
+            if ((Original_ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[50].Value = ((bool)(Original_ChristianLifeAssignment2OnlyVideo.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[49].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[50].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[49].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[50].Value = ((string)(Original_BibleStudyReader));
+            if ((Original_ChristianLifeAssignment2Needs.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[52].Value = ((bool)(Original_ChristianLifeAssignment2Needs.Value));
             }
-            if ((Original_WeekPrayer == null)) {
+            else {
                 this.Adapter.DeleteCommand.Parameters[51].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[52].Value = ((string)(Original_WeekPrayer));
-            }
-            if ((Original_WeekendPresident == null)) {
+            if ((Original_ChristianLifeAssignment2 == null)) {
                 this.Adapter.DeleteCommand.Parameters[53].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[54].Value = ((string)(Original_WeekendPresident));
+                this.Adapter.DeleteCommand.Parameters[54].Value = ((string)(Original_ChristianLifeAssignment2));
             }
-            if ((Original_PublicSpeech == null)) {
+            if ((Original_BibleStudy == null)) {
                 this.Adapter.DeleteCommand.Parameters[55].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[56].Value = ((string)(Original_PublicSpeech));
+                this.Adapter.DeleteCommand.Parameters[56].Value = ((string)(Original_BibleStudy));
             }
-            if ((Original_Watchtower == null)) {
+            if ((Original_BibleStudyReader == null)) {
                 this.Adapter.DeleteCommand.Parameters[57].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[57].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[58].Value = ((string)(Original_Watchtower));
+                this.Adapter.DeleteCommand.Parameters[58].Value = ((string)(Original_BibleStudyReader));
             }
-            if ((Original_WatchtowerReader == null)) {
+            if ((Original_WeekPrayer == null)) {
                 this.Adapter.DeleteCommand.Parameters[59].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[60].Value = ((string)(Original_WatchtowerReader));
+                this.Adapter.DeleteCommand.Parameters[60].Value = ((string)(Original_WeekPrayer));
             }
-            if ((Original_FinalSpeech == null)) {
+            if ((Original_WeekendPresident == null)) {
                 this.Adapter.DeleteCommand.Parameters[61].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[62].Value = ((string)(Original_FinalSpeech));
+                this.Adapter.DeleteCommand.Parameters[62].Value = ((string)(Original_WeekendPresident));
             }
-            if ((Original_WeekendPrayer == null)) {
+            if ((Original_PublicSpeech == null)) {
                 this.Adapter.DeleteCommand.Parameters[63].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[64].Value = ((string)(Original_WeekendPrayer));
+                this.Adapter.DeleteCommand.Parameters[64].Value = ((string)(Original_PublicSpeech));
             }
-            if ((Original_AV == null)) {
+            if ((Original_Watchtower == null)) {
                 this.Adapter.DeleteCommand.Parameters[65].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[65].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[66].Value = ((string)(Original_AV));
+                this.Adapter.DeleteCommand.Parameters[66].Value = ((string)(Original_Watchtower));
             }
-            if ((Original_Microphone1 == null)) {
+            if ((Original_WatchtowerReader == null)) {
                 this.Adapter.DeleteCommand.Parameters[67].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[67].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[68].Value = ((string)(Original_Microphone1));
+                this.Adapter.DeleteCommand.Parameters[68].Value = ((string)(Original_WatchtowerReader));
             }
-            if ((Original_Microphone2 == null)) {
+            if ((Original_FinalSpeech == null)) {
                 this.Adapter.DeleteCommand.Parameters[69].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[69].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[70].Value = ((string)(Original_Microphone2));
+                this.Adapter.DeleteCommand.Parameters[70].Value = ((string)(Original_FinalSpeech));
             }
-            if ((Original_Order1 == null)) {
+            if ((Original_WeekendPrayer == null)) {
                 this.Adapter.DeleteCommand.Parameters[71].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[72].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[71].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[72].Value = ((string)(Original_Order1));
+                this.Adapter.DeleteCommand.Parameters[72].Value = ((string)(Original_WeekendPrayer));
             }
-            if ((Original_Order2 == null)) {
+            if ((Original_AV == null)) {
                 this.Adapter.DeleteCommand.Parameters[73].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[74].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[73].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[74].Value = ((string)(Original_Order2));
+                this.Adapter.DeleteCommand.Parameters[74].Value = ((string)(Original_AV));
             }
-            if ((Original_CleaningGroup.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[76].Value = ((int)(Original_CleaningGroup.Value));
-            }
-            else {
+            if ((Original_Microphone1 == null)) {
                 this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[76].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[76].Value = ((string)(Original_Microphone1));
+            }
+            if ((Original_Microphone2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[78].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[78].Value = ((string)(Original_Microphone2));
+            }
+            if ((Original_Order1 == null)) {
+                this.Adapter.DeleteCommand.Parameters[79].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[80].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[79].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[80].Value = ((string)(Original_Order1));
+            }
+            if ((Original_Order2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[82].Value = ((string)(Original_Order2));
+            }
+            if ((Original_CleaningGroup.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[84].Value = ((int)(Original_CleaningGroup.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[84].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23550,6 +24559,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     global::System.Nullable<global::System.DateTime> WeekendMeetingDateTime, 
                     global::System.Nullable<bool> Convention, 
                     global::System.Nullable<bool> Memorial, 
+                    string ExtraInfo, 
                     global::System.Nullable<bool> Supervisor, 
                     string President, 
                     string TreasuresTitle, 
@@ -23558,12 +24568,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Reading, 
                     string Assignment1Type, 
                     string Assignment1, 
+                    string Assignment1Assist, 
                     string Assignment2Type, 
                     string Assignment2, 
+                    string Assignment2Assist, 
                     string Assignment3Type, 
                     string Assignment3, 
+                    string Assignment3Assist, 
                     string Assignment4Type, 
                     string Assignment4, 
+                    string Assignment4Assist, 
                     global::System.Nullable<bool> ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> ChristianLifeAssignment1Needs, 
                     string ChristianLifeAssignment1Title, 
@@ -23615,245 +24629,275 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Supervisor.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(Supervisor.Value));
-            }
-            else {
+            if ((ExtraInfo == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((President == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ExtraInfo));
+            }
+            if ((Supervisor.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((bool)(Supervisor.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(President));
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((TreasuresTitle == null)) {
+            if ((President == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(TreasuresTitle));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(President));
             }
-            if ((Treasures == null)) {
+            if ((TreasuresTitle == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Treasures));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(TreasuresTitle));
             }
-            if ((Gems == null)) {
+            if ((Treasures == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Gems));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(Treasures));
             }
-            if ((Reading == null)) {
+            if ((Gems == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Reading));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(Gems));
             }
-            if ((Assignment1Type == null)) {
+            if ((Reading == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Assignment1Type));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(Reading));
             }
-            if ((Assignment1 == null)) {
+            if ((Assignment1Type == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Assignment1));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Assignment1Type));
             }
-            if ((Assignment2Type == null)) {
+            if ((Assignment1 == null)) {
                 this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Assignment2Type));
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Assignment1));
             }
-            if ((Assignment2 == null)) {
+            if ((Assignment1Assist == null)) {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Assignment2));
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(Assignment1Assist));
             }
-            if ((Assignment3Type == null)) {
+            if ((Assignment2Type == null)) {
                 this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Assignment3Type));
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Assignment2Type));
             }
-            if ((Assignment3 == null)) {
+            if ((Assignment2 == null)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Assignment3));
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Assignment2));
             }
-            if ((Assignment4Type == null)) {
+            if ((Assignment2Assist == null)) {
                 this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Assignment4Type));
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Assignment2Assist));
             }
-            if ((Assignment4 == null)) {
+            if ((Assignment3Type == null)) {
                 this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(Assignment4));
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(Assignment3Type));
             }
-            if ((ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[19].Value = ((bool)(ChristianLifeAssignment1OnlyVideo.Value));
-            }
-            else {
+            if ((Assignment3 == null)) {
                 this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment1Needs.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[20].Value = ((bool)(ChristianLifeAssignment1Needs.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(Assignment3));
+            }
+            if ((Assignment3Assist == null)) {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment1Title == null)) {
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(Assignment3Assist));
+            }
+            if ((Assignment4Type == null)) {
                 this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(ChristianLifeAssignment1Title));
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(Assignment4Type));
             }
-            if ((ChristianLifeAssignment1 == null)) {
+            if ((Assignment4 == null)) {
                 this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(ChristianLifeAssignment1));
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(Assignment4));
             }
-            if ((ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[23].Value = ((bool)(ChristianLifeAssignment2OnlyVideo.Value));
-            }
-            else {
+            if ((Assignment4Assist == null)) {
                 this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2Needs.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[24].Value = ((bool)(ChristianLifeAssignment2Needs.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((string)(Assignment4Assist));
+            }
+            if ((ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((bool)(ChristianLifeAssignment1OnlyVideo.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2Title == null)) {
-                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            if ((ChristianLifeAssignment1Needs.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((bool)(ChristianLifeAssignment1Needs.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[25].Value = ((string)(ChristianLifeAssignment2Title));
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2 == null)) {
+            if ((ChristianLifeAssignment1Title == null)) {
                 this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(ChristianLifeAssignment2));
+                this.Adapter.InsertCommand.Parameters[26].Value = ((string)(ChristianLifeAssignment1Title));
             }
-            if ((BibleStudy == null)) {
+            if ((ChristianLifeAssignment1 == null)) {
                 this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(BibleStudy));
+                this.Adapter.InsertCommand.Parameters[27].Value = ((string)(ChristianLifeAssignment1));
             }
-            if ((BibleStudyReader == null)) {
+            if ((ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((bool)(ChristianLifeAssignment2OnlyVideo.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[28].Value = ((string)(BibleStudyReader));
+            if ((ChristianLifeAssignment2Needs.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[29].Value = ((bool)(ChristianLifeAssignment2Needs.Value));
             }
-            if ((SupervisorWeekSpeechTitle == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[29].Value = ((string)(SupervisorWeekSpeechTitle));
-            }
-            if ((WeekPrayer == null)) {
+            if ((ChristianLifeAssignment2Title == null)) {
                 this.Adapter.InsertCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(WeekPrayer));
+                this.Adapter.InsertCommand.Parameters[30].Value = ((string)(ChristianLifeAssignment2Title));
             }
-            if ((WeekendPresident == null)) {
+            if ((ChristianLifeAssignment2 == null)) {
                 this.Adapter.InsertCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(WeekendPresident));
+                this.Adapter.InsertCommand.Parameters[31].Value = ((string)(ChristianLifeAssignment2));
             }
-            if ((PublicSpeechTitle == null)) {
+            if ((BibleStudy == null)) {
                 this.Adapter.InsertCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(PublicSpeechTitle));
+                this.Adapter.InsertCommand.Parameters[32].Value = ((string)(BibleStudy));
             }
-            if ((PublicSpeech == null)) {
+            if ((BibleStudyReader == null)) {
                 this.Adapter.InsertCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[33].Value = ((string)(PublicSpeech));
+                this.Adapter.InsertCommand.Parameters[33].Value = ((string)(BibleStudyReader));
             }
-            if ((Watchtower == null)) {
+            if ((SupervisorWeekSpeechTitle == null)) {
                 this.Adapter.InsertCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[34].Value = ((string)(Watchtower));
+                this.Adapter.InsertCommand.Parameters[34].Value = ((string)(SupervisorWeekSpeechTitle));
             }
-            if ((WatchtowerReader == null)) {
+            if ((WeekPrayer == null)) {
                 this.Adapter.InsertCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[35].Value = ((string)(WatchtowerReader));
+                this.Adapter.InsertCommand.Parameters[35].Value = ((string)(WeekPrayer));
             }
-            if ((FinalSpeechTitle == null)) {
+            if ((WeekendPresident == null)) {
                 this.Adapter.InsertCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[36].Value = ((string)(FinalSpeechTitle));
+                this.Adapter.InsertCommand.Parameters[36].Value = ((string)(WeekendPresident));
             }
-            if ((FinalSpeech == null)) {
+            if ((PublicSpeechTitle == null)) {
                 this.Adapter.InsertCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[37].Value = ((string)(FinalSpeech));
+                this.Adapter.InsertCommand.Parameters[37].Value = ((string)(PublicSpeechTitle));
             }
-            if ((WeekendPrayer == null)) {
+            if ((PublicSpeech == null)) {
                 this.Adapter.InsertCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[38].Value = ((string)(WeekendPrayer));
+                this.Adapter.InsertCommand.Parameters[38].Value = ((string)(PublicSpeech));
             }
-            if ((AV == null)) {
+            if ((Watchtower == null)) {
                 this.Adapter.InsertCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(AV));
+                this.Adapter.InsertCommand.Parameters[39].Value = ((string)(Watchtower));
             }
-            if ((Microphone1 == null)) {
+            if ((WatchtowerReader == null)) {
                 this.Adapter.InsertCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[40].Value = ((string)(Microphone1));
+                this.Adapter.InsertCommand.Parameters[40].Value = ((string)(WatchtowerReader));
             }
-            if ((Microphone2 == null)) {
+            if ((FinalSpeechTitle == null)) {
                 this.Adapter.InsertCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[41].Value = ((string)(Microphone2));
+                this.Adapter.InsertCommand.Parameters[41].Value = ((string)(FinalSpeechTitle));
             }
-            if ((Order1 == null)) {
+            if ((FinalSpeech == null)) {
                 this.Adapter.InsertCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[42].Value = ((string)(Order1));
+                this.Adapter.InsertCommand.Parameters[42].Value = ((string)(FinalSpeech));
             }
-            if ((Order2 == null)) {
+            if ((WeekendPrayer == null)) {
                 this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[43].Value = ((string)(Order2));
+                this.Adapter.InsertCommand.Parameters[43].Value = ((string)(WeekendPrayer));
             }
-            if ((CleaningGroup.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[44].Value = ((int)(CleaningGroup.Value));
+            if ((AV == null)) {
+                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[44].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[44].Value = ((string)(AV));
+            }
+            if ((Microphone1 == null)) {
+                this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[45].Value = ((string)(Microphone1));
+            }
+            if ((Microphone2 == null)) {
+                this.Adapter.InsertCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[46].Value = ((string)(Microphone2));
+            }
+            if ((Order1 == null)) {
+                this.Adapter.InsertCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[47].Value = ((string)(Order1));
+            }
+            if ((Order2 == null)) {
+                this.Adapter.InsertCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[48].Value = ((string)(Order2));
+            }
+            if ((CleaningGroup.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[49].Value = ((int)(CleaningGroup.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -23881,6 +24925,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     global::System.Nullable<global::System.DateTime> WeekendMeetingDateTime, 
                     global::System.Nullable<bool> Convention, 
                     global::System.Nullable<bool> Memorial, 
+                    string ExtraInfo, 
                     global::System.Nullable<bool> Supervisor, 
                     string President, 
                     string TreasuresTitle, 
@@ -23889,12 +24934,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Reading, 
                     string Assignment1Type, 
                     string Assignment1, 
+                    string Assignment1Assist, 
                     string Assignment2Type, 
                     string Assignment2, 
+                    string Assignment2Assist, 
                     string Assignment3Type, 
                     string Assignment3, 
+                    string Assignment3Assist, 
                     string Assignment4Type, 
                     string Assignment4, 
+                    string Assignment4Assist, 
                     global::System.Nullable<bool> ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> ChristianLifeAssignment1Needs, 
                     string ChristianLifeAssignment1Title, 
@@ -23933,12 +24982,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Reading, 
                     string Original_Assignment1Type, 
                     string Original_Assignment1, 
+                    string Original_Assignment1Assist, 
                     string Original_Assignment2Type, 
                     string Original_Assignment2, 
+                    string Original_Assignment2Assist, 
                     string Original_Assignment3Type, 
                     string Original_Assignment3, 
+                    string Original_Assignment3Assist, 
                     string Original_Assignment4Type, 
                     string Original_Assignment4, 
+                    string Original_Assignment4Assist, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1Needs, 
                     string Original_ChristianLifeAssignment1, 
@@ -23985,550 +25038,612 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Supervisor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(Supervisor.Value));
-            }
-            else {
+            if ((ExtraInfo == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((President == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ExtraInfo));
+            }
+            if ((Supervisor.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Supervisor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(President));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((TreasuresTitle == null)) {
+            if ((President == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(TreasuresTitle));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(President));
             }
-            if ((Treasures == null)) {
+            if ((TreasuresTitle == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Treasures));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(TreasuresTitle));
             }
-            if ((Gems == null)) {
+            if ((Treasures == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Gems));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Treasures));
             }
-            if ((Reading == null)) {
+            if ((Gems == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Reading));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Gems));
             }
-            if ((Assignment1Type == null)) {
+            if ((Reading == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Assignment1Type));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Reading));
             }
-            if ((Assignment1 == null)) {
+            if ((Assignment1Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Assignment1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Assignment1Type));
             }
-            if ((Assignment2Type == null)) {
+            if ((Assignment1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Assignment2Type));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Assignment1));
             }
-            if ((Assignment2 == null)) {
+            if ((Assignment1Assist == null)) {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Assignment2));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Assignment1Assist));
             }
-            if ((Assignment3Type == null)) {
+            if ((Assignment2Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Assignment3Type));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Assignment2Type));
             }
-            if ((Assignment3 == null)) {
+            if ((Assignment2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Assignment3));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Assignment2));
             }
-            if ((Assignment4Type == null)) {
+            if ((Assignment2Assist == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Assignment4Type));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Assignment2Assist));
             }
-            if ((Assignment4 == null)) {
+            if ((Assignment3Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Assignment4));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Assignment3Type));
             }
-            if ((ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((bool)(ChristianLifeAssignment1OnlyVideo.Value));
-            }
-            else {
+            if ((Assignment3 == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment1Needs.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(ChristianLifeAssignment1Needs.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Assignment3));
+            }
+            if ((Assignment3Assist == null)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment1Title == null)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Assignment3Assist));
+            }
+            if ((Assignment4Type == null)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(ChristianLifeAssignment1Title));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Assignment4Type));
             }
-            if ((ChristianLifeAssignment1 == null)) {
+            if ((Assignment4 == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(ChristianLifeAssignment1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Assignment4));
             }
-            if ((ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((bool)(ChristianLifeAssignment2OnlyVideo.Value));
-            }
-            else {
+            if ((Assignment4Assist == null)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2Needs.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((bool)(ChristianLifeAssignment2Needs.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Assignment4Assist));
+            }
+            if ((ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((bool)(ChristianLifeAssignment1OnlyVideo.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            if ((ChristianLifeAssignment1Needs.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((bool)(ChristianLifeAssignment1Needs.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(ChristianLifeAssignment2Title));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((ChristianLifeAssignment2 == null)) {
+            if ((ChristianLifeAssignment1Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(ChristianLifeAssignment2));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(ChristianLifeAssignment1Title));
             }
-            if ((BibleStudy == null)) {
+            if ((ChristianLifeAssignment1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(BibleStudy));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(ChristianLifeAssignment1));
             }
-            if ((BibleStudyReader == null)) {
+            if ((ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((bool)(ChristianLifeAssignment2OnlyVideo.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(BibleStudyReader));
+            if ((ChristianLifeAssignment2Needs.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((bool)(ChristianLifeAssignment2Needs.Value));
             }
-            if ((SupervisorWeekSpeechTitle == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(SupervisorWeekSpeechTitle));
-            }
-            if ((WeekPrayer == null)) {
+            if ((ChristianLifeAssignment2Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(WeekPrayer));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(ChristianLifeAssignment2Title));
             }
-            if ((WeekendPresident == null)) {
+            if ((ChristianLifeAssignment2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(WeekendPresident));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(ChristianLifeAssignment2));
             }
-            if ((PublicSpeechTitle == null)) {
+            if ((BibleStudy == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(PublicSpeechTitle));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(BibleStudy));
             }
-            if ((PublicSpeech == null)) {
+            if ((BibleStudyReader == null)) {
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(PublicSpeech));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(BibleStudyReader));
             }
-            if ((Watchtower == null)) {
+            if ((SupervisorWeekSpeechTitle == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Watchtower));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(SupervisorWeekSpeechTitle));
             }
-            if ((WatchtowerReader == null)) {
+            if ((WeekPrayer == null)) {
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(WatchtowerReader));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(WeekPrayer));
             }
-            if ((FinalSpeechTitle == null)) {
+            if ((WeekendPresident == null)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(FinalSpeechTitle));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(WeekendPresident));
             }
-            if ((FinalSpeech == null)) {
+            if ((PublicSpeechTitle == null)) {
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(FinalSpeech));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(PublicSpeechTitle));
             }
-            if ((WeekendPrayer == null)) {
+            if ((PublicSpeech == null)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(WeekendPrayer));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(PublicSpeech));
             }
-            if ((AV == null)) {
+            if ((Watchtower == null)) {
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(AV));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Watchtower));
             }
-            if ((Microphone1 == null)) {
+            if ((WatchtowerReader == null)) {
                 this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Microphone1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(WatchtowerReader));
             }
-            if ((Microphone2 == null)) {
+            if ((FinalSpeechTitle == null)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Microphone2));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(FinalSpeechTitle));
             }
-            if ((Order1 == null)) {
+            if ((FinalSpeech == null)) {
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Order1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(FinalSpeech));
             }
-            if ((Order2 == null)) {
+            if ((WeekendPrayer == null)) {
                 this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Order2));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(WeekendPrayer));
             }
-            if ((CleaningGroup.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((int)(CleaningGroup.Value));
-            }
-            else {
+            if ((AV == null)) {
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_WeekStartDate));
-            if ((Original_WeekMeetingDateTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_WeekMeetingDateTime.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(AV));
+            }
+            if ((Microphone1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((string)(Microphone1));
+            }
+            if ((Microphone2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Microphone2));
+            }
+            if ((Order1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
             }
-            if ((Original_WeekendMeetingDateTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(Original_WeekendMeetingDateTime.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Order1));
+            }
+            if ((Order2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Order2));
+            }
+            if ((CleaningGroup.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(CleaningGroup.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            if ((Original_Convention.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((bool)(Original_Convention.Value));
+            this.Adapter.UpdateCommand.Parameters[50].Value = ((System.DateTime)(Original_WeekStartDate));
+            if ((Original_WeekMeetingDateTime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((System.DateTime)(Original_WeekMeetingDateTime.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            if ((Original_WeekendMeetingDateTime.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((System.DateTime)(Original_WeekendMeetingDateTime.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Convention.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((bool)(Original_Convention.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
             if ((Original_Memorial.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_Memorial.Value));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((bool)(Original_Memorial.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
             if ((Original_Supervisor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((bool)(Original_Supervisor.Value));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((bool)(Original_Supervisor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
             }
             if ((Original_President == null)) {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_President));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_President));
             }
             if ((Original_Treasures == null)) {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((string)(Original_Treasures));
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_Treasures));
             }
             if ((Original_Gems == null)) {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_Gems));
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_Gems));
             }
             if ((Original_Reading == null)) {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[63].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((string)(Original_Reading));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_Reading));
             }
             if ((Original_Assignment1Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[65].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[65].Value = ((string)(Original_Assignment1Type));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((string)(Original_Assignment1Type));
             }
             if ((Original_Assignment1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[67].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_Assignment1));
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_Assignment1));
+            }
+            if ((Original_Assignment1Assist == null)) {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_Assignment1Assist));
             }
             if ((Original_Assignment2Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_Assignment2Type));
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((string)(Original_Assignment2Type));
             }
             if ((Original_Assignment2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[71].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[71].Value = ((string)(Original_Assignment2));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(Original_Assignment2));
+            }
+            if ((Original_Assignment2Assist == null)) {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((string)(Original_Assignment2Assist));
             }
             if ((Original_Assignment3Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[73].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[73].Value = ((string)(Original_Assignment3Type));
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(Original_Assignment3Type));
             }
             if ((Original_Assignment3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[75].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[74].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((string)(Original_Assignment3));
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(Original_Assignment3));
+            }
+            if ((Original_Assignment3Assist == null)) {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_Assignment3Assist));
             }
             if ((Original_Assignment4Type == null)) {
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[77].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((string)(Original_Assignment4Type));
+                this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_Assignment4Type));
             }
             if ((Original_Assignment4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((string)(Original_Assignment4));
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((string)(Original_Assignment4));
+            }
+            if ((Original_Assignment4Assist == null)) {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((string)(Original_Assignment4Assist));
             }
             if ((Original_ChristianLifeAssignment1OnlyVideo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[81].Value = ((bool)(Original_ChristianLifeAssignment1OnlyVideo.Value));
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((bool)(Original_ChristianLifeAssignment1OnlyVideo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[81].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
             }
             if ((Original_ChristianLifeAssignment1Needs.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[83].Value = ((bool)(Original_ChristianLifeAssignment1Needs.Value));
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((bool)(Original_ChristianLifeAssignment1Needs.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[83].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[96].Value = global::System.DBNull.Value;
             }
             if ((Original_ChristianLifeAssignment1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[85].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[98].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[85].Value = ((string)(Original_ChristianLifeAssignment1));
+                this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((string)(Original_ChristianLifeAssignment1));
             }
             if ((Original_ChristianLifeAssignment2OnlyVideo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[87].Value = ((bool)(Original_ChristianLifeAssignment2OnlyVideo.Value));
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((bool)(Original_ChristianLifeAssignment2OnlyVideo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[86].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[87].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
             }
             if ((Original_ChristianLifeAssignment2Needs.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((bool)(Original_ChristianLifeAssignment2Needs.Value));
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((bool)(Original_ChristianLifeAssignment2Needs.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[89].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
             }
             if ((Original_ChristianLifeAssignment2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[91].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[104].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[90].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((string)(Original_ChristianLifeAssignment2));
+                this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(Original_ChristianLifeAssignment2));
             }
             if ((Original_BibleStudy == null)) {
-                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[106].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((string)(Original_BibleStudy));
+                this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[106].Value = ((string)(Original_BibleStudy));
             }
             if ((Original_BibleStudyReader == null)) {
-                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[108].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((string)(Original_BibleStudyReader));
+                this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[108].Value = ((string)(Original_BibleStudyReader));
             }
             if ((Original_WeekPrayer == null)) {
-                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[97].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[96].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[97].Value = ((string)(Original_WeekPrayer));
+                this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(Original_WeekPrayer));
             }
             if ((Original_WeekendPresident == null)) {
-                this.Adapter.UpdateCommand.Parameters[98].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[99].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[112].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[98].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[99].Value = ((string)(Original_WeekendPresident));
+                this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[112].Value = ((string)(Original_WeekendPresident));
             }
             if ((Original_PublicSpeech == null)) {
-                this.Adapter.UpdateCommand.Parameters[100].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[101].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[114].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[100].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[101].Value = ((string)(Original_PublicSpeech));
+                this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[114].Value = ((string)(Original_PublicSpeech));
             }
             if ((Original_Watchtower == null)) {
-                this.Adapter.UpdateCommand.Parameters[102].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[103].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[116].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[102].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[103].Value = ((string)(Original_Watchtower));
+                this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[116].Value = ((string)(Original_Watchtower));
             }
             if ((Original_WatchtowerReader == null)) {
-                this.Adapter.UpdateCommand.Parameters[104].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[105].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[118].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[104].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[105].Value = ((string)(Original_WatchtowerReader));
+                this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[118].Value = ((string)(Original_WatchtowerReader));
             }
             if ((Original_FinalSpeech == null)) {
-                this.Adapter.UpdateCommand.Parameters[106].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[107].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[106].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[107].Value = ((string)(Original_FinalSpeech));
+                this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((string)(Original_FinalSpeech));
             }
             if ((Original_WeekendPrayer == null)) {
-                this.Adapter.UpdateCommand.Parameters[108].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[109].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[108].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[109].Value = ((string)(Original_WeekendPrayer));
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[122].Value = ((string)(Original_WeekendPrayer));
             }
             if ((Original_AV == null)) {
-                this.Adapter.UpdateCommand.Parameters[110].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[111].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[110].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[111].Value = ((string)(Original_AV));
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[124].Value = ((string)(Original_AV));
             }
             if ((Original_Microphone1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[112].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[113].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[112].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[113].Value = ((string)(Original_Microphone1));
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[126].Value = ((string)(Original_Microphone1));
             }
             if ((Original_Microphone2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[114].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[115].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[114].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[115].Value = ((string)(Original_Microphone2));
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(Original_Microphone2));
             }
             if ((Original_Order1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[116].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[117].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[130].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[116].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[117].Value = ((string)(Original_Order1));
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(Original_Order1));
             }
             if ((Original_Order2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[118].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[119].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[132].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[118].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[119].Value = ((string)(Original_Order2));
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Original_Order2));
             }
             if ((Original_CleaningGroup.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[121].Value = ((int)(Original_CleaningGroup.Value));
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[134].Value = ((int)(Original_CleaningGroup.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[121].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[134].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -24555,6 +25670,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     global::System.Nullable<global::System.DateTime> WeekendMeetingDateTime, 
                     global::System.Nullable<bool> Convention, 
                     global::System.Nullable<bool> Memorial, 
+                    string ExtraInfo, 
                     global::System.Nullable<bool> Supervisor, 
                     string President, 
                     string TreasuresTitle, 
@@ -24563,12 +25679,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Reading, 
                     string Assignment1Type, 
                     string Assignment1, 
+                    string Assignment1Assist, 
                     string Assignment2Type, 
                     string Assignment2, 
+                    string Assignment2Assist, 
                     string Assignment3Type, 
                     string Assignment3, 
+                    string Assignment3Assist, 
                     string Assignment4Type, 
                     string Assignment4, 
+                    string Assignment4Assist, 
                     global::System.Nullable<bool> ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> ChristianLifeAssignment1Needs, 
                     string ChristianLifeAssignment1Title, 
@@ -24607,12 +25727,16 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Reading, 
                     string Original_Assignment1Type, 
                     string Original_Assignment1, 
+                    string Original_Assignment1Assist, 
                     string Original_Assignment2Type, 
                     string Original_Assignment2, 
+                    string Original_Assignment2Assist, 
                     string Original_Assignment3Type, 
                     string Original_Assignment3, 
+                    string Original_Assignment3Assist, 
                     string Original_Assignment4Type, 
                     string Original_Assignment4, 
+                    string Original_Assignment4Assist, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1OnlyVideo, 
                     global::System.Nullable<bool> Original_ChristianLifeAssignment1Needs, 
                     string Original_ChristianLifeAssignment1, 
@@ -24634,7 +25758,7 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     string Original_Order1, 
                     string Original_Order2, 
                     global::System.Nullable<int> Original_CleaningGroup) {
-            return this.Update(Original_WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment2Type, Assignment2, Assignment3Type, Assignment3, Assignment4Type, Assignment4, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup, Original_WeekStartDate, Original_WeekMeetingDateTime, Original_WeekendMeetingDateTime, Original_Convention, Original_Memorial, Original_Supervisor, Original_President, Original_Treasures, Original_Gems, Original_Reading, Original_Assignment1Type, Original_Assignment1, Original_Assignment2Type, Original_Assignment2, Original_Assignment3Type, Original_Assignment3, Original_Assignment4Type, Original_Assignment4, Original_ChristianLifeAssignment1OnlyVideo, Original_ChristianLifeAssignment1Needs, Original_ChristianLifeAssignment1, Original_ChristianLifeAssignment2OnlyVideo, Original_ChristianLifeAssignment2Needs, Original_ChristianLifeAssignment2, Original_BibleStudy, Original_BibleStudyReader, Original_WeekPrayer, Original_WeekendPresident, Original_PublicSpeech, Original_Watchtower, Original_WatchtowerReader, Original_FinalSpeech, Original_WeekendPrayer, Original_AV, Original_Microphone1, Original_Microphone2, Original_Order1, Original_Order2, Original_CleaningGroup);
+            return this.Update(Original_WeekStartDate, WeekMeetingDateTime, WeekendMeetingDateTime, Convention, Memorial, ExtraInfo, Supervisor, President, TreasuresTitle, Treasures, Gems, Reading, Assignment1Type, Assignment1, Assignment1Assist, Assignment2Type, Assignment2, Assignment2Assist, Assignment3Type, Assignment3, Assignment3Assist, Assignment4Type, Assignment4, Assignment4Assist, ChristianLifeAssignment1OnlyVideo, ChristianLifeAssignment1Needs, ChristianLifeAssignment1Title, ChristianLifeAssignment1, ChristianLifeAssignment2OnlyVideo, ChristianLifeAssignment2Needs, ChristianLifeAssignment2Title, ChristianLifeAssignment2, BibleStudy, BibleStudyReader, SupervisorWeekSpeechTitle, WeekPrayer, WeekendPresident, PublicSpeechTitle, PublicSpeech, Watchtower, WatchtowerReader, FinalSpeechTitle, FinalSpeech, WeekendPrayer, AV, Microphone1, Microphone2, Order1, Order2, CleaningGroup, Original_WeekStartDate, Original_WeekMeetingDateTime, Original_WeekendMeetingDateTime, Original_Convention, Original_Memorial, Original_Supervisor, Original_President, Original_Treasures, Original_Gems, Original_Reading, Original_Assignment1Type, Original_Assignment1, Original_Assignment1Assist, Original_Assignment2Type, Original_Assignment2, Original_Assignment2Assist, Original_Assignment3Type, Original_Assignment3, Original_Assignment3Assist, Original_Assignment4Type, Original_Assignment4, Original_Assignment4Assist, Original_ChristianLifeAssignment1OnlyVideo, Original_ChristianLifeAssignment1Needs, Original_ChristianLifeAssignment1, Original_ChristianLifeAssignment2OnlyVideo, Original_ChristianLifeAssignment2Needs, Original_ChristianLifeAssignment2, Original_BibleStudy, Original_BibleStudyReader, Original_WeekPrayer, Original_WeekendPresident, Original_PublicSpeech, Original_Watchtower, Original_WatchtowerReader, Original_FinalSpeech, Original_WeekendPrayer, Original_AV, Original_Microphone1, Original_Microphone2, Original_Order1, Original_Order2, Original_CleaningGroup);
         }
     }
     
@@ -24649,6 +25773,8 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
         private UpdateOrderOption _updateOrder;
+        
+        private AssignmentTypesTableAdapter _assignmentTypesTableAdapter;
         
         private AssistTableAdapter _assistTableAdapter;
         
@@ -24712,6 +25838,20 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public AssignmentTypesTableAdapter AssignmentTypesTableAdapter {
+            get {
+                return this._assignmentTypesTableAdapter;
+            }
+            set {
+                this._assignmentTypesTableAdapter = value;
             }
         }
         
@@ -25084,6 +26224,10 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._assignmentTypesTableAdapter != null) 
+                            && (this._assignmentTypesTableAdapter.Connection != null))) {
+                    return this._assignmentTypesTableAdapter.Connection;
+                }
                 if (((this._assistTableAdapter != null) 
                             && (this._assistTableAdapter.Connection != null))) {
                     return this._assistTableAdapter.Connection;
@@ -25197,6 +26341,9 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._assignmentTypesTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 if ((this._assistTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -25292,12 +26439,12 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._assistTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._assignmentTypesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.AssignmentTypes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._assistTableAdapter.Update(updatedRows));
+                    result = (result + this._assignmentTypesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -25490,6 +26637,15 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._assistTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._assistTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._weekPresidentTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.WeekPresident.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -25526,11 +26682,11 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._assistTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._assignmentTypesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.AssignmentTypes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._assistTableAdapter.Update(addedRows));
+                    result = (result + this._assignmentTypesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -25702,6 +26858,14 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._assistTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._assistTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._weekPresidentTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.WeekPresident.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -25741,6 +26905,14 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._weekPresidentTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._assistTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._assistTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25912,11 +27084,11 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._assistTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Assist.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._assignmentTypesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.AssignmentTypes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._assistTableAdapter.Update(deletedRows));
+                    result = (result + this._assignmentTypesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25966,6 +27138,11 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
+            }
+            if (((this._assignmentTypesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._assignmentTypesTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
             }
             if (((this._assistTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._assistTableAdapter.Connection) == false))) {
@@ -26124,6 +27301,15 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._assignmentTypesTableAdapter != null)) {
+                    revertConnections.Add(this._assignmentTypesTableAdapter, this._assignmentTypesTableAdapter.Connection);
+                    this._assignmentTypesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._assignmentTypesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._assignmentTypesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._assignmentTypesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._assignmentTypesTableAdapter.Adapter);
+                    }
+                }
                 if ((this._assistTableAdapter != null)) {
                     revertConnections.Add(this._assistTableAdapter, this._assistTableAdapter.Connection);
                     this._assistTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -26406,6 +27592,10 @@ SELECT PersonName, DefaultFrequency, Frequency, NextAssignmentInWeeks FROM WeekP
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
+                }
+                if ((this._assignmentTypesTableAdapter != null)) {
+                    this._assignmentTypesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._assignmentTypesTableAdapter]));
+                    this._assignmentTypesTableAdapter.Transaction = null;
                 }
                 if ((this._assistTableAdapter != null)) {
                     this._assistTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._assistTableAdapter]));
