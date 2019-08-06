@@ -90,6 +90,7 @@
       <DependentUpon>ScheduleDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Utils\SQLConnectionManager.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModel\LoadSchedule.cs" />
     <Compile Include="ViewModel\PeopleList.cs" />
     <Compile Include="Model\Person.cs" />

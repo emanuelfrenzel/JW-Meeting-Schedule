@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JWMeetingSchedule.Utils;
+
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -54,7 +56,7 @@ namespace JWMeetingSchedule.Model
 
         public WeekSchedule(string dataString)
         {
-            removeOtherWeeks(ref dataString);
+            dataString = dataString.Remove("END OF");
             WeekStartDate = DateTime.Parse(dataString.Remove(10), new CultureInfo("ro-Ro"));
             President = findPrayer(ref dataString, "Rugăciune ", 30);
             if (President != null)
@@ -64,40 +66,25 @@ namespace JWMeetingSchedule.Model
             }
         }
 
-        private string findPrayer(ref string dataString, string search, int returnIndex)
+        private string findPrayer(ref string input, string pattern, int returnIndex)
         {
-            var match = Regex.Match(dataString, search);
-            if (match != Match.Empty)
-            {
-                dataString = dataString.Substring(match.Index + returnIndex);
-                match = Regex.Match(dataString, "[)]");
-                return dataString.Remove(match.Index);
-            }
-            else
-            {
-                return null;
-            }
+            return find(ref input, pattern, returnIndex, "[)]");
         }
 
-        private string find(ref string dataString, string search, int returnIndex)
+        private string find(ref string input, string pattern, int returnIndex)
         {
-            var match = Regex.Match(dataString, search);
-            if (match != Match.Empty)
-            {
-                dataString = dataString.Substring(match.Index + returnIndex);
-                match = Regex.Match(dataString, "<");
-                return dataString.Remove(match.Index);
-            }
-            else
-            {
-                return null;
-            }
+            return find(ref input, pattern, returnIndex, "<");
         }
 
-        private void removeOtherWeeks(ref string dataString)
+        private string find(ref string input, string pattern, int returnIndex, string returnEnd)
         {
-            var match = Regex.Match(dataString, "END OF");
-            dataString = dataString.Remove(match.Index);
+            var match = Regex.Match(input, pattern);
+            if (match != Match.Empty)
+            {
+                input = input.Substring(match.Index + returnIndex);
+                return input.Remove(returnEnd);
+            }
+            return null;
         }
     }
 }
