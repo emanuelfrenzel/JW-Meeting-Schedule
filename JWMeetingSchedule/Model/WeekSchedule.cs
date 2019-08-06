@@ -55,18 +55,49 @@ namespace JWMeetingSchedule.Model
         public WeekSchedule(string dataString)
         {
             removeOtherWeeks(ref dataString);
-            WeekStartDate = DateTime.Parse(dataString,
-                          new CultureInfo("ro-Ro"));
+            WeekStartDate = DateTime.Parse(dataString.Remove(10), new CultureInfo("ro-Ro"));
+            President = findPrayer(ref dataString, "Rugăciune ", 30);
+            if (President != null)
+            {
+                TreasuresTitle = find(ref dataString, "colspan=\"3\"", 38);
+                Treasures = find(ref dataString, "name", 6);
+            }
+        }
+
+        private string findPrayer(ref string dataString, string search, int returnIndex)
+        {
+            var match = Regex.Match(dataString, search);
+            if (match != Match.Empty)
+            {
+                dataString = dataString.Substring(match.Index + returnIndex);
+                match = Regex.Match(dataString, "[)]");
+                return dataString.Remove(match.Index);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private string find(ref string dataString, string search, int returnIndex)
+        {
+            var match = Regex.Match(dataString, search);
+            if (match != Match.Empty)
+            {
+                dataString = dataString.Substring(match.Index + returnIndex);
+                match = Regex.Match(dataString, "<");
+                return dataString.Remove(match.Index);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private void removeOtherWeeks(ref string dataString)
         {
-            try
-            {
-                var match = Regex.Match(dataString, "END OF");
-                dataString = dataString.Remove(match.Index);
-            }
-            catch { }
+            var match = Regex.Match(dataString, "END OF");
+            dataString = dataString.Remove(match.Index);
         }
     }
 }
