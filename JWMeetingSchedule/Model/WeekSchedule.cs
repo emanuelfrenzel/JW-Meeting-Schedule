@@ -63,7 +63,7 @@ namespace JWMeetingSchedule.Model
         public string ChristianLifeAssignment2 => christianLifeAssignment2;
         public string BibleStudy { get; set; }
         public string BibleStudyReader { get; set; }
-        public string SupervisorWeekSpeechTitle { get; set; }
+        public string SupervisorName { get; set; }
         public string WeekPrayer { get; set; }
         public string WeekendPresident { get; set; }
         public string PublicSpeechTitle { get; set; }
@@ -97,6 +97,18 @@ namespace JWMeetingSchedule.Model
                 findPreachingAssignment(ref assignment4Type, ref assignment4, ref assignment4Assist, "FM Talk 4");
                 findChristianLifeAssignment(ref christianLifeAssignment1OnlyVideo,
                     ref christianLifeAssignment1Needs, ref christianLifeAssignment1Title, ref christianLifeAssignment1);
+                if (findChristianLifeAssignment(ref christianLifeAssignment2OnlyVideo, ref christianLifeAssignment2Needs,
+                    ref christianLifeAssignment2Title, ref christianLifeAssignment2) == true)
+                {
+                    BibleStudy = findName();
+                    BibleStudyReader = findName();
+                }
+                else
+                {
+                    SupervisorName = findName();
+                    Supervisor = true;
+                }
+
             }
             else
             {
@@ -104,7 +116,7 @@ namespace JWMeetingSchedule.Model
             }
         }
 
-        private void findChristianLifeAssignment(ref bool christianLifeAssignmentOnlyVideo,
+        private bool findChristianLifeAssignment(ref bool christianLifeAssignmentOnlyVideo,
             ref bool christianLifeAssignmentNeeds, ref string christianLifeAssignmentTitle, ref string christianLifeAssignment)
         {
             christianLifeAssignmentTitle = findTheme();
@@ -112,11 +124,22 @@ namespace JWMeetingSchedule.Model
             {
                 christianLifeAssignmentNeeds = true;
             }
+            else if (christianLifeAssignmentTitle == "Studiul Bibliei în congregație")
+            {
+                christianLifeAssignmentTitle = null;
+                return true;
+            }
+            else if (christianLifeAssignmentTitle == "Recapitulare, apoi o prezentare scurtă a următoarei întruniri")
+            {
+                christianLifeAssignmentTitle = null;
+                return false;
+            }
             christianLifeAssignment = findName();
             if (christianLifeAssignment == President)
             {
                 christianLifeAssignmentOnlyVideo = true;
             }
+            return true;
         }
 
         private void findPreachingAssignment(ref string assignmentType,
@@ -127,7 +150,7 @@ namespace JWMeetingSchedule.Model
             {
                 assignmentType = findTheme();
                 assignment = findName();
-                match = Regex.Match(dataString, "[Vizita][vizită][Studiu]");
+                match = Regex.Match(dataString, "[Vizita][vizită][Studiu][Dedică]");
                 if (match != Match.Empty)
                 {
                     match = Regex.Match(assignmentType, "Material video");
