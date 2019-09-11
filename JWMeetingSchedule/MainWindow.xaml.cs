@@ -7,16 +7,13 @@ namespace JWMeetingSchedule
 {
     public partial class MainWindow : Window
     {
-        private ScheduleView scheduleView;
-        private PersonsView personsView;
-        private SettingsView settingsView;
+        private ScheduleView scheduleView = new ScheduleView();
+        private PersonsView personsView = new PersonsView();
+        private SettingsView settingsView = new SettingsView();
 
         public MainWindow()
         {
             InitializeComponent();
-            scheduleView = new ScheduleView();
-            personsView = new PersonsView();
-            settingsView = new SettingsView();
             DataContext = scheduleView;
         }
 
