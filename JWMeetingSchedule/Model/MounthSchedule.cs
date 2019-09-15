@@ -20,14 +20,31 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using JWMeetingSchedule.View;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
 
-namespace JWMeetingSchedule.ViewModel
+namespace JWMeetingSchedule.Model
 {
-    public class ScheduleViewModel
+    public class MounthSchedule
     {
-        public LoadSchedule LoadSchedule { get; } = new LoadSchedule();
-        public ObservableCollection<WeekView> Weeks => LoadSchedule.WeekViews;
+        private string fileContent;
+
+        public MounthSchedule(string fileName)
+        {
+            fileContent = File.ReadAllText(fileName);
+        }
+
+        public List<WeekSchedule> FindWeeks()
+        {
+            var weeks = new List<WeekSchedule>();
+            foreach (Match match in Regex.Matches(fileContent, "Săptămâna care începe la "))
+            {
+                var dataString = fileContent.Substring(match.Index + match.Length);
+                var week = new WeekSchedule(dataString);
+                weeks.Add(week);
+            }
+            return weeks;
+        }
     }
 }
