@@ -45,8 +45,10 @@ namespace JWMeetingSchedule.ViewModel
 
         public void Execute(object parameter)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "HTML files (*.html)|*.html";
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "HTML files (*.html)|*.html"
+            };
             if (openFileDialog.ShowDialog() == true)
             {
                 mounthSchedule = new MounthSchedule(openFileDialog.FileName);

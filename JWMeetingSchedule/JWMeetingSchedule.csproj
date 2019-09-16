@@ -83,12 +83,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ChristianLifeSchedule.cs" />
     <Compile Include="Model\MounthSchedule.cs" />
     <Compile Include="DB\ScheduleDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ScheduleDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\ApplyToMinistrySchedule.cs" />
+    <Compile Include="Model\TreasuresSchedule.cs" />
     <Compile Include="Utils\SQLConnectionManager.cs" />
     <Compile Include="Utils\Utils.cs" />
     <Compile Include="ViewModel\LoadSchedule.cs" />

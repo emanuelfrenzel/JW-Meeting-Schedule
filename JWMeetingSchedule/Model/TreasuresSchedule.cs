@@ -20,38 +20,22 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-using System.Text.RegularExpressions;
-
-namespace Utils
+namespace JWMeetingSchedule.Model
 {
-    public static class Utils
+    public class TreasuresSchedule
     {
-        public static string Remove(this string s, string startString)
-        {
-            var match = Regex.Match(s, startString);
-            return s.Remove(match.Index);
-        }
+        public string TreasuresTitle { get; set; }
+        public string Treasures { get; set; }
+        public string Gems { get; set; }
+        public string Reading { get; set; }
 
-        public static bool ToBoolean(this string s)
+        public TreasuresSchedule(ref string dataString)
         {
-            switch (s.ToLower())
-            {
-                case "true":
-                    return true;
-                case "t":
-                    return true;
-                case "1":
-                    return true;
-                case "0":
-                    return false;
-                case "false":
-                    return false;
-                case "f":
-                    return false;
-                default:
-                    throw new InvalidCastException("You can't cast that value to a bool!");
-            }
+            WeekSchedule.findTheme(ref dataString);
+            TreasuresTitle = WeekSchedule.findTheme(ref dataString);
+            Treasures = WeekSchedule.findName(ref dataString);
+            Gems = WeekSchedule.findName(ref dataString);
+            Reading = WeekSchedule.findName(ref dataString);
         }
     }
 }
