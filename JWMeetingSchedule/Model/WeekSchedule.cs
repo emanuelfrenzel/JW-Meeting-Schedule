@@ -34,40 +34,27 @@ namespace JWMeetingSchedule.Model
         private bool supervisor;
         public DateTime WeekStartDate { get; set; }
         public DateTime WeekMeetingDateTime { get; set; }
-        public DateTime WeekendMeetingDateTime { get; set; }
         public bool Convention { get; set; }
         public bool Memorial { get; set; }
         public string ExtraInfo { get; set; }
         public bool Supervisor => supervisor;
-        public string President { get; set; }
+        public string WeekPresident { get; set; }
         public TreasuresSchedule Treasures { get; set; }
         public ApplyToMinistrySchedule ApplyToMinistry { get; set; }
         public ChristianLifeSchedule ChristianLife { get; set; }
-        public string WeekendPresident { get; set; }
-        public string PublicSpeechTitle { get; set; }
-        public string PublicSpeech { get; set; }
-        public string Watchtower { get; set; }
-        public string WatchtowerReader { get; set; }
-        public string FinalSpeechTitle { get; set; }
-        public string FinalSpeech { get; set; }
-        public string WeekendPrayer { get; set; }
-        public string AV { get; set; }
-        public string Microphone1 { get; set; }
-        public string Microphone2 { get; set; }
-        public string Order1 { get; set; }
-        public string Order2 { get; set; }
-        public int CleaningGroup { get; set; }
+        public WeekendMeetingSchedule WeekendMeeting { get; set; }
+        public ResponsibilitiesSchedule Responsibilities { get; set; }
 
         public WeekSchedule(string dataString)
         {
             this.dataString = dataString.Remove("END OF");
             WeekStartDate = DateTime.Parse(dataString.Remove(10), new CultureInfo("ro-Ro"));
-            President = findPrayer();
-            if (President != null)
+            WeekPresident = findPrayer();
+            if (WeekPresident != null)
             {
                 Treasures = new TreasuresSchedule(ref dataString);
                 ApplyToMinistry = new ApplyToMinistrySchedule(ref dataString);
-                ChristianLife = new ChristianLifeSchedule(ref dataString, President, ref supervisor);
+                ChristianLife = new ChristianLifeSchedule(ref dataString, WeekPresident, ref supervisor);
             }
             else
             {
