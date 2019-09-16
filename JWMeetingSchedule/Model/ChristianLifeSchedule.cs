@@ -26,22 +26,22 @@ namespace JWMeetingSchedule.Model
     {
         private string dataString;
         private string president;
-        private bool christianLifeAssignment1OnlyVideo;
-        private bool christianLifeAssignment1Needs;
-        private string christianLifeAssignment1Title;
-        private string christianLifeAssignment1;
-        private bool christianLifeAssignment2OnlyVideo;
-        private bool christianLifeAssignment2Needs;
-        private string christianLifeAssignment2Title;
-        private string christianLifeAssignment2;
-        public bool ChristianLifeAssignment1OnlyVideo => christianLifeAssignment1OnlyVideo;
-        public bool ChristianLifeAssignment1Needs => christianLifeAssignment1Needs;
-        public string ChristianLifeAssignment1Title => christianLifeAssignment1Title;
-        public string ChristianLifeAssignment1 => christianLifeAssignment1;
-        public bool ChristianLifeAssignment2OnlyVideo => christianLifeAssignment2OnlyVideo;
-        public bool ChristianLifeAssignment2Needs => christianLifeAssignment2OnlyVideo;
-        public string ChristianLifeAssignment2Title => christianLifeAssignment2Title;
-        public string ChristianLifeAssignment2 => christianLifeAssignment2;
+        private bool assignment1OnlyVideo;
+        private bool assignment1Needs;
+        private string assignment1Title;
+        private string assignment1;
+        private bool assignment2OnlyVideo;
+        private bool assignment2Needs;
+        private string assignment2Title;
+        private string assignment2;
+        public bool Assignment1OnlyVideo => assignment1OnlyVideo;
+        public bool Assignment1Needs => assignment1Needs;
+        public string Assignment1Title => assignment1Title;
+        public string Assignment1 => assignment1;
+        public bool Assignment2OnlyVideo => assignment2OnlyVideo;
+        public bool Assignment2Needs => assignment2OnlyVideo;
+        public string Assignment2Title => assignment2Title;
+        public string Assignment2 => assignment2;
         public string BibleStudy { get; set; }
         public string BibleStudyReader { get; set; }
         public string SupervisorName { get; set; }
@@ -51,10 +51,8 @@ namespace JWMeetingSchedule.Model
         {
             this.dataString = dataString;
             this.president = president;
-            findChristianLifeAssignment(ref christianLifeAssignment1OnlyVideo, ref christianLifeAssignment1Needs,
-                   ref christianLifeAssignment1Title, ref christianLifeAssignment1);
-            if (findChristianLifeAssignment(ref christianLifeAssignment2OnlyVideo, ref christianLifeAssignment2Needs,
-                ref christianLifeAssignment2Title, ref christianLifeAssignment2) == true)
+            findAssignment(ref assignment1OnlyVideo, ref assignment1Needs, ref assignment1Title, ref assignment1);
+            if (findAssignment(ref assignment2OnlyVideo, ref assignment2Needs, ref assignment2Title, ref assignment2) == true)
             {
                 BibleStudy = WeekSchedule.findName(ref dataString);
                 BibleStudyReader = WeekSchedule.findName(ref dataString);
@@ -67,28 +65,28 @@ namespace JWMeetingSchedule.Model
             dataString = this.dataString;
         }
 
-        private bool findChristianLifeAssignment(ref bool christianLifeAssignmentOnlyVideo,
-         ref bool christianLifeAssignmentNeeds, ref string christianLifeAssignmentTitle, ref string christianLifeAssignment)
+        private bool findAssignment(ref bool assignmentOnlyVideo, 
+            ref bool assignmentNeeds, ref string assignmentTitle, ref string assignment)
         {
-            christianLifeAssignmentTitle = WeekSchedule.findTheme(ref dataString);
-            if (christianLifeAssignmentTitle == "Necesități locale")
+            assignmentTitle = WeekSchedule.findTheme(ref dataString);
+            if (assignmentTitle == "Necesități locale")
             {
-                christianLifeAssignmentNeeds = true;
+                assignmentNeeds = true;
             }
-            else if (christianLifeAssignmentTitle == "Studiul Bibliei în congregație")
+            else if (assignmentTitle == "Studiul Bibliei în congregație")
             {
-                christianLifeAssignmentTitle = null;
+                assignmentTitle = null;
                 return true;
             }
-            else if (christianLifeAssignmentTitle == "Recapitulare, apoi o prezentare scurtă a următoarei întruniri")
+            else if (assignmentTitle == "Recapitulare, apoi o prezentare scurtă a următoarei întruniri")
             {
-                christianLifeAssignmentTitle = null;
+                assignmentTitle = null;
                 return false;
             }
-            christianLifeAssignment = WeekSchedule.findName(ref dataString);
-            if (christianLifeAssignment == president)
+            assignment = WeekSchedule.findName(ref dataString);
+            if (assignment == president)
             {
-                christianLifeAssignmentOnlyVideo = true;
+                assignmentOnlyVideo = true;
             }
             return true;
         }

@@ -55,15 +55,14 @@ namespace JWMeetingSchedule.Model
         public ApplyToMinistrySchedule(ref string dataString)
         {
             this.dataString = dataString;
-            findPreachingAssignment(ref assignment1Type, ref assignment1, ref assignment1Assist, "FM Talk 1");
-            findPreachingAssignment(ref assignment2Type, ref assignment2, ref assignment2Assist, "FM Talk 2");
-            findPreachingAssignment(ref assignment3Type, ref assignment3, ref assignment3Assist, "FM Talk 3");
-            findPreachingAssignment(ref assignment4Type, ref assignment4, ref assignment4Assist, "FM Talk 4");
+            findAssignment(ref assignment1Type, ref assignment1, ref assignment1Assist, "FM Talk 1");
+            findAssignment(ref assignment2Type, ref assignment2, ref assignment2Assist, "FM Talk 2");
+            findAssignment(ref assignment3Type, ref assignment3, ref assignment3Assist, "FM Talk 3");
+            findAssignment(ref assignment4Type, ref assignment4, ref assignment4Assist, "FM Talk 4");
             dataString = this.dataString;
         }
 
-        private void findPreachingAssignment(ref string assignmentType,
-         ref string assignment, ref string assignmentAssist, string pattern)
+        private void findAssignment(ref string assignmentType, ref string assignment, ref string assignmentAssist, string pattern)
         {
             var match = Regex.Match(dataString, pattern);
             if (match != Match.Empty)
