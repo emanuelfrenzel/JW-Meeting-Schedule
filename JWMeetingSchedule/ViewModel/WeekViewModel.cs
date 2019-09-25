@@ -21,32 +21,34 @@
 //SOFTWARE.
 
 using JWMeetingSchedule.Model.Schedule;
+using System.Globalization;
 
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.ViewModel
 {
-    public class MounthSchedule
+    public class WeekViewModel
     {
-        private string fileContent;
-
-        public MounthSchedule(string fileName)
-        {
-            fileContent = File.ReadAllText(fileName);
+        private WeekSchedule week;
+        public string WeekName {
+            get
+            {
+                var temp = week.WeekStartDate.Day.ToString();
+                var endDate = week.WeekStartDate.AddDays(6);
+                if(week.WeekStartDate.Month != endDate.Month)
+                {
+                    temp += " ";
+                    temp += week.WeekStartDate.ToString("MMMM", new CultureInfo("ro-RO"));
+                }
+                temp += " - ";
+                temp += endDate.Day.ToString();
+                temp += " ";
+                temp += endDate.ToString("MMMM", new CultureInfo("ro-RO"));
+                return temp;
+            }
         }
 
-        public List<WeekSchedule> FindWeeks()
+        public WeekViewModel(WeekSchedule week)
         {
-            var weeks = new List<WeekSchedule>();
-            foreach (Match match in Regex.Matches(fileContent, "Săptămâna care începe la "))
-            {
-                var dataString = fileContent.Substring(match.Index + match.Length);
-                var week = new WeekSchedule(dataString);
-                weeks.Add(week);
-            }
-            return weeks;
+            this.week = week;
         }
     }
 }

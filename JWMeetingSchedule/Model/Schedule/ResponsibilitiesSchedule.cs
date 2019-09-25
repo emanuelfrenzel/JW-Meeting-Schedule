@@ -20,7 +20,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.Model.Schedule
 {
     public class ResponsibilitiesSchedule
     {

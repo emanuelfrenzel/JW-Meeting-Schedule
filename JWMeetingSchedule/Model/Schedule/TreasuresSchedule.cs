@@ -20,25 +20,22 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-using System;
-
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.Model.Schedule
 {
-    public class WeekendMeetingSchedule
+    public class TreasuresSchedule
     {
-        public DateTime MeetingDateTime { get; set; }
-        public string President { get; set; }
-        public string PublicSpeechTitle { get; set; }
-        public string PublicSpeech { get; set; }
-        public string Watchtower { get; set; }
-        public string WatchtowerReader { get; set; }
-        public string FinalSpeechTitle { get; set; }
-        public string FinalSpeech { get; set; }
-        public string Prayer { get; set; }
+        public string TreasuresTitle { get; set; }
+        public string Treasures { get; set; }
+        public string Gems { get; set; }
+        public string Reading { get; set; }
 
-        public WeekendMeetingSchedule(ref string dataString)
+        public TreasuresSchedule(ref string dataString)
         {
-
+            WeekSchedule.findTheme(ref dataString);
+            TreasuresTitle = WeekSchedule.findTheme(ref dataString);
+            Treasures = WeekSchedule.findName(ref dataString);
+            Gems = WeekSchedule.findName(ref dataString);
+            Reading = WeekSchedule.findName(ref dataString);
         }
     }
 }

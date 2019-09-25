@@ -22,7 +22,7 @@
 
 using System.Text.RegularExpressions;
 
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.Model.Schedule
 {
     public class ApplyToMinistrySchedule
     {

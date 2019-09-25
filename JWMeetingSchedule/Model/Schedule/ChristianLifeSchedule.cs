@@ -20,7 +20,7 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.Model.Schedule
 {
     public class ChristianLifeSchedule
     {
@@ -44,10 +44,9 @@ namespace JWMeetingSchedule.Model
         public string Assignment2 => assignment2;
         public string BibleStudy { get; set; }
         public string BibleStudyReader { get; set; }
-        public string SupervisorName { get; set; }
-        public string WeekPrayer { get; set; }
+        public string Prayer { get; set; }
 
-        public ChristianLifeSchedule(ref string dataString, string president, ref bool supervisor)
+        public ChristianLifeSchedule(ref string dataString, ref bool supervisor, ref string supervisorName, string president)
         {
             this.dataString = dataString;
             this.president = president;
@@ -55,17 +54,26 @@ namespace JWMeetingSchedule.Model
             if (findAssignment(ref assignment2OnlyVideo, ref assignment2Needs, ref assignment2Title, ref assignment2) == true)
             {
                 BibleStudy = WeekSchedule.findName(ref dataString);
-                BibleStudyReader = WeekSchedule.findName(ref dataString);
+                if (BibleStudy == "Recapitulare, apoi o prezentare scurtă a următoarei întruniri")
+                {
+                    BibleStudy = null;
+                    supervisorName = WeekSchedule.findName(ref dataString);
+                    supervisor = true;
+                }
+                else
+                {
+                    BibleStudyReader = WeekSchedule.findName(ref dataString);
+                }
             }
             else
             {
-                SupervisorName = WeekSchedule.findName(ref dataString);
+                supervisorName = WeekSchedule.findName(ref dataString);
                 supervisor = true;
             }
             dataString = this.dataString;
         }
 
-        private bool findAssignment(ref bool assignmentOnlyVideo, 
+        private bool findAssignment(ref bool assignmentOnlyVideo,
             ref bool assignmentNeeds, ref string assignmentTitle, ref string assignment)
         {
             assignmentTitle = WeekSchedule.findTheme(ref dataString);

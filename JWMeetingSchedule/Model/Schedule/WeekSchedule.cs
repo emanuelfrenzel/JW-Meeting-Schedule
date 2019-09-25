@@ -26,18 +26,21 @@ using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace JWMeetingSchedule.Model
+namespace JWMeetingSchedule.Model.Schedule
 {
     public class WeekSchedule
     {
         private string dataString;
         private bool supervisor;
+        private string supervisorName;
+
         public DateTime WeekStartDate { get; set; }
         public DateTime WeekMeetingDateTime { get; set; }
         public bool Convention { get; set; }
         public bool Memorial { get; set; }
         public string ExtraInfo { get; set; }
         public bool Supervisor => supervisor;
+        public string SupervisorName => SupervisorName;
         public string WeekPresident { get; set; }
         public TreasuresSchedule Treasures { get; set; }
         public ApplyToMinistrySchedule ApplyToMinistry { get; set; }
@@ -49,12 +52,12 @@ namespace JWMeetingSchedule.Model
         {
             this.dataString = dataString.Remove("END OF");
             WeekStartDate = DateTime.Parse(dataString.Remove(10), new CultureInfo("ro-Ro"));
-            WeekPresident = findPrayer();
+            WeekPresident = findName(ref dataString);
             if (WeekPresident != null)
             {
                 Treasures = new TreasuresSchedule(ref dataString);
-                ApplyToMinistry = new ApplyToMinistrySchedule(ref dataString);
-                ChristianLife = new ChristianLifeSchedule(ref dataString, WeekPresident, ref supervisor);
+                //ApplyToMinistry = new ApplyToMinistrySchedule(ref dataString);
+                //ChristianLife = new ChristianLifeSchedule(ref dataString, ref supervisor, ref supervisorName, WeekPresident);
             }
             else
             {

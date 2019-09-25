@@ -21,6 +21,7 @@
 //SOFTWARE.
 
 using JWMeetingSchedule.Model;
+using JWMeetingSchedule.Model.Schedule;
 using JWMeetingSchedule.View;
 
 using Microsoft.Win32;
@@ -55,7 +56,7 @@ namespace JWMeetingSchedule.ViewModel
                 weekSchedules = mounthSchedule.FindWeeks();
                 foreach (var week in weekSchedules)
                 {
-                    WeekViews.Add(new WeekView());
+                    WeekViews.Add(new WeekView(new WeekViewModel(week)));
                 }
             }
         }
