@@ -9,6 +9,10 @@
     <Grid>
         <Border x:Name="BorderWeek" Background="#1e1e1e" CornerRadius="25" HorizontalAlignment="Center" Height="200" Margin="0,25,0,0" VerticalAlignment="Top" Width="750">
         </Border>
-        <Label x:Name="LabelWeek" Content="{Binding WeekName}" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelWeek" Content="{Binding WeekName}" FontSize="24" FontWeight="DemiBold" Foreground="#c6c6e3" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelMixer" Content="Mixer/PC:" FontSize="14" Foreground="#c6c6e3" HorizontalAlignment="Center" Margin="58,90,672,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelCleaning" Content="de serviciu grupa nr.:" FontSize="14" Foreground="#c6c6e3" HorizontalAlignment="Center" Margin="300,90,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelMicrophones" Content="Microfoane:" FontSize="14" Foreground="#c6c6e3" HorizontalAlignment="Center" Margin="-600,125,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelOrder" Content="Oameni de ordine:" FontSize="14" Foreground="#c6c6e3" HorizontalAlignment="Center" Margin="58,159,616,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

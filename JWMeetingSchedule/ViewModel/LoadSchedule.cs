@@ -54,6 +54,7 @@ namespace JWMeetingSchedule.ViewModel
             {
                 mounthSchedule = new MounthSchedule(openFileDialog.FileName);
                 weekSchedules = mounthSchedule.FindWeeks();
+                WeekViews.Clear();
                 foreach (var week in weekSchedules)
                 {
                     WeekViews.Add(new WeekView(new WeekViewModel(week)));
